@@ -240,13 +240,21 @@
                                     <span>{{ $category }}</span>
                                 </div>
                             </div>
-                            <div class="blog-content p-4">
-                                <p class="mb-0">{{ $beds }} BHK Flat</p>
-                                <p class="mb-3 h4 d-inline-block"><strong>₹ {{ $v->from_price }}<sup>*</sup></strong><span class="px-3">|</span><em>{{ $area }} sqft</em></p>
+                            <div class="blog-content p-3 text-muted">
+                                <p class="mb-1 h4">{{ $title }}</p>
+                                <p class="mb-1">By {{ $builder_name }}</p>
+                                <p class="mb-2">{{ $address }}</p>
+                                <p class="mb-1 d-flex justify-content-between"><span>{{ $bhk }} BHK</span> <span>{{ $area }} SQ. FT.</span></p>
+                                <hr>
+                                <p class="mb-0 h5 d-flex justify-content-between">
+                                    <strong class="price-format" data-price="{{ $v->from_price }}">{{ $v->from_price }}</strong>
+                                    <button class="btn bg-light text-primary btn-md rounded-1 px-3 py-1" type="submit">
+                                        <i class="fas fa-phone"></i> Contact
+                                    </button>
+                                </p>
+                                <!-- <p class="mb-3 h5"><strong>₹ {{ $v->from_price }}<sup>*</sup></strong><span class="px-3">|</span><em>{{ $area }} sqft</em></p> -->
                                 <!-- <p class="h4 d-inline-block mb-3">{{ $title }}</p> -->
-                                <p class="mb-3">Developed By {{ $builder_name }}</p>
                                 <!-- <p class="mb-3">{{ $description }}</p> -->
-                                <p class="mb-3">{{ $address }}</p>
                             </div>
                         </div>
                     </a>
@@ -269,9 +277,9 @@
 <script>
 $(document).ready(function() {
     $('#searchButton').click(function(event) {
-        event.preventDefault(); // ✅ Prevent page reload
+        event.preventDefault(); //Prevent page reload
 
-        // ✅ Detect active tab correctly
+        //Detect active tab correctly
         let activeTab = $('.nav-tabs .nav-link.active').data('tab'); 
         let propertyType = 1; // Default to "Buy"
 
@@ -290,15 +298,15 @@ $(document).ready(function() {
             type: "POST",
             data: {
                 _token: "{{ csrf_token() }}",
-                property_type_id: propertyType, // ✅ Send the correct property type
+                property_type_id: propertyType, //Send the correct property type
                 range_id: range_id,
                 category_type: category_type,
                 location_name: location_name
             },
             success: function(response) {
-                $('#old_data').hide(); // ✅ Hide previous results
-                $('#search_data').html(response); // ✅ Show filtered properties
-                history.pushState(null, '', window.location.pathname); // ✅ Remove URL query params
+                $('#old_data').hide(); //Hide previous results
+                $('#search_data').html(response); //Show filtered properties
+                history.pushState(null, '', window.location.pathname); //Remove URL query params
             },
             error: function(xhr) {
                 console.log(xhr.responseText);
@@ -306,13 +314,13 @@ $(document).ready(function() {
         });
     });
 
-    // ✅ Update active tab & ensure correct filtering
+    //Update active tab & ensure correct filtering
     $('.nav-link').click(function() {
         $('.nav-link').removeClass('text-danger fw-bold').addClass('text-muted'); // Reset styles
         $(this).addClass('text-danger fw-bold').removeClass('text-muted'); // Highlight active tab
     });
 
-    // ✅ Prevent form submission when pressing "Enter"
+    //Prevent form submission when pressing "Enter"
     $('form').submit(function(event) {
         event.preventDefault();
     });
@@ -339,6 +347,27 @@ $(document).ready(function() {
 
         // Initial state check
         toggleFields();
+    });
+</script>
+
+<script>
+    function formatRupees(amount) {
+        amount = parseFloat(amount);
+        if (amount >= 10000000) {
+            return '₹ ' + (amount / 10000000).toFixed(2) + ' Cr';
+        } else if (amount >= 100000) {
+            return '₹ ' + (amount / 100000).toFixed(2) + ' L';
+        }
+        return '₹ ' + amount.toLocaleString('en-IN');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let priceElements = document.querySelectorAll(".price-format");
+        
+        priceElements.forEach(function (element) {
+            let priceValue = element.getAttribute("data-price");
+            element.innerText = formatRupees(priceValue);
+        });
     });
 </script>
 
