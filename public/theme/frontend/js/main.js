@@ -48,34 +48,26 @@
     // testimonial carousel
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
-        smartSpeed: 1500,
+        smartSpeed: 500,
         center: false,
         dots: false,
-        loop: true,
+        loop: false,
         margin: 25,
-        nav : true,
-        navText : [
-            '<i class="fa fa-arrow-right"></i>',
-            '<i class="fa fa-arrow-left"></i>'
+        nav: true,
+        navText: [
+            '<i class="fa fa-arrow-left"></i>',
+            '<i class="fa fa-arrow-right"></i>'
         ],
         responsiveClass: true,
         responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:2
-            },
-            1200:{
-                items:2
-            }
-        }
+            0: { items: 1 },
+            576: { items: 1 },
+            768: { items: 2 },
+            992: { items: 2 },
+            1200: { items: 2 }
+        },
+        onInitialized: checkNavButtons,  // Call function on init
+        onTranslated: checkNavButtons    // Call function on slide change
     });
 
 
