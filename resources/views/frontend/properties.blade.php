@@ -211,7 +211,41 @@
         </div>
     </div>
 </div>
-
+<div class="container mt-5">
+    <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s"> Properties by Localities</h4>
+    <p class="m-0 text-center mb-4">Explore prime properties based on your location</p>
+    <div id="localitiesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($data['localities']->chunk(4) as $chunk)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <div class="row">
+                        @foreach ($chunk as $locality)
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img src="{{ asset('theme/frontend/img/broucher-img.png') }}" class="card-img-top" alt="{{ $locality->localities }}">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $locality->localities }}, {{ $locality->city }}</h5>
+                                        <p class="card-text">{{ $locality->property_count }} Properties Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
 <div class="container-fluid blog" id="featured_properties">
     <div class="container pt-5">
         <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Featured Properties</h4>
@@ -239,7 +273,7 @@
                                             <div class="blog-img">
                                                 <img src="{{ $img }}" class="img-fluid rounded-top w-100" alt="" style="height: 175px">
                                                 <div class="blog-categiry">
-                                                    <span>{{ $category }}</span>
+                                                    <span>Featured</span>
                                                 </div>
                                             </div>
                                             <div class="blog-content p-3 text-muted">
