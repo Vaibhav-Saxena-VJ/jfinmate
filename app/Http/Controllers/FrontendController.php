@@ -271,7 +271,8 @@ class FrontendController extends Controller
                 'properties.facilities', 'properties.beds', 'properties.baths', 'properties.balconies', 
                 'properties.parking', 'properties.contact', 'price_range.from_price', 'price_range.to_price', 
                 'property_category.category_name', 'properties.property_details', 
-                'properties.localities', 'properties.city', 'properties.area'
+                'properties.localities', 'properties.city', 'properties.area',
+                'properties.is_featured'
             )
             ->paginate(700);
     
@@ -291,6 +292,21 @@ class FrontendController extends Controller
             $property->image = isset($propertyImages[$property->properties_id]) 
                 ? $propertyImages[$property->properties_id]->first()->image_url 
                 : 'default.jpg'; // Fallback image
+        }
+
+        $data['featuredProperties'] = DB::table('properties')
+        ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
+        ->where('properties.is_featured', 1)
+        ->where('properties.is_active', 1)
+        ->select(
+            'properties.properties_id', 'properties.title', 'properties.address', 
+            'properties.s_price', 'properties.is_featured'
+        )
+        ->get();
+        foreach ($data['featuredProperties'] as $featured) {
+            $featured->image = isset($propertyImages[$featured->properties_id]) 
+                ? $propertyImages[$featured->properties_id]->first()->image_url 
+                : 'default.jpg';
         }
     
         return view('frontend.properties', compact('data'));
