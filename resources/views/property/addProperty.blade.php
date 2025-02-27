@@ -220,27 +220,27 @@
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Location Advantages</label>
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 1" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 2" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 3" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label text-white invisible">xyz</label>
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 4" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 5" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 6" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label text-white invisible">xyz</label>
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 7" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 8" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 9" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
                         </div>
                     </div>
 
