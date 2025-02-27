@@ -26,7 +26,7 @@
 </div>
 
 <div class="container-fluid prop-feature">
-    <div class="container pb-5">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="tab-content" id="pills-tabContent">
@@ -214,57 +214,66 @@
 
 <div class="container-fluid blog mb-5" id="old_data">
     <div class="container py-5">
-        <div class="row g-4 justify-content-center">
-            
-        <?php 
-            foreach($data['allProperties'] as $v) {  
-                $price_range = $v->from_price. " to ". $v->to_price;
-                $img = env('baseURL'). "/".$v->image;
-                //$boucher = env('baseURL'). "/".$v->boucher;
-                $title = $v->title;
-                $category = $v->category_name;
-                $builder_name = $v->builder_name;
-                $description = $v->property_details;
-                $bhk = $v->select_bhk;
-                $beds = $v->beds;
-                $address = $v->localities.", ".$v->city;
-                $area = $v->area;
+        <h4 class="display-5 wow fadeInDown text-center mb-4" data-wow-delay="0.1s">Curated Collections</h4>
+        <p class="m-0 text-center mb-4">Explore prime properties based on your recommendation</p>
 
-                ?>
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ $img }}" class="img-fluid rounded-top w-100" alt="" style="height: 250px">
-                                <div class="blog-categiry py-2 px-4">
-                                    <span>{{ $category }}</span>
+        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php $first = true; ?>
+                @foreach($data['allProperties']->chunk(4) as $propertyGroup)
+                    <div class="carousel-item {{ $first ? 'active' : '' }}">
+                        <div class="row g-4">
+                            @foreach($propertyGroup as $v)
+                                <?php 
+                                    $img = env('baseURL'). "/" . $v->image;
+                                    $title = $v->title;
+                                    $category = $v->category_name;
+                                    $builder_name = $v->builder_name;
+                                    $address = $v->localities . ", " . $v->city;
+                                    $bhk = $v->select_bhk;
+                                    $area = $v->area;
+                                ?>
+                                <div class="col-md-3">
+                                    <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
+                                        <div class="blog-item">
+                                            <div class="blog-img">
+                                                <img src="{{ $img }}" class="img-fluid rounded-top w-100" alt="" style="height: 175px">
+                                                <div class="blog-categiry">
+                                                    <span>{{ $category }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="blog-content p-3 text-muted">
+                                                <p class="mb-1 h6 fw-bold">{{ $title }}</p>
+                                                <p class="mb-0 txt-p">By {{ $builder_name }}</p>
+                                                <p class="mb-0 txt-p">{{ $address }}</p>
+                                                <p class="mb-1 d-flex justify-content-between txt-p">
+                                                    <span>{{ $bhk }} BHK</span> <span>{{ $area }} SQ. FT.</span>
+                                                </p>
+                                                <hr>
+                                                <p class="mb-0 h5 d-flex justify-content-between align-items-center">
+                                                    <strong class="price-format" data-price="{{ $v->from_price }}">{{ $v->from_price }}</strong>
+                                                    <button class="btn bg-light text-primary btn-md rounded-1 px-3 py-1">
+                                                        <i class="fas fa-phone"></i> Contact
+                                                    </button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="blog-content p-3 text-muted">
-                                <p class="mb-1 h4">{{ $title }}</p>
-                                <p class="mb-1">By {{ $builder_name }}</p>
-                                <p class="mb-2">{{ $address }}</p>
-                                <p class="mb-1 d-flex justify-content-between"><span>{{ $bhk }} BHK</span> <span>{{ $area }} SQ. FT.</span></p>
-                                <hr>
-                                <p class="mb-0 h5 d-flex justify-content-between">
-                                    <strong class="price-format" data-price="{{ $v->from_price }}">{{ $v->from_price }}</strong>
-                                    <button class="btn bg-light text-primary btn-md rounded-1 px-3 py-1" type="submit">
-                                        <i class="fas fa-phone"></i> Contact
-                                    </button>
-                                </p>
-                                <!-- <p class="mb-3 h5"><strong>₹ {{ $v->from_price }}<sup>*</sup></strong><span class="px-3">|</span><em>{{ $area }} sqft</em></p> -->
-                                <!-- <p class="h4 d-inline-block mb-3">{{ $title }}</p> -->
-                                <!-- <p class="mb-3">{{ $description }}</p> -->
-                            </div>
+                            @endforeach
                         </div>
-                    </a>
-                </div>
-           <?php 
-           }
-        ?>
-        <div class="float-right"> 
-            {{ $data['allProperties']->links() }}
-        </div>            
+                    </div>
+                    <?php $first = false; ?>
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+                <i class="fas fa-chevron-left text-dark fs-4"></i>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+                <i class="fas fa-chevron-right text-dark fs-4"></i>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </div>
