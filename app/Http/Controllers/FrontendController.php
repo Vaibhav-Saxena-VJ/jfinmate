@@ -300,9 +300,9 @@ class FrontendController extends Controller
             ->where('properties.is_featured', 1)
             ->where('properties.is_active', 1)
             ->select(
-                'properties.properties_id', 'properties.title', 'properties.address', 
-                'properties.s_price', 'properties.is_featured', 
-                'property_category.category_name', 'price_range.from_price'
+                'properties.properties_id', 'properties.title', 'properties.address', 'properties.builder_name',
+                'properties.s_price', 'properties.is_featured', 'properties.localities', 'properties.city',
+                'property_category.category_name', 'price_range.from_price', 'properties.select_bhk', 'properties.area','price_range.from_price', 'price_range.to_price'
             )
             ->get();
     
