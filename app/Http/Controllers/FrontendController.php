@@ -312,6 +312,11 @@ class FrontendController extends Controller
                 ? $propertyImages[$featured->properties_id]->first()->image_url 
                 : 'default.jpg';
         }
+         // **Fetch Localities Data with Count**
+            $data['localities'] = DB::table('properties')
+            ->select('localities', 'city', \DB::raw('COUNT(*) as property_count'), \DB::raw('MAX(image) as image'))
+            ->groupBy('localities', 'city')
+            ->get();
     
         return view('frontend.properties', compact('data'));
     }
