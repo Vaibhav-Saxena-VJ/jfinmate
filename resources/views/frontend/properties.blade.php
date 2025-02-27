@@ -211,9 +211,10 @@
         </div>
     </div>
 </div>
-<div class="container-fluid blog mb-5" id="featured_properties">
-    <div class="container py-5">
-        <h4 class="display-5 wow fadeInDown text-center mb-4" data-wow-delay="0.1s">Featured Properties</h4>
+
+<div class="container-fluid blog" id="featured_properties">
+    <div class="container pt-5">
+        <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Featured Properties</h4>
         <p class="m-0 text-center mb-4">Explore the most exclusive properties</p>
 
         <div id="featuredPropertyCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -227,8 +228,10 @@
                                     $img = env('baseURL'). "/" . $v->image;
                                     $title = $v->title;
                                     $category = $v->category_name;
-                                    $address = $v->address;
-                                    $price = $v->from_price;
+                                    $builder_name = $v->builder_name;
+                                    $address = $v->localities . ", " . $v->city;
+                                    $bhk = $v->select_bhk;
+                                    $area = $v->area;
                                 ?>
                                 <div class="col-md-3">
                                     <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
@@ -241,10 +244,14 @@
                                             </div>
                                             <div class="blog-content p-3 text-muted">
                                                 <p class="mb-1 h6 fw-bold">{{ $title }}</p>
+                                                <p class="mb-0 txt-p">By {{ $builder_name }}</p>
                                                 <p class="mb-0 txt-p">{{ $address }}</p>
+                                                <p class="mb-1 d-flex justify-content-between txt-p">
+                                                    <span>{{ $bhk }} BHK</span> <span>{{ $area }} SQ. FT.</span>
+                                                </p>
                                                 <hr>
                                                 <p class="mb-0 h5 d-flex justify-content-between align-items-center">
-                                                    <strong class="price-format" data-price="{{ $price }}">{{ $price }}</strong>
+                                                    <strong class="price-format" data-price="{{ $v->from_price }}">{{ $v->from_price }}</strong>
                                                     <button class="btn bg-light text-primary btn-md rounded-1 px-3 py-1">
                                                         <i class="fas fa-phone"></i> Contact
                                                     </button>
@@ -273,7 +280,7 @@
 
 <div class="container-fluid blog mb-5" id="old_data">
     <div class="container py-5">
-        <h4 class="display-5 wow fadeInDown text-center mb-4" data-wow-delay="0.1s">Curated Collections</h4>
+        <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Curated Collections</h4>
         <p class="m-0 text-center mb-4">Explore prime properties based on your recommendation</p>
 
         <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
