@@ -211,6 +211,65 @@
         </div>
     </div>
 </div>
+<div class="container-fluid blog mb-5" id="featured_properties">
+    <div class="container py-5">
+        <h4 class="display-5 wow fadeInDown text-center mb-4" data-wow-delay="0.1s">Featured Properties</h4>
+        <p class="m-0 text-center mb-4">Explore the most exclusive properties</p>
+
+        <div id="featuredPropertyCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php $first = true; ?>
+                @foreach($data['featuredProperties']->chunk(4) as $propertyGroup)
+                    <div class="carousel-item {{ $first ? 'active' : '' }}">
+                        <div class="row g-4">
+                            @foreach($propertyGroup as $v)
+                                <?php 
+                                    $img = env('baseURL'). "/" . $v->image;
+                                    $title = $v->title;
+                                    $category = $v->category_name;
+                                    $address = $v->address;
+                                    $price = $v->from_price;
+                                ?>
+                                <div class="col-md-3">
+                                    <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
+                                        <div class="blog-item">
+                                            <div class="blog-img">
+                                                <img src="{{ $img }}" class="img-fluid rounded-top w-100" alt="" style="height: 175px">
+                                                <div class="blog-categiry">
+                                                    <span>{{ $category }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="blog-content p-3 text-muted">
+                                                <p class="mb-1 h6 fw-bold">{{ $title }}</p>
+                                                <p class="mb-0 txt-p">{{ $address }}</p>
+                                                <hr>
+                                                <p class="mb-0 h5 d-flex justify-content-between align-items-center">
+                                                    <strong class="price-format" data-price="{{ $price }}">{{ $price }}</strong>
+                                                    <button class="btn bg-light text-primary btn-md rounded-1 px-3 py-1">
+                                                        <i class="fas fa-phone"></i> Contact
+                                                    </button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <?php $first = false; ?>
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#featuredPropertyCarousel" data-bs-slide="prev">
+                <i class="fas fa-chevron-left text-dark fs-4"></i>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#featuredPropertyCarousel" data-bs-slide="next">
+                <i class="fas fa-chevron-right text-dark fs-4"></i>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid blog mb-5" id="old_data">
     <div class="container py-5">

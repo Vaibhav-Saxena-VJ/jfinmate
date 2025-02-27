@@ -258,7 +258,6 @@ class FrontendController extends Controller
     public function CalculatorView(){
         return view('frontend.calculator');
     }
-
     public function properties()
     {
         $data['allProperties'] = DB::table('properties')
@@ -279,30 +278,35 @@ class FrontendController extends Controller
         $data['category'] = DB::table('property_category')->get();
         $data['range'] = DB::table('price_range')->get();
     
-        // Fetch first image for each property from property_images
+        // Fetch first image for each property
         $propertyImages = DB::table('property_images')
             ->select('properties_id', 'image_url')
-            ->whereIn('properties_id', $data['allProperties']->pluck('properties_id')) // Fetch images only for listed properties
-            ->orderBy('is_featured', 'DESC') // Prefer featured images
+            ->whereIn('properties_id', $data['allProperties']->pluck('properties_id'))
+            ->orderBy('is_featured', 'DESC') 
             ->get()
             ->groupBy('properties_id');
     
-        // Attach image to each property
+        // Attach images to properties
         foreach ($data['allProperties'] as $property) {
             $property->image = isset($propertyImages[$property->properties_id]) 
                 ? $propertyImages[$property->properties_id]->first()->image_url 
-                : 'default.jpg'; // Fallback image
+                : 'default.jpg';
         }
-
+    
+        // Fetch **Featured Properties**
         $data['featuredProperties'] = DB::table('properties')
-        ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
-        ->where('properties.is_featured', 1)
-        ->where('properties.is_active', 1)
-        ->select(
-            'properties.properties_id', 'properties.title', 'properties.address', 
-            'properties.s_price', 'properties.is_featured'
-        )
-        ->get();
+            ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
+            ->join('property_category', 'properties.property_type_id', '=', 'property_category.pid')
+            ->where('properties.is_featured', 1)
+            ->where('properties.is_active', 1)
+            ->select(
+                'properties.properties_id', 'properties.title', 'properties.address', 
+                'properties.s_price', 'properties.is_featured', 
+                'property_category.category_name', 'price_range.from_price'
+            )
+            ->get();
+    
+        // Attach images to **Featured Properties**
         foreach ($data['featuredProperties'] as $featured) {
             $featured->image = isset($propertyImages[$featured->properties_id]) 
                 ? $propertyImages[$featured->properties_id]->first()->image_url 
