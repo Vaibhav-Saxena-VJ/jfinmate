@@ -317,13 +317,13 @@ Route::middleware('isPartner')->group(function () {
     Route::post('/updatePropertie', [PropertyController::class, 'updatePropertie'])->name('updatePropertie');
     Route::post('/deletePropertie', [PropertyController::class, 'deletePropertie'])->name('deletePropertie');
     Route::post('/activate', [PropertyController::class, 'activate'])->name('activate');
-
     //profile
     Route::get('/partner/profile', [ProfileController::class, 'showPartnerProfile'])->name('partner.profile');
     Route::post('/partner/profile/update', [ProfileController::class, 'updatePartnerProfile'])->name('partner.updateProfile');
 
 });
 
+Route::post('/toggle-featured', [PropertyController::class, 'toggleFeatured'])->name('toggleFeatured');    
 
 
 

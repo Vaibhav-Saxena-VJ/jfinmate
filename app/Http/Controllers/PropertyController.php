@@ -31,82 +31,82 @@ class PropertyController extends Controller
     }
 
     public function insertProperty(Request $request)
-{
-    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+    {
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 
-    DB::beginTransaction();
+        DB::beginTransaction();
 
-    try {
-        // Save the property details
-        $p = new Property;
-        $p->title = $request->property_title;
-        $p->property_type_id = $request->property_type;
-        $p->builder_name = $request->builder_name;
-        $p->property_details = $request->property_description;
-        $p->address = $request->property_address;
+        try {
+            // Save the property details
+            $p = new Property;
+            $p->title = $request->property_title;
+            $p->property_type_id = $request->property_type;
+            $p->builder_name = $request->builder_name;
+            $p->property_details = $request->property_description;
+            $p->address = $request->property_address;
 
-        // Handle Amenities
-        $locality = DB::table('localities')->where('id', $request->localitie)->value('name');
-        $proerty_status = DB::table('proerty_status')->where('id', $request->localitie)->value('status_name');
-        $amenities = $request->input('amenities', []); // Default to an empty array if null
-        $p->facilities = implode(', ', $amenities);
+            // Handle Amenities
+            $locality = DB::table('localities')->where('id', $request->localitie)->value('name');
+            $proerty_status = DB::table('proerty_status')->where('id', $request->localitie)->value('status_name');
+            $amenities = $request->input('amenities', []); // Default to an empty array if null
+            $p->facilities = implode(', ', $amenities);
 
-        $p->creator_id = $request->creator_id;
-        $p->price_range_id = $request->price_range;
-        $p->contact = $request->contact_number;
-        $p->area = $request->area;
-        $p->builtup_area = $request->builtup_area;
-        $p->localities = $locality;
-        $P->proerty_status = $proerty_status;
-        $p->beds = $request->beds;
-        $p->baths = $request->baths;
-        $p->balconies = $request->balconies;
-        $p->parking = $request->parking;
-        $p->city = $request->city;
-        $p->email = $request->email_id;
-        $p->select_bhk = $request->select_bhk;
-        $p->s_price = $request->s_price;
-        $p->rera = $request->rera;
-        $p->land_type = $request->land_type;
-        $p->location = $request->input('location');
-        $p->latitude = $request->input('latitude');
-        $p->longitude = $request->input('longitude');
-        $p->boucher = $this->handleFileUpload($request, 'property_voucher', 'property_brochures');
+            $p->creator_id = $request->creator_id;
+            $p->price_range_id = $request->price_range;
+            $p->contact = $request->contact_number;
+            $p->area = $request->area;
+            $p->builtup_area = $request->builtup_area;
+            $p->localities = $locality;
+            $P->proerty_status = $proerty_status;
+            $p->beds = $request->beds;
+            $p->baths = $request->baths;
+            $p->balconies = $request->balconies;
+            $p->parking = $request->parking;
+            $p->city = $request->city;
+            $p->email = $request->email_id;
+            $p->select_bhk = $request->select_bhk;
+            $p->s_price = $request->s_price;
+            $p->rera = $request->rera;
+            $p->land_type = $request->land_type;
+            $p->location = $request->input('location');
+            $p->latitude = $request->input('latitude');
+            $p->longitude = $request->input('longitude');
+            $p->boucher = $this->handleFileUpload($request, 'property_voucher', 'property_brochures');
 
-        // Handle nearby locations
-        $nearby_locations = $request->input('nearby', []); // Default to empty array if null
-        $p->nearby_locations = json_encode($nearby_locations);
+            // Handle nearby locations
+            $nearby_locations = $request->input('nearby', []); // Default to empty array if null
+            $p->nearby_locations = json_encode($nearby_locations);
+            $p->is_featured = $request->has('is_featured') ? 1 : 0;
+            // Save the property record
+            $p->save();
 
-        // Save the property record
-        $p->save();
+            // Save multiple images in the `property_images` table
+            if ($request->hasFile('property_images')) {
+                foreach ($request->file('property_images') as $property_image) {
+                    $image_name = substr(str_shuffle($permitted_chars), 0, 8) . time() . '.' . $property_image->extension();
+                    $image_path = "property_photos/" . $image_name;
+                    $property_image->move(public_path('property_photos'), $image_path);
 
-        // Save multiple images in the `property_images` table
-        if ($request->hasFile('property_images')) {
-            foreach ($request->file('property_images') as $property_image) {
-                $image_name = substr(str_shuffle($permitted_chars), 0, 8) . time() . '.' . $property_image->extension();
-                $image_path = "property_photos/" . $image_name;
-                $property_image->move(public_path('property_photos'), $image_path);
-
-                // Insert into `property_images` table
-                DB::table('property_images')->insert([
-                    'properties_id' => $p->id, // Use the correct property ID
-                    'image_url' => $image_path,
-                    'is_featured' => 0, // Default to non-featured
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
+                    // Insert into `property_images` table
+                    DB::table('property_images')->insert([
+                        'properties_id' => $p->id, // Use the correct property ID
+                        'image_url' => $image_path,
+                        'is_featured' => 0, // Default to non-featured
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+                }
             }
+
+            // Commit transaction if successful
+            DB::commit();
+            return response()->json(['status' => 1, 'msg' => 'Property added successfully']);
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['status' => 0, 'msg' => $e->getMessage()]);
         }
-
-        // Commit transaction if successful
-        DB::commit();
-        return response()->json(['status' => 1, 'msg' => 'Property added successfully']);
-
-    } catch (\Exception $e) {
-        DB::rollback();
-        return response()->json(['status' => 0, 'msg' => $e->getMessage()]);
     }
-}
 
 /**
  * Handle file uploads for single files.
@@ -128,52 +128,64 @@ private function handleFileUpload(Request $request, $inputName, $folder)
     return ""; // Return an empty string if no file was uploaded
 }
 
-
     public function allProperties()
-{
-    // Get the logged-in user's role and ID from the session
-    $role_id = Session::get('role_id'); // Assuming role_id is stored in the session
-    $user_id = Session::get('user_id'); // Assuming user_id is stored in the session
+    {
+        $role_id = Session::get('role_id'); 
+        $user_id = Session::get('user_id'); 
 
-    // Base query for fetching properties
-    $query = DB::table('properties')
-        ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
-        ->join('property_category', 'properties.property_type_id', '=', 'property_category.pid')
-        ->where('properties.is_active', 1)
-        ->select(
-            'properties.properties_id',
-            'properties.title',
-            'properties.property_type_id',
-            'properties.builder_name',
-            'properties.select_bhk',
-            'properties.land_type',
-            'properties.address',
-            'properties.rera',
-            'properties.facilities',
-            'properties.s_price',
-            'properties.beds',
-            'properties.baths',
-            'properties.balconies',
-            'properties.parking',
-            'properties.builtup_area',
-            'properties.contact',
-            'price_range.from_price',
-            'price_range.to_price',
-            'property_category.category_name'
-        );
+        $query = DB::table('properties')
+            ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
+            ->join('property_category', 'properties.property_type_id', '=', 'property_category.pid')
+            ->where('properties.is_active', 1)
+            ->select(
+                'properties.properties_id',
+                'properties.title',
+                'properties.property_type_id',
+                'properties.builder_name',
+                'properties.select_bhk',
+                'properties.land_type',
+                'properties.address',
+                'properties.rera',
+                'properties.facilities',
+                'properties.s_price',
+                'properties.beds',
+                'properties.baths',
+                'properties.balconies',
+                'properties.parking',
+                'properties.builtup_area',
+                'properties.contact',
+                'price_range.from_price',
+                'price_range.to_price',
+                'property_category.category_name',
+                'properties.is_featured' // Add is_featured column
+            );
 
-    // If the user is an agent (role_id == 3), show only their properties
-    if ($role_id == 3) {
-        $query->where('properties.creator_id', $user_id);
+        if ($role_id == 3) {
+            $query->where('properties.creator_id', $user_id);
+        }
+
+        $data['allProperties'] = $query->paginate(50);
+
+        return view('property.allProperties', compact('data'));
     }
+    public function toggleFeatured(Request $request)
+    {
+        $updated = DB::table('properties')
+            ->where('properties_id', $request->property_id)
+            ->update(['is_featured' => $request->is_featured]);
 
-    // Paginate the results
-    $data['allProperties'] = $query->paginate(50);
+        if ($updated) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Featured status updated successfully!'
+            ]);
+        }
 
-    // Return the view with the data
-    return view('property.allProperties', compact('data'));
-}
-
+        return response()->json([
+            'success' => false,
+            'message' => 'Property not found or no changes made!'
+        ]);
+    }
     public function pendingProperties()
     {
             $data['allProperties'] = DB::table('properties')
@@ -361,6 +373,4 @@ private function handleFileUpload(Request $request, $inputName, $folder)
             dd($e->getMessage());
         }
     }
-
-
 }
