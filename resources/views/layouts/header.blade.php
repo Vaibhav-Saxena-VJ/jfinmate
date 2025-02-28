@@ -153,25 +153,26 @@
                 </li>
             <?php } ?> 
 
-            <?php    if($role_id == 4) { ?>
+        <?php    if($role_id == 4) { ?>
            <!-- Nav Item - Pages Collapse Menu -->
-           <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProperty"
-                    aria-expanded="true" aria-controls="collapseLeads">
-                    <i class="fas fa-fw fa-home custom-icon"></i>
-                    <span>Property</span>
-                </a>
-                <div id="collapseProperty" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Property:</h6>
-                        <a class="collapse-item" href="{{ route('pendingProperties') }}">Pending Property</a>
-                        <a class="collapse-item" href="{{ route('allProperties') }}">List Property</a>
-                        <a class="collapse-item" href="{{ route('addProperty') }}">Add Property</a>
-                        <a class="collapse-item" href="{{ route('property_takers.index') }}">Property Taker</a>
+            <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProperty"
+                        aria-expanded="true" aria-controls="collapseLeads">
+                        <i class="fas fa-fw fa-home custom-icon"></i>
+                        <span>Property</span>
+                    </a>
+                    <div id="collapseProperty" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Property:</h6>
+                            <a class="collapse-item" href="{{ route('banners.index') }}">Banner</a>
+                            <a class="collapse-item" href="{{ route('pendingProperties') }}">Pending Property</a>
+                            <a class="collapse-item" href="{{ route('allProperties') }}">List Property</a>
+                            <a class="collapse-item" href="{{ route('addProperty') }}">Add Property</a>
+                            <a class="collapse-item" href="{{ route('property_takers.index') }}">Property Taker</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <?php } ?>   
+                </li>
+        <?php } ?>   
             <?php    if($role_id == env('partnerRole_id')) { ?>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
