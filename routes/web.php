@@ -21,6 +21,7 @@ use App\Http\Controllers\MisController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PropertyTakerController;
+use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 use App\Exports\EligibilityExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -382,3 +383,10 @@ Route::get('admin/property-takers', [PropertyTakerController::class, 'index'])->
 Route::get('admin/property-takers/{id}/edit', [PropertyTakerController::class, 'edit'])->name('property_takers.edit');
 Route::put('admin/property-takers/{id}', [PropertyTakerController::class, 'update'])->name('property_takers.update');
 Route::get('admin/property-takers/{id}', [PropertyTakerController::class, 'show'])->name('property_takers.view');
+
+//banner
+Route::get('/admin/banners', [BannerController::class, 'index'])->name('banners.index');
+Route::post('/banners', [BannerController::class, 'store'])->name('banners.store');
+Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('banners.edit');
+Route::put('/banners/{id}', [BannerController::class, 'update'])->name('banners.update');
+Route::delete('/banners/{id}', [BannerController::class, 'destroy'])->name('banners.destroy');

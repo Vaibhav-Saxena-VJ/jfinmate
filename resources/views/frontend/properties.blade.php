@@ -19,11 +19,23 @@
     </div>
 </div> -->
 
-<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/prop-bnr.jpg);">
+<!-- <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/prop-bnr.jpg);">
     <div class="container py-5">
         <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Find Your Dream Home</h4>
     </div>
-</div>
+</div> -->
+@php
+    $banner = App\Models\Banner::latest()->first(); // Get the latest banner
+@endphp
+@if ($banner)
+    <div class="container-fluid bg-breadcrumb" style="background-image: url('{{ asset('storage/'.$banner->image) }}');">
+        <div class="container py-5">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">
+                {{ $banner->title ?? 'Find Your Dream Home' }}
+            </h4>
+        </div>
+    </div>
+@endif
 
 <div class="container-fluid prop-feature">
     <div class="container">
