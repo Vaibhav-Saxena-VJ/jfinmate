@@ -14,6 +14,7 @@
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
 <!-- Details Start -->
 <div class="container-fluid about">
     <div class="container mb-5 pt-3 pb-5">
@@ -454,27 +455,31 @@
 </div>
 
 <!-- Overlay Background -->
-<div id="overlay"></div>
+<div id="overlay" class="overlay"></div>
 
 <!-- Popup Form -->
-<div id="popupForm">
+<div id="popupForm" class="popup-container">
     <button class="btn-close-custom" onclick="closePopup()">&times;</button>
-    <h3 class="mb-2">Get in Touch</h3>
-    <p>Kindly provide your details below, and we’ll reach out to you soon.</p>
+    <h3 class="popup-title">Get in Touch</h3>
+    <p class="popup-subtitle">Kindly provide your details below, and we’ll reach out to you soon.</p>
+    
+    <img src="{{ asset($image->image_url) }}" class="popup-image" alt="Property Image">
+
     <form>
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+        <div class="input-group">
             <input type="text" class="form-control" id="name" placeholder="Name" required>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+        <div class="input-group">
             <input type="email" class="form-control" id="email" placeholder="Email" required>
         </div>
-        <div class="mb-3">
-            <label for="phone" class="form-label">Phone</label>
+        <div class="input-group">
             <input type="tel" class="form-control" id="phone" placeholder="Phone" required>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Get a Call</button>
+        <div class="checkbox-group">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I agree to <a href="#">T&C & Privacy</a></label>
+        </div>
+        <button type="submit" class="btn-submit">Get a Call</button>
     </form>
 </div>
 
@@ -649,33 +654,21 @@
 
 <!-- popup form -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let popup = document.getElementById("popupForm");
-        let overlay = document.getElementById("overlay");
+    function openPopup() {
+        document.getElementById("popupForm").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+    }
 
-        // Show popup after 4.5 seconds
+    function closePopup() {
+        document.getElementById("popupForm").style.animation = "slideOut 0.4s ease-out";
         setTimeout(() => {
-            overlay.style.display = "block";
-            popup.style.display = "block";
+            document.getElementById("popupForm").style.display = "none";
+            document.getElementById("popupForm").style.animation = "slideIn 0.4s ease-out";
+            document.getElementById("overlay").style.display = "none";
+        }, 400);
+    }
 
-            setTimeout(() => {
-                popup.classList.add("show-popup");
-            }, 50);
-        }, 4000);
-
-        // Close popup function
-        function closePopup() {
-            popup.classList.remove("show-popup");
-
-            setTimeout(() => {
-                popup.style.display = "none";
-                overlay.style.display = "none";
-            }, 300);
-        }
-
-        // Click outside to close
-        overlay.addEventListener("click", closePopup);
-        window.closePopup = closePopup;
-    });
+    // Auto-show after 4.5 seconds
+    setTimeout(openPopup, 4500);
 </script>
 @endsection
