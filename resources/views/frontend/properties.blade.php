@@ -24,18 +24,46 @@
         <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Find Your Dream Home</h4>
     </div>
 </div> -->
+
 @php
-    $banner = App\Models\Banner::latest()->first(); // Get the latest banner
+    $banners = App\Models\Banner::latest()->get(); // Fetch latest 5 banners
 @endphp
-@if ($banner)
-    <div class="container-fluid bg-breadcrumb" style="background-image: url('{{ asset('storage/'.$banner->image) }}');">
-        <div class="container py-5">
-            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">
-                {{ $banner->title ?? 'Find Your Dream Home' }}
-            </h4>
+
+@if ($banners->count())
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($banners as $index => $banner)
+                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                    <div class="container-fluid bg-breadcrumb" style="background-image: url('{{ asset('storage/'.$banner->image) }}'); background-size: cover; background-position: center;">
+                        <div class="container py-5">
+                            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">
+                                {{ $banner->title ?? 'Find Your Dream Home' }}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
+        
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Add Carousel Indicators -->
+    <div class="carousel-indicators">
+        @foreach ($banners as $index => $banner)
+            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-current="true"></button>
+        @endforeach
     </div>
 @endif
+
 
 <div class="container-fluid prop-feature">
     <div class="container">
@@ -194,11 +222,11 @@
                                         <!-- Property Type -->
                                         <div class="col-md-3 d-flex">
                                             <div class="form-check me-3">
-                                                <input class="form-check-input" type="radio" name="property_type_buy" id="full_house_buy" checked>
+                                                <input class="form-check-input" type="radio" name="property_type_buy" id="rent" checked>
                                                 <label class="form-check-label" for="rent">Rent</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="property_type_buy" id="land_plot_buy">
+                                                <input class="form-check-input" type="radio" name="buy" id="land_plot_buy">
                                                 <label class="form-check-label" for="buy">Buy</label>
                                             </div>
                                         </div>

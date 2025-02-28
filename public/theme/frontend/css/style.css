@@ -1380,11 +1380,11 @@ ul.detail_features li strong {
     font-family: 'DM Sans';
 }
 
-.carousel-control-prev {
+#old_data .carousel-control-prev, #featured_properties .carousel-control-prev {
     left: -3%;
 }
 
-.carousel-control-next {
+#old_data .carousel-control-next, #featured_properties .carousel-control-next {
     right: -3%;
 }
 
