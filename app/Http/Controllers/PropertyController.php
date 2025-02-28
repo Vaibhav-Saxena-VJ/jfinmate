@@ -128,46 +128,81 @@ private function handleFileUpload(Request $request, $inputName, $folder)
     return ""; // Return an empty string if no file was uploaded
 }
 
-    public function allProperties()
-    {
-        $role_id = Session::get('role_id'); 
-        $user_id = Session::get('user_id'); 
+public function allProperties()
+{
+    $role_id = Session::get('role_id'); 
+    $user_id = Session::get('user_id'); 
 
-        $query = DB::table('properties')
-            ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
-            ->join('property_category', 'properties.property_type_id', '=', 'property_category.pid')
-            ->where('properties.is_active', 1)
-            ->select(
-                'properties.properties_id',
-                'properties.title',
-                'properties.property_type_id',
-                'properties.builder_name',
-                'properties.select_bhk',
-                'properties.land_type',
-                'properties.address',
-                'properties.rera',
-                'properties.facilities',
-                'properties.s_price',
-                'properties.beds',
-                'properties.baths',
-                'properties.balconies',
-                'properties.parking',
-                'properties.builtup_area',
-                'properties.contact',
-                'price_range.from_price',
-                'price_range.to_price',
-                'property_category.category_name',
-                'properties.is_featured' // Add is_featured column
-            );
+    // Main Query
+    $query = DB::table('properties')
+        ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
+        ->join('property_category', 'properties.property_type_id', '=', 'property_category.pid')
+        ->where('properties.is_active', 1)
+        ->select(
+            'properties.properties_id',
+            'properties.title',
+            'properties.property_type_id',
+            'properties.builder_name',
+            'properties.select_bhk',
+            'properties.land_type',
+            'properties.address',
+            'properties.rera',
+            'properties.facilities',
+            'properties.s_price',
+            'properties.beds',
+            'properties.baths',
+            'properties.balconies',
+            'properties.parking',
+            'properties.builtup_area',
+            'properties.contact',
+            'price_range.from_price',
+            'price_range.to_price',
+            'property_category.category_name', // Ensure this is selected
+            'properties.is_featured',
+            'properties.image'
+        );
 
-        if ($role_id == 3) {
-            $query->where('properties.creator_id', $user_id);
-        }
-
-        $data['allProperties'] = $query->paginate(50);
-
-        return view('property.allProperties', compact('data'));
+    if ($role_id == 3) {
+        $query->where('properties.creator_id', $user_id);
     }
+
+    // Fetch All Properties (Curated)
+    $data['allProperties'] = $query->paginate(50);
+
+    // Fetch Only Featured Properties
+    $data['featuredProperties'] = DB::table('properties')
+        ->join('price_range', 'properties.price_range_id', '=', 'price_range.range_id')
+        ->join('property_category', 'properties.property_type_id', '=', 'property_category.pid')
+        ->where('properties.is_active', 1)
+        ->where('properties.is_featured', 1) // Fetch only featured properties
+        ->select(
+            'properties.properties_id',
+            'properties.title',
+            'properties.property_type_id',
+            'properties.builder_name',
+            'properties.select_bhk',
+            'properties.land_type',
+            'properties.address',
+            'properties.rera',
+            'properties.facilities',
+            'properties.s_price',
+            'properties.beds',
+            'properties.baths',
+            'properties.balconies',
+            'properties.parking',
+            'properties.builtup_area',
+            'properties.contact',
+            'price_range.from_price',
+            'price_range.to_price',
+            'property_category.category_name', // Fix: Ensure category_name is included
+            'properties.image'
+        )
+        ->paginate(10);
+
+    return view('property.allProperties', compact('data'));
+}
+
+
     public function toggleFeatured(Request $request)
     {
         $updated = DB::table('properties')
