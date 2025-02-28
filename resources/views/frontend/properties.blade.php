@@ -211,41 +211,57 @@
         </div>
     </div>
 </div>
+
+<!-- Properties by Localities -->
 <div class="container mt-5">
-    <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s"> Properties by Localities</h4>
-    <p class="m-0 text-center mb-4">Explore prime properties based on your location</p>
-    <div id="localitiesCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            @foreach ($data['localities']->chunk(4) as $chunk)
-                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <div class="row">
-                        @foreach ($chunk as $locality)
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img src="{{ asset('theme/frontend/img/broucher-img.png') }}" class="card-img-top" alt="{{ $locality->localities }}">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">{{ $locality->localities }}, {{ $locality->city }}</h5>
-                                        <p class="card-text">{{ $locality->property_count }} Properties Available</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            @endforeach
+    <div class="row">
+        <!-- <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Properties by Localities</h4>
+        <p class="m-0 text-center mb-4">Explore prime properties based on your location</p> -->
+        <div class="col-md-3 bg-light">
+            <h4 class="">Discover</h4>
+            <p>Pune's Best Localities</p>
         </div>
-        
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+        <div class="col-md-9">
+            <div id="localitiesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach ($data['localities']->chunk(3) as $chunk)
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <div class="row">
+                                @foreach ($chunk as $locality)
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-capitailze">{{ $locality->localities }}, {{ $locality->city }}</h5>
+                                                <p>₹7000 - ₹14,500 per sqft</p>
+                                                <p class="pt-1 pb-4 d-flex justify-content-between"><span>4.5 <i class="fas fa-star text-warning"></i></span> <span>30+ Reviews</span></p>
+                                                <div class="card-strip">
+                                                    <p class="carf-build mb-0"><img src="{{ asset('theme') }}/frontend/img/office.png" alt="Properties in Pune"></p>
+                                                    <p class="card-text pt-2">{{ $locality->property_count }} Properties Available</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>    
 </div>
+
+<!-- Featured Properties -->
 <div class="container-fluid blog" id="featured_properties">
     <div class="container pt-5">
         <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Featured Properties</h4>
@@ -312,6 +328,7 @@
     </div>
 </div>
 
+<!-- All Properties List -->
 <div class="container-fluid blog mb-5" id="old_data">
     <div class="container py-5">
         <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Curated Collections</h4>
