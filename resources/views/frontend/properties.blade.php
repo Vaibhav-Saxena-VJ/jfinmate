@@ -252,14 +252,76 @@
     </div>
 </div>
 
+<section class="mt-5 mb-5 d-none">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h4 class="display-5 wow fadeInDown" data-wow-delay="0.1s">Properties by Localities</h4>
+            <p class="text-muted">Explore prime properties based on your location</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="shadow rounded p-4 text-center bg-white">
+                    <h5 class="mb-3" data-wow-delay="0.1s">Locality Name</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="h6 text-primary">Developer Name</p>
+                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
+                            <p class="text-muted">Project Name</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="h6 text-primary">Developer Name</p>
+                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
+                            <p class="text-muted">Project Name</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shadow rounded p-4 text-center bg-white">
+                    <h5 class="mb-3" data-wow-delay="0.1s">Locality Name</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="h6 text-primary">Developer Name</p>
+                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
+                            <p class="text-muted">Project Name</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="h6 text-primary">Developer Name</p>
+                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
+                            <p class="text-muted">Project Name</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shadow rounded p-4 text-center bg-white">
+                    <h5 class="mb-3" data-wow-delay="0.1s">Locality Name</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="h6 text-primary">Developer Name</p>
+                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
+                            <p class="text-muted">Project Name</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="h6 text-primary">Developer Name</p>
+                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
+                            <p class="text-muted">Project Name</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Properties by Localities -->
-<div class="container mt-5">
+<div class="container mt-5 pt-3 mb-3">
     <div class="row">
         <!-- <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Properties by Localities</h4>
         <p class="m-0 text-center mb-4">Explore prime properties based on your location</p> -->
-        <div class="col-md-3 bg-light">
+        <div class="col-md-3 bg-new rounded d-flex flex-column justify-content-center shadow">
             <h4 class="">Discover</h4>
-            <p>Pune's Best Localities</p>
+            <p>Pune's Best Localities for Your Dream Home</p>
         </div>
         <div class="col-md-9">
             <div id="localitiesCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -301,9 +363,76 @@
     </div>    
 </div>
 
+<!-- Curated Collections -->
+<div class="container-fluid blog mt-3" id="curated_collections">
+    <div class="container py-5">
+        <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Curated Collections</h4>
+        <p class="m-0 text-center mb-4">Explore prime properties based on your recommendation</p>
+
+        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php $first = true; ?>
+                @foreach($data['allProperties']->chunk(4) as $propertyGroup)
+                    <div class="carousel-item {{ $first ? 'active' : '' }}">
+                        <div class="row g-4">
+                            @foreach($propertyGroup as $v)
+                                <?php 
+                                    $img = env('baseURL'). "/" . $v->image;
+                                    $title = $v->title;
+                                    $category = $v->category_name;
+                                    $builder_name = $v->builder_name;
+                                    $address = $v->localities . ", " . $v->city;
+                                    $bhk = $v->select_bhk;
+                                    $area = $v->area;
+                                ?>
+                                <div class="col-md-3">
+                                    <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
+                                        <div class="blog-item">
+                                            <div class="blog-img">
+                                                <img src="{{ $img }}" class="img-fluid rounded-top w-100" alt="" style="height: 175px">
+                                                <div class="blog-categiry">
+                                                    <span>{{ $category }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="blog-content p-3 text-muted">
+                                                <p class="mb-1 h6 fw-bold">{{ $title }}</p>
+                                                <p class="mb-0 txt-p">By {{ $builder_name }}</p>
+                                                <p class="mb-0 txt-p">{{ $address }}</p>
+                                                <p class="mb-1 d-flex justify-content-between txt-p">
+                                                    <span>{{ $bhk }} BHK</span> <span>{{ $area }} SQ. FT.</span>
+                                                </p>
+                                                <hr>
+                                                <p class="mb-0 h5 d-flex justify-content-between align-items-center">
+                                                    <strong class="price-format" data-price="{{ $v->from_price }}">{{ $v->from_price }}</strong>
+                                                    <button class="btn bg-light text-primary btn-md rounded-1 px-3 py-1">
+                                                        <i class="fas fa-phone"></i> Contact
+                                                    </button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <?php $first = false; ?>
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+                <i class="fas fa-chevron-left text-dark fs-4"></i>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+                <i class="fas fa-chevron-right text-dark fs-4"></i>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
 <!-- Featured Properties -->
-<div class="container-fluid blog" id="featured_properties">
-    <div class="container pt-5">
+<div class="container-fluid blog mt-3" id="featured_properties">
+    <div class="container">
         <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Featured Properties</h4>
         <p class="m-0 text-center mb-4">Explore the most exclusive properties</p>
 
@@ -371,10 +500,10 @@
 <!-- All Properties List -->
 <div class="container-fluid blog mb-5" id="old_data">
     <div class="container py-5">
-        <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Curated Collections</h4>
+        <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">All Properties</h4>
         <p class="m-0 text-center mb-4">Explore prime properties based on your recommendation</p>
 
-        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="AllPropertyCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php $first = true; ?>
                 @foreach($data['allProperties']->chunk(4) as $propertyGroup)
@@ -423,11 +552,11 @@
                     <?php $first = false; ?>
                 @endforeach
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#AllPropertyCarousel" data-bs-slide="prev">
                 <i class="fas fa-chevron-left text-dark fs-4"></i>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#AllPropertyCarousel" data-bs-slide="next">
                 <i class="fas fa-chevron-right text-dark fs-4"></i>
                 <span class="visually-hidden">Next</span>
             </button>
