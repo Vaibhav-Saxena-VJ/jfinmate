@@ -1406,57 +1406,138 @@ ul.detail_features li strong {
     background: #f0f0f0;
 }
 
-/* Overlay Background */
-#overlay {
+/* Overlay Styling */
+.overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
+    background: rgba(0, 0, 0, 0.6);
     z-index: 999;
-    transition: opacity 0.3s ease-in-out;
 }
 
-/* Popup Form */
-#popupForm {
+/* Popup Container */
+.popup-container {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%);
     background: #fff;
-    padding: 25px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    z-index: 1000;
+    padding: 20px;
     width: 90%;
     max-width: 400px;
-    display: none;
-    opacity: 1;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-#popupForm .form-control, #popupForm .btn{
-    border-radius: 5px;
-}
-
-/* Show animation */
-.show-popup {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    animation: slideIn 0.4s ease-out;
 }
 
 /* Close Button */
 .btn-close-custom {
     position: absolute;
-    top: 15px;
+    top: 0px;
     right: 15px;
-    background: none;
+    background: transparent;
     border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #333;
+    font-size: 36px;
+    font-weight: 800;
+    color: #ff0000;
+}
+
+/* Titles */
+.popup-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.popup-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Image Styling */
+.popup-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 12px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Checkbox Styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input {
+    margin-right: 8px;
+}
+
+.checkbox-group a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background: #015fc9;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-weight: 500;
+}
+
+.btn-submit:hover {
+    background: #000000;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
 }
 
 .card-strip {
