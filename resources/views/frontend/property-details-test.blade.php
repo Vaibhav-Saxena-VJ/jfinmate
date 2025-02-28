@@ -479,7 +479,7 @@
 </div>
 
 <script type="text/javascript">
-// Primary slider.
+    // Primary slider.
     var primarySlider = new Splide('#primary_slider', {
         type: 'fade',
         heightRatio: 0.5,
