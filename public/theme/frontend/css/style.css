@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
+
 .uppercase{
     text-transform: uppercase;
 }
@@ -1380,11 +1383,11 @@ ul.detail_features li strong {
     font-family: 'DM Sans';
 }
 
-#old_data .carousel-control-prev, #featured_properties .carousel-control-prev {
+#old_data .carousel-control-prev, #featured_properties .carousel-control-prev, #curated_collections .carousel-control-prev {
     left: -3%;
 }
 
-#old_data .carousel-control-next, #featured_properties .carousel-control-next {
+#old_data .carousel-control-next, #featured_properties .carousel-control-next, #curated_collections .carousel-control-next {
     right: -3%;
 }
 
@@ -1468,6 +1471,7 @@ ul.detail_features li strong {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
+    height: 150px;
 }
 
 /* Input Fields */
@@ -1541,8 +1545,8 @@ ul.detail_features li strong {
 }
 
 .card-strip {
-    background-color: #D9EAFD;
-    color: #015fc9;
+    background-color: #015fc9;
+    color: #fff;
     font-weight: 700;
     padding: 30px 10px 5px;
     border-radius: 10px;
@@ -1559,4 +1563,26 @@ ul.detail_features li strong {
     padding: 5px;
     border-radius: 50%;
     width: 30%;
+}
+
+.bg-new{
+    background-color: #015fc9;
+}
+
+.bg-new h4 {
+    font-family: "Moon Dance", cursive;
+    font-size: 65px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.bg-new p{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }
