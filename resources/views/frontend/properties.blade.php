@@ -371,39 +371,92 @@
 
         <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <?php $first = true; ?>
-                @foreach($data['allProperties']->chunk(4) as $propertyGroup)
+                <?php 
+                    $properties = [
+                        [
+                            "name" => "Sukhwani Skylines",
+                            "developer" => "By Sukhwani",
+                            "location" => "Bhumkar Nagar, Wakad, Pune",
+                            "bhk" => "2 & 3 BHK",
+                            "size" => "756 SQ. FT.",
+                            "price" => "₹89.9L*",
+                            "img" => "prop-1.webp",
+                            "link" => "https://jfsrealty.in/sukhwani-skylines.html",
+                            "category" => "Residential"
+                        ],
+                        [
+                            "name" => "Pharande L-Axis",
+                            "developer" => "By Pharande Spaces",
+                            "location" => "PCNTDA, Sector No. 6, Moshi, PCMC",
+                            "bhk" => "2, 3 & 4 BHK",
+                            "size" => "819* SQ. FT.",
+                            "price" => "₹97L*",
+                            "img" => "prop-1.webp",
+                            "link" => "https://jfsrealty.in/pharande-l-axis.html",
+                            "category" => "Residential"
+                        ],
+                        [
+                            "name" => "Pharande Puneville",
+                            "developer" => "By Pharande Spaces",
+                            "location" => "Pune-Bangalore Highway, Punawale",
+                            "bhk" => "2 & 2.5 BHK",
+                            "size" => "728* SQ. FT.",
+                            "price" => "₹80L*",
+                            "img" => "prop-1.webp",
+                            "link" => "https://jfsrealty.in/pharande-puneville.html",
+                            "category" => "Residential"
+                        ],
+                        [
+                            "name" => "Sukhwani Celaeno",
+                            "developer" => "By Sukhwani",
+                            "location" => "Vibgyor School Rd, Pimple Saudagar",
+                            "bhk" => "3 & 4 BHK",
+                            "size" => "1325 SQ. FT.",
+                            "price" => "₹1.72Cr*",
+                            "img" => "prop-1.webp",
+                            "link" => "https://jfsrealty.in/sukhwani-celaeno.html",
+                            "category" => "Residential"
+                        ],
+                        [
+                            "name" => "Pharande Felicity",
+                            "developer" => "By Pharande Spaces",
+                            "location" => "Block-B1, FELICITY, Ravet, PCMC",
+                            "bhk" => "Shops & Offices",
+                            "size" => "245* SQ. FT.",
+                            "price" => "₹32L*",
+                            "img" => "prop-1.webp",
+                            "link" => "https://jfsrealty.in/pharande-felicity.html",
+                            "category" => "Commercial"
+                        ]
+                    ]; 
+
+                    $chunks = array_chunk($properties, 4); // Splitting into sets of 4 per carousel item
+                    $first = true; 
+                ?>
+                
+                @foreach($chunks as $chunk)
                     <div class="carousel-item {{ $first ? 'active' : '' }}">
                         <div class="row g-4">
-                            @foreach($propertyGroup as $v)
-                                <?php 
-                                    $img = env('baseURL'). "/" . $v->image;
-                                    $title = $v->title;
-                                    $category = $v->category_name;
-                                    $builder_name = $v->builder_name;
-                                    $address = $v->localities . ", " . $v->city;
-                                    $bhk = $v->select_bhk;
-                                    $area = $v->area;
-                                ?>
+                            @foreach($chunk as $property)
                                 <div class="col-md-3">
-                                    <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
-                                        <div class="blog-item">
-                                            <div class="blog-img">
-                                                <img src="{{ $img }}" class="img-fluid rounded-top w-100" alt="" style="height: 175px">
+                                    <a href="{{ $property['link'] }}" target="_blank">
+                                        <div class="blog-item shadow-sm rounded">
+                                            <div class="blog-img position-relative">
+                                                <img src="{{ asset('theme/frontend/img/' . $property['img']) }}" class="img-fluid rounded-top w-100" alt="">
                                                 <div class="blog-categiry">
-                                                    <span>{{ $category }}</span>
+                                                    <span>{{ $property['category'] }}</span>
                                                 </div>
                                             </div>
                                             <div class="blog-content p-3 text-muted">
-                                                <p class="mb-1 h6 fw-bold">{{ $title }}</p>
-                                                <p class="mb-0 txt-p">By {{ $builder_name }}</p>
-                                                <p class="mb-0 txt-p">{{ $address }}</p>
+                                                <p class="mb-1 h6 fw-bold">{{ $property['name'] }}</p>
+                                                <p class="mb-0 txt-p">{{ $property['developer'] }}</p>
+                                                <p class="mb-0 txt-p">{{ $property['location'] }}</p>
                                                 <p class="mb-1 d-flex justify-content-between txt-p">
-                                                    <span>{{ $bhk }} BHK</span> <span>{{ $area }} SQ. FT.</span>
+                                                    <span>{{ $property['bhk'] }}</span> <span>{{ $property['size'] }}</span>
                                                 </p>
                                                 <hr>
                                                 <p class="mb-0 h5 d-flex justify-content-between align-items-center">
-                                                    <strong class="price-format" data-price="{{ $v->from_price }}">{{ $v->from_price }}</strong>
+                                                    <strong>{{ $property['price'] }}</strong>
                                                     <button class="btn bg-light text-primary btn-md rounded-1 px-3 py-1">
                                                         <i class="fas fa-phone"></i> Contact
                                                     </button>
@@ -418,6 +471,8 @@
                     <?php $first = false; ?>
                 @endforeach
             </div>
+
+            <!-- Carousel Controls -->
             <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
                 <i class="fas fa-chevron-left text-dark fs-4"></i>
                 <span class="visually-hidden">Previous</span>
@@ -560,6 +615,318 @@
                 <i class="fas fa-chevron-right text-dark fs-4"></i>
                 <span class="visually-hidden">Next</span>
             </button>
+        </div>
+    </div>
+</div>
+
+<!-- Feature Start -->
+<div class="container-fluid feature bg-light py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Our Features</h4>
+            <h2 class="display-5">Why Choose Us?</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="feature-item p-4 pt-0">
+                    <div class="feature-icon p-4 mb-4">
+                        <i class="far fa-handshake fa-3x"></i>
+                    </div>
+                    <h4 class="mb-4">Trusted Company</h4>
+                    <p>Trust is our foundation. With experience and a strong track record, we guide clients confidently through their financial journeys.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="feature-item p-4 pt-0">
+                    <div class="feature-icon p-4 mb-4">
+                        <i class="fas fa-gift fa-3x"></i>
+                    </div>
+                    <h4 class="mb-4">Unlimited Rewards</h4>
+                    <p>Earn income for each successful referral. We offer performance bonuses to unlock more earning potential.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="feature-item p-4 pt-0">
+                    <div class="feature-icon p-4 mb-4">
+                        <i class="fa fa-bullseye fa-3x"></i>
+                    </div>
+                    <h4 class="mb-4">Fast & Easier Process</h4>
+                    <p>A fast & simple loan process provides quick approvals, minimal paperwork, & access to funds within 7 working days.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="feature-item p-4 pt-0">
+                    <div class="feature-icon p-4 mb-4">
+                        <i class="fas fa-chart-line fa-3x"></i>
+                    </div>
+                    <h4 class="mb-4">High Range Loan</h4>
+                    <p>A high range loan of up to ₹100Cr. offers substantial funding for major investments or purchases, with flexible terms & competitive rates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Service Start -->
+<div class="container-fluid service py-5">
+    <div class="container py-3">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Our Services</h4>
+            <h1 class="display-4 mb-4">We Provide Best Services</h1>
+            <p class="mb-0">Choose your loan amount, answer a few questions, and receive an instant loan offer. Share the necessary documents with our representative effortlessly, and select the final loan offer with terms that suit you best.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('theme') }}/frontend/img/Home_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <!-- <div class="service-icon p-3">
+                            <i class="fa-solid fa-house-chimney fa-2x"></i>
+                        </div> -->
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">NRI Friendly</a>
+                            <p class="mb-4">We understand you're seeking a new home, with low rates & a seamless process, we’re here to help you through this important financial decision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('theme') }}/frontend/img/Project_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <!-- <div class="service-icon p-3">
+                            <i class="fa-solid fa-building-shield fa-2x"></i>
+                        </div> -->
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Property Management</a>
+                            <p class="mb-4">We simplify construction financing with low rates and an easy online application, offering tailored loans that ensure a smooth and timely process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('theme') }}/frontend/img/MSME_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <!-- <div class="service-icon p-3">
+                            <i class="fa-solid fa-business-time fa-2x"></i>
+                        </div> -->
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Group Booking</a>
+                            <p class="mb-4">This service meets the diverse needs of small and medium businesses. Whether you're expanding, investing in equipment, or increasing capital.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <!-- <div class="service-icon p-3">
+                            <i class="fa-solid fa-house-laptop fa-2x"></i>
+                        </div> -->
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Loan Assisstance</a>
+                            <p class="mb-4">Jfinserv offers Loan Against Property with flexible repayment options, secured by your property. Check your eligibility and enjoy exclusive add-on and tax benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <!-- <div class="service-icon p-3">
+                            <i class="fa-solid fa-house-laptop fa-2x"></i>
+                        </div> -->
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Investor Deals</a>
+                            <p class="mb-4">Jfinserv offers Loan Against Property with flexible repayment options, secured by your property. Check your eligibility and enjoy exclusive add-on and tax benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <!-- <div class="service-icon p-3">
+                            <i class="fa-solid fa-house-laptop fa-2x"></i>
+                        </div> -->
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Property Visits & Booking</a>
+                            <p class="mb-4">Jfinserv offers Loan Against Property with flexible repayment options, secured by your property. Check your eligibility and enjoy exclusive add-on and tax benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial Start -->
+<div class="container-fluid testimonial bg-light py-5">
+    <div class="container mb-5 pb-3">
+        <div class="text-center mx-auto pb-3 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Testimonial</h4>
+            <h2 class="display-4">Hear from Our Customers</h2>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+            <div class="testimonial-item bg-white rounded">
+                <div class="row g-0">
+                    <div class="col-12 col-lg-12 col-xl-12">
+                        <div class="d-flex flex-column my-auto text-start p-4">
+                            <h4 class="text-dark mb-0">Vishal Sarraf</h4>
+                            <p class="mb-3">Businessman</p>
+                            <div class="d-flex text-primary mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="mb-0">JFinserv made my home loan process stress-free and quick. Their expert team guided me at every step, ensuring minimal paperwork and a competitive interest rate. Highly recommended for anyone seeking financial assistance!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-white rounded">
+                <div class="row g-0">
+                    <div class="col-12 col-lg-12 col-xl-12">
+                        <div class="d-flex flex-column my-auto text-start p-4">
+                            <h4 class="text-dark mb-0">Dr. Neha Pawar</h4>
+                            <p class="mb-3">Doctor</p>
+                            <div class="d-flex text-primary mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star text-body"></i>
+                            </div>
+                            <p class="mb-0">Thanks to JFinserv, I secured a project loan effortlessly. Their dedicated support and transparent process made a complex procedure seem simple. I appreciate their commitment to helping clients achieve their financial goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-white rounded">
+                <div class="row g-0">
+                    <div class="col-12 col-lg-12 col-xl-12">
+                        <div class="d-flex flex-column my-auto text-start p-4">
+                            <h4 class="text-dark mb-0">Rahul Sonawane</h4>
+                            <p class="mb-3">IT Professional</p>
+                            <div class="d-flex text-primary mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star text-body"></i>
+                            </div>
+                            <p class="mb-0">JFinserv exceeded my expectations with their quick approvals & low-interest rates. The team's professionalism & expertise gave me confidence throughout the loan process. I would highly recommend them!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Start -->
+<div class="container-fluid blog py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">From Blog</h4>
+            <h2 class="display-4 mb-4">News And Updates</h2>
+            </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{{ asset('theme') }}/frontend/img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
+                        <div class="blog-categiry bg-dark py-2 px-4">
+                            <span>Business</span>
+                        </div>
+                    </div>
+                    <div class="blog-content p-4">
+                        <div class="blog-comment d-flex justify-content-between mb-3">
+                            <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
+                            <!-- <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div> -->
+                        </div>
+                        <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down bills</a>
+                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
+                        <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{{ asset('theme') }}/frontend/img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
+                        <div class="blog-categiry bg-dark py-2 px-4">
+                            <span>Business</span>
+                        </div>
+                    </div>
+                    <div class="blog-content p-4">
+                        <div class="blog-comment d-flex justify-content-between mb-3">
+                            <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
+                            <!-- <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div> -->
+                        </div>
+                        <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down bills</a>
+                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
+                        <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{{ asset('theme') }}/frontend/img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
+                        <div class="blog-categiry bg-dark py-2 px-4">
+                            <span>Business</span>
+                        </div>
+                    </div>
+                    <div class="blog-content p-4">
+                        <div class="blog-comment d-flex justify-content-between mb-3">
+                            <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
+                            <!-- <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div> -->
+                        </div>
+                        <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down bills</a>
+                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
+                        <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{{ asset('theme') }}/frontend/img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
+                        <div class="blog-categiry bg-dark py-2 px-4">
+                            <span>Business</span>
+                        </div>
+                    </div>
+                    <div class="blog-content p-4">
+                        <div class="blog-comment d-flex justify-content-between mb-3">
+                            <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
+                            <!-- <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div> -->
+                        </div>
+                        <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down bills</a>
+                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
+                        <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
