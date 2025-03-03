@@ -471,6 +471,7 @@
     border-radius: 10px;
     background: var(--bs-white);
     transition: 0.5s;
+    min-height: 335px;
 }
 
 .feature .feature-item:hover {

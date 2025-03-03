@@ -70,6 +70,14 @@
         onTranslated: checkNavButtons    // Call function on slide change
     });
 
+    function checkNavButtons(event) {
+        let items = event.item.count;  // Total items
+        let current = event.item.index;  // Current index
+
+        $(".owl-prev").toggle(current !== 0);  // Hide "Prev" if first item
+        $(".owl-next").toggle(current + event.page.size < items); // Hide "Next" if last item
+    }
+
 
     // Facts counter
     $('[data-toggle="counter-up"]').counterUp({
