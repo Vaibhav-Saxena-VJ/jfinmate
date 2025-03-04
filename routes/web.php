@@ -22,6 +22,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PropertyTakerController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Exports\EligibilityExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -376,6 +377,10 @@ Route::get('/messages/{id}', [MessageController::class, 'show'])->name('messages
 //Lead management
 Route::resource('/admin/leads', LeadController::class);
 
+/// Show the locality selection form for a specific property (GET)
+Route::get('/admin/localities', [PropertyController::class, 'getLocalities'])->name('admin.localities');
+Route::post('/admin/localities', [PropertyController::class, 'storeLocalities'])->name('admin.localities.store');
+
 //property taker
 Route::get('admin/property-takers/create', [PropertyTakerController::class, 'create'])->name('property_takers.create');
 Route::post('admin/property-takers/store', [PropertyTakerController::class, 'store'])->name('property_takers.store');
@@ -390,3 +395,4 @@ Route::post('/banners', [BannerController::class, 'store'])->name('banners.store
 Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('banners.edit');
 Route::put('/banners/{id}', [BannerController::class, 'update'])->name('banners.update');
 Route::delete('/banners/{id}', [BannerController::class, 'destroy'])->name('banners.destroy');
+

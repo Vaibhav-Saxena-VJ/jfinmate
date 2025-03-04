@@ -312,17 +312,52 @@ class FrontendController extends Controller
                 ? $propertyImages[$featured->properties_id]->first()->image_url 
                 : 'default.jpg';
         }
-         // **Fetch Localities Data with Count**
-            $data['localities'] = DB::table('properties')
+    
+        // **Existing Localities Data with Property Count**
+        $data['localities'] = DB::table('properties')
             ->select('localities', 'city', \DB::raw('COUNT(*) as property_count'), \DB::raw('MAX(image) as image'))
             ->groupBy('localities', 'city')
             ->get();
     
+        // **Fetch Three Selected Localities**
+        $selectedLocalities = DB::table('selected_localities')
+        ->join('localities', 'selected_localities.locality_id', '=', 'localities.id')
+        ->select('localities.id', 'localities.name')
+        ->limit(3)
+        ->get();
+    
+    // Fetch **Properties for Each Selected Locality (First 2 Properties)**
+        $data['selectedLocalities'] = [];
+            foreach ($selectedLocalities as $locality) {
+                $properties = DB::table('properties')
+                    ->where('localities', 'LIKE', "%{$locality->name}%")
+                    ->where('is_active', 1)
+                    ->select('properties_id', 'title', 'builder_name') // Remove 'image' from selection
+                    ->limit(2)
+                    ->get();
+
+                // Attach images from `property_images` table
+                $propertyImages = DB::table('property_images')
+                    ->whereIn('properties_id', $properties->pluck('properties_id'))
+                    ->select('properties_id', 'image_url')
+                    ->orderBy('is_featured', 'DESC') 
+                    ->get()
+                    ->groupBy('properties_id');
+
+                foreach ($properties as $property) {
+                    $property->image = isset($propertyImages[$property->properties_id])
+                        ? env('baseURL') . "/" . $propertyImages[$property->properties_id]->first()->image_url
+                        : env('baseURL') . "/theme/frontend/img/default.jpg"; // Use default if no image
+                }
+
+                $data['selectedLocalities'][] = [
+                    'locality' => $locality->name,
+                    'properties' => $properties
+                ];
+            }
         return view('frontend.properties', compact('data'));
     }
-    
-    
-
+        
     public function search_properties(Request $request)
 {
     $range_id = $request->range_id;

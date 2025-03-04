@@ -411,4 +411,32 @@ public function allProperties()
             dd($e->getMessage());
         }
     }
+
+    public function getLocalities()
+    {
+        $localities = DB::table('localities')->get();
+        $selectedLocalities = DB::table('selected_localities')->pluck('locality_id')->toArray();
+    
+        return view('admin.select_localities', compact('localities', 'selectedLocalities'));
+    }
+    public function storeLocalities(Request $request)
+    {
+        $request->validate([
+            'localities' => 'required|array|max:3',
+            'localities.*' => 'exists:localities,id'
+        ]);
+    
+        // Remove old selected localities
+        DB::table('selected_localities')->truncate();
+    
+        // Insert new selected localities
+        foreach ($request->localities as $locality) {
+            DB::table('selected_localities')->insert([
+                'locality_id' => $locality
+            ]);
+        }
+    
+        return redirect()->back()->with('success', 'Localities updated successfully!');
+    }
+
 }
