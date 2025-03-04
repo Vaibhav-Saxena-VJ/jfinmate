@@ -251,117 +251,32 @@
         </div>
     </div>
 </div>
-
-<section class="mt-5 mb-5 d-none">
+<section class="mt-5 mb-5">
     <div class="container">
         <div class="text-center mb-4">
             <h4 class="display-5 wow fadeInDown" data-wow-delay="0.1s">Properties by Localities</h4>
             <p class="text-muted">Explore prime properties based on your location</p>
         </div>
         <div class="row g-4 justify-content-center">
-            <div class="col-md-4">
-                <div class="shadow rounded p-4 text-center bg-white">
-                    <h5 class="mb-3" data-wow-delay="0.1s">Locality Name</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="h6 text-primary">Developer Name</p>
-                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
-                            <p class="text-muted">Project Name</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="h6 text-primary">Developer Name</p>
-                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
-                            <p class="text-muted">Project Name</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="shadow rounded p-4 text-center bg-white">
-                    <h5 class="mb-3" data-wow-delay="0.1s">Locality Name</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="h6 text-primary">Developer Name</p>
-                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
-                            <p class="text-muted">Project Name</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="h6 text-primary">Developer Name</p>
-                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
-                            <p class="text-muted">Project Name</p>
+            @foreach($data['selectedLocalities'] as $localityData)
+                <div class="col-md-4">
+                    <div class="shadow rounded p-4 text-center bg-white">
+                        <h5 class="mb-3" data-wow-delay="0.1s">{{ $localityData['locality'] }}</h5>
+                        <div class="row">
+                            @foreach($localityData['properties'] as $property)
+                                <div class="col-md-6">
+                                    <p class="h6 text-primary">{{ $property->builder_name }}</p>
+                                    <img src="{{ $property->image }}" class="img-fluid mb-2" alt="{{ $property->title }}" style="height:125px;">
+                                    <p class="text-muted">{{ $property->title }}</p>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="shadow rounded p-4 text-center bg-white">
-                    <h5 class="mb-3" data-wow-delay="0.1s">Locality Name</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="h6 text-primary">Developer Name</p>
-                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
-                            <p class="text-muted">Project Name</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="h6 text-primary">Developer Name</p>
-                            <img src="{{ asset('theme') }}/frontend/img/office.png" class="img-fluid mb-2" alt="Properties in Pune">
-                            <p class="text-muted">Project Name</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
-
-<!-- Properties by Localities -->
-<div class="container mt-5 pt-3 mb-3">
-    <div class="row">
-        <!-- <h4 class="display-5 wow fadeInDown text-center mb-0" data-wow-delay="0.1s">Properties by Localities</h4>
-        <p class="m-0 text-center mb-4">Explore prime properties based on your location</p> -->
-        <div class="col-md-3 bg-new rounded d-flex flex-column justify-content-center shadow">
-            <h4 class="">Discover</h4>
-            <p>Pune's Best Localities for Your Dream Home</p>
-        </div>
-        <div class="col-md-9">
-            <div id="localitiesCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach ($data['localities']->chunk(3) as $chunk)
-                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                            <div class="row">
-                                @foreach ($chunk as $locality)
-                                    <div class="col-md-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-capitailze">{{ $locality->localities }}, {{ $locality->city }}</h5>
-                                                <p>₹7000 - ₹14,500 per sqft</p>
-                                                <p class="pt-1 pb-4 d-flex justify-content-between"><span>4.5 <i class="fas fa-star text-warning"></i></span> <span>30+ Reviews</span></p>
-                                                <div class="card-strip">
-                                                    <p class="carf-build mb-0"><img src="{{ asset('theme') }}/frontend/img/office.png" alt="Properties in Pune"></p>
-                                                    <p class="card-text pt-2">{{ $locality->property_count }} Properties Available</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                
-                <!-- Carousel Controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#localitiesCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>    
-</div>
 
 <!-- Curated Collections -->
 <div class="container-fluid blog mt-3" id="curated_collections">
@@ -708,18 +623,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/MSME_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
-                        <!-- <div class="service-icon p-3">
-                            <i class="fa-solid fa-business-time fa-2x"></i>
-                        </div> -->
+                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
                     </div>
                     <div class="service-content p-4">
                         <div class="service-content-inner">
-                            <a href="#" class="d-inline-block h4 mb-4">Group Booking</a>
-                            <p class="mb-4">This service meets the diverse needs of small and medium businesses. Whether you're expanding, investing in equipment, or increasing capital.</p>
+                            <a href="#" class="d-inline-block h4 mb-4">Investor Deals</a>
+                            <p class="mb-4">Jfinserv offers Loan Against Property with flexible repayment options, secured by your property. Check your eligibility and enjoy exclusive add-on and tax benefits.</p>
                         </div>
                     </div>
                 </div>
@@ -740,18 +652,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
+            
+            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset('theme') }}/frontend/img/MSME_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
                         <!-- <div class="service-icon p-3">
-                            <i class="fa-solid fa-house-laptop fa-2x"></i>
+                            <i class="fa-solid fa-business-time fa-2x"></i>
                         </div> -->
                     </div>
                     <div class="service-content p-4">
                         <div class="service-content-inner">
-                            <a href="#" class="d-inline-block h4 mb-4">Investor Deals</a>
-                            <p class="mb-4">Jfinserv offers Loan Against Property with flexible repayment options, secured by your property. Check your eligibility and enjoy exclusive add-on and tax benefits.</p>
+                            <a href="#" class="d-inline-block h4 mb-4">Group Booking</a>
+                            <p class="mb-4">This service meets the diverse needs of small and medium businesses. Whether you're expanding, investing in equipment, or increasing capital.</p>
                         </div>
                     </div>
                 </div>
