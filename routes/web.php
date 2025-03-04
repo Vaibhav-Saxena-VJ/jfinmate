@@ -81,6 +81,10 @@ Route::get('overdraft-facility', [FrontendController::class, 'OverdraftLoanView'
 Route::get('lease-rental-discounting', [FrontendController::class, 'LRDLoanView']);
 Route::get('msme-loan', [FrontendController::class, 'MSMELoanView']);
 
+Route::get('/blog-detail', function () {
+    return view('frontend.blog-details');
+});
+
 Route::post('search_properties', [FrontendController::class, 'search_properties'])->name('search_properties');
 
 
