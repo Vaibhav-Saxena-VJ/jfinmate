@@ -53,10 +53,48 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="about-item-content bg-white rounded p-4 mt-3 shadow-sm">
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="property_block_wrap style-2">
+                                <div class="block-body">
+                                    <h3>Comments:</h3>
+                                    <form action="{{ route('enquiry.store') }}" method="POST">
+                                        @csrf
+                                        <div class="row g-3">
+                                            <div class="col-lg-12 col-xl-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control border" id="name" name="name" value="{{ old('name') }}" placeholder="Your Name" required>
+                                                    <label for="name">Your Name</label>
+                                                </div>                                    
+                                            </div>
+                                            <div class="col-lg-12 col-xl-6">
+                                                <div class="form-floating">
+                                                    <input type="email" class="form-control border" name="email" id="email" value="{{ old('email') }}" placeholder="Your Email" required>
+                                                    <label for="email">Your Email</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <textarea class="form-control border" id="message" name="message" placeholder="Leave a message here" style="height: 120px" required>{{ old('message') }}</textarea>
+                                                    <label for="message">Write Your Comment...</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="col-xl-3 wow fadeInRight" data-wow-delay="0.2s">
-                <div class="bg-white rounded border p-3 shadow-sm">
+                <div class="bg-white rounded p-3 shadow-sm">
                     <div class="row g-4 justify-content-center">
                         <div class="sides-widget">
                             <div class="sides-widget-header">
@@ -65,35 +103,92 @@
                                     
                                 </div> -->
                                 <div class="sides-widget-details">
-                                    <h3>Are You Interested!</h3>
+                                    <h4>Trending Blogs</h4>
                                     <!-- <a href="tel:+17817548182"><span><i class="lni-phone-handset"></i> +17817548182</span></a> -->
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="sides-widget-body simple-form">
-                                <form method="POST" id="consult-form">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <input class="form-control" name="name" id="name" type="text" placeholder="Name *" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="contact" class="form-control" placeholder="Phone *" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" name="email" id="email" type="email" placeholder="Email *" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea name="message" class="form-control" rows="5" placeholder="Message *" required></textarea>
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <button class="btn btn-primary btn-md rounded full-width" type="submit">Send Message</button>
-                                        </div>
+                                <div class="row align-items-center">
+                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
+                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
                                     </div>
-                                </form>
-                                <div id="thank-you-message" style="display: none;" class="alert alert-success mt-3">Thank you! Your message has been submitted.</div>
+                                </div>
+                                <div class="row align-items-center mt-2">
+                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
+                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mt-2">
+                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
+                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mt-2">
+                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
+                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mt-2">
+                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                    <div class="col-md-8">
+                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
+                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>                            
+                    </div>
+                </div>
+                <div class="bg-white rounded p-3 mt-3 shadow-sm">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-12">
+                            <h5 class="mb-0">Featured Properties</h5><hr class="mt-2">
+                            <!-- Brochure Box with Image -->
+                            <div class="row align-items-center">
+                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                <div class="col-md-7">
+                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
+                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                <div class="col-md-7">
+                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
+                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                <div class="col-md-7">
+                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
+                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                <div class="col-md-7">
+                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
+                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
+                                <div class="col-md-7">
+                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
+                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

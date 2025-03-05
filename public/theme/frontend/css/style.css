@@ -433,6 +433,18 @@
         transform: translateX(-50%);
         margin-left: 45px;
     }
+    
+    #thumbnail_slider .splide__arrow {
+        top: 0pc !important;
+    }
+
+    #thumbnail_slider .splide__arrow--prev {
+        left: 0em;
+    }
+
+    #thumbnail_slider .splide__arrow--next {
+        right: 0em;
+    }
 }
 
 .calrousel-img img {
@@ -1057,7 +1069,6 @@ ul.detail_features li strong {
     align-items: center;
     margin-bottom: 15px;
     border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 10px;
 }
 
 .agent-photo img {
@@ -1586,4 +1597,9 @@ ul.detail_features li strong {
     display: inline-block;
     margin: 0;
     padding: 0;
+}
+
+.trendy-blog{
+    width: 100%;
+    height: 65px;
 }
