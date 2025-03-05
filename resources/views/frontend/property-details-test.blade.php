@@ -173,7 +173,8 @@
                         <div class="col-md-12">
                             <div class="property_block_wrap style-2">
                                 <div class="property_block_wrap_header">
-                                    <a data-bs-toggle="collapse" data-parent="#features" data-bs-target="#clOne2" aria-controls="clOne2" href="javascript:void(0);" aria-expanded="true">
+                                    <a data-bs-toggle="collapse" data-parent="#features" data-bs-target="#clOne2" 
+                                    aria-controls="clOne2" href="javascript:void(0);" aria-expanded="true">
                                         <h4 class="property_block_title">
                                             Description
                                             <span class="float-end">
@@ -184,7 +185,7 @@
                                 </div>
                                 <div id="clOne2" class="panel-collapse collapse show" aria-labelledby="clOne2">
                                     <div class="block-body">
-                                        <p>{{ $property_details }}</p>
+                                        <p>{!! $property_details !!}</p>
                                     </div>
                                 </div>
                             </div>

@@ -134,11 +134,13 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label class="form-label">Property Description</label>
-                                <textarea name="property_description" class="form-control" rows="5" maxlength="250" value="" >{{ $v->property_details }} </textarea>
-                            </div>
-                        </div>
+    <div class="mb-3">
+        <label class="form-label">Property Description</label>
+        <textarea name="property_description" id="editor" class="form-control" rows="5">
+            {{ $data['propertie_details'][0]->property_details }}
+        </textarea>
+    </div>
+</div>
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label class="form-label">Property Address</label>
@@ -250,7 +252,26 @@
 @parent
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js"></script>
 
+<!-- Initialize TinyMCE -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        tinymce.init({
+            selector: '#editor',
+            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
+            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
+            height: 300,
+            menubar: true,
+            branding: false,
+            setup: function (editor) {
+                editor.on('change', function () {
+                    tinymce.triggerSave(); // Ensure the form gets updated value
+                });
+            }
+        });
+    });
+</script>
 <script>
     const chooseFile = document.getElementById("choose-file");
     const imgPreview = document.getElementById("img-preview");

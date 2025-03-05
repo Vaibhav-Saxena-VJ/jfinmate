@@ -322,7 +322,7 @@ Route::middleware('isPartner')->group(function () {
     //profile
     Route::get('/partner/profile', [ProfileController::class, 'showPartnerProfile'])->name('partner.profile');
     Route::post('/partner/profile/update', [ProfileController::class, 'updatePartnerProfile'])->name('partner.updateProfile');
-
+    Route::post('/tinymce/upload', [PropertyController::class, 'uploadTinyMCEImage'])->name('tinymce.upload');
 });
 
 Route::post('/toggle-featured', [PropertyController::class, 'toggleFeatured'])->name('toggleFeatured');    
