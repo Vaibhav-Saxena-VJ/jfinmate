@@ -23,6 +23,7 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PropertyTakerController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\TinyMCEController;
 use Illuminate\Support\Facades\Route;
 use App\Exports\EligibilityExport;
@@ -84,6 +85,13 @@ Route::get('msme-loan', [FrontendController::class, 'MSMELoanView']);
 
 Route::get('/blog-detail', function () {
     return view('frontend.blog-details');
+});
+//blog crud
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('categories', BlogCategoryController::class);
+    Route::resource('blogs', BlogController::class);
 });
 
 Route::post('search_properties', [FrontendController::class, 'search_properties'])->name('search_properties');
