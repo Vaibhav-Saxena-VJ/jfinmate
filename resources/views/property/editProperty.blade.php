@@ -4,6 +4,7 @@
     JFS | Update Property
 @endsection
 @section('content')
+
 @parent
 
 <style>
@@ -134,13 +135,13 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-    <div class="mb-3">
-        <label class="form-label">Property Description</label>
-        <textarea name="property_description" id="editor" class="form-control" rows="5">
-            {{ $data['propertie_details'][0]->property_details }}
-        </textarea>
-    </div>
-</div>
+                            <div class="mb-3">
+                                <label class="form-label">Property Description</label>
+                                <textarea name="property_description" id="editor" class="form-control" rows="5">
+                                    {{ $data['propertie_details'][0]->property_details }}
+                                </textarea>
+                            </div>
+                        </div>
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label class="form-label">Property Address</label>
@@ -256,22 +257,38 @@
 
 <!-- Initialize TinyMCE -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        tinymce.init({
-            selector: '#editor',
-            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
-            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
-            height: 300,
-            menubar: true,
-            branding: false,
-            setup: function (editor) {
-                editor.on('change', function () {
-                    tinymce.triggerSave(); // Ensure the form gets updated value
-                });
-            }
-        });
+    tinymce.init({
+        selector: '#editor',  // Change this if your selector is different
+        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
+        toolbar: 'undo redo | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
+        height: 400,
+        menubar: true,
+        branding: false,
+
+        // Apply Poppins font in TinyMCE
+        content_style: `
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+            body { font-family: 'Poppins', sans-serif !important; }
+            p, h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif !important; }
+        `,
+
+        font_formats: 
+            "Poppins=Poppins,sans-serif; " +
+            "Arial=arial,helvetica,sans-serif; " +
+            "Courier New=courier new,courier,monospace; " +
+            "Georgia=georgia,palatino,serif; " +
+            "Times New Roman=times new roman,times,serif; " +
+            "Verdana=verdana,geneva,sans-serif; " +
+            "Comic Sans MS=comic sans ms,sans-serif; ",
+
+        setup: function (editor) {
+            editor.on('init', function () {
+                editor.getBody().style.fontFamily = "Poppins, sans-serif"; // Ensure font applies
+            });
+        }
     });
 </script>
+
 <script>
     const chooseFile = document.getElementById("choose-file");
     const imgPreview = document.getElementById("img-preview");

@@ -23,6 +23,7 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PropertyTakerController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\TinyMCEController;
 use Illuminate\Support\Facades\Route;
 use App\Exports\EligibilityExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -400,3 +401,5 @@ Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('banne
 Route::put('/banners/{id}', [BannerController::class, 'update'])->name('banners.update');
 Route::delete('/banners/{id}', [BannerController::class, 'destroy'])->name('banners.destroy');
 
+//text-editor
+Route::post('/upload-tinymce-image', [TinyMCEController::class, 'uploadImage'])->name('tinymce.upload');
