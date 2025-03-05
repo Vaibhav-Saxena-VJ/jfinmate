@@ -264,7 +264,7 @@
                         <h5 class="mb-3" data-wow-delay="0.1s">{{ $localityData['locality'] }}</h5>
                         <div class="row">
                             @foreach($localityData['properties'] as $property)
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-6 col-xs-12">
                                     <p class="h6 text-primary">{{ $property->builder_name }}</p>
                                     <img src="{{ $property->image }}" class="img-fluid mb-2" alt="{{ $property->title }}" style="height:125px;">
                                     <p class="text-muted">{{ $property->title }}</p>
@@ -345,15 +345,17 @@
                         ]
                     ]; 
 
-                    $chunks = array_chunk($properties, 4); // Splitting into sets of 4 per carousel item
+                    $isMobile = isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile|android|touch|webos|iphone|ipad/i', strtolower($_SERVER['HTTP_USER_AGENT']));
+                    $chunkSize = $isMobile ? 1 : 4; // 1 card per slide on mobile, 4 per slide on desktop
+                    $chunks = array_chunk($properties, $chunkSize);
                     $first = true; 
                 ?>
                 
                 @foreach($chunks as $chunk)
                     <div class="carousel-item {{ $first ? 'active' : '' }}">
-                        <div class="row g-4">
+                        <div class="row d-flex justify-content-center">
                             @foreach($chunk as $property)
-                                <div class="col-md-3">
+                                <div class="col-12 col-md-3"> <!-- 1 card on mobile, 4 per slide on desktop -->
                                     <a href="{{ $property['link'] }}" target="_blank">
                                         <div class="blog-item shadow-sm rounded">
                                             <div class="blog-img position-relative">
@@ -408,10 +410,16 @@
 
         <div id="featuredPropertyCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <?php $first = true; ?>
-                @foreach($data['featuredProperties']->chunk(4) as $propertyGroup)
+                <?php 
+                    $isMobile = isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile|android|touch|webos|iphone|ipad/i', strtolower($_SERVER['HTTP_USER_AGENT']));
+                    $chunkSize = $isMobile ? 1 : 4; // 1 card per slide on mobile, 4 per slide on desktop
+                    $propertyChunks = $data['featuredProperties']->chunk($chunkSize);
+                    $first = true;
+                ?>
+
+                @foreach($propertyChunks as $propertyGroup)
                     <div class="carousel-item {{ $first ? 'active' : '' }}">
-                        <div class="row g-4">
+                        <div class="row g-4 d-flex justify-content-center">
                             @foreach($propertyGroup as $v)
                                 <?php 
                                     $img = env('baseURL'). "/" . $v->image;
@@ -422,7 +430,7 @@
                                     $bhk = $v->select_bhk;
                                     $area = $v->area;
                                 ?>
-                                <div class="col-md-3">
+                                <div class="col-12 col-md-3"> <!-- 1 card per slide on mobile, 4 per slide on desktop -->
                                     <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
                                         <div class="blog-item">
                                             <div class="blog-img">
@@ -475,10 +483,16 @@
 
         <div id="AllPropertyCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <?php $first = true; ?>
-                @foreach($data['allProperties']->chunk(4) as $propertyGroup)
+                <?php 
+                    $isMobile = isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile|android|touch|webos|iphone|ipad/i', strtolower($_SERVER['HTTP_USER_AGENT']));
+                    $chunkSize = $isMobile ? 1 : 4; // 1 card per slide on mobile, 4 per slide on desktop
+                    $propertyChunks = $data['allProperties']->chunk($chunkSize);
+                    $first = true;
+                ?>
+
+                @foreach($propertyChunks as $propertyGroup)
                     <div class="carousel-item {{ $first ? 'active' : '' }}">
-                        <div class="row g-4">
+                        <div class="row g-4 d-flex justify-content-center">
                             @foreach($propertyGroup as $v)
                                 <?php 
                                     $img = env('baseURL'). "/" . $v->image;
@@ -489,7 +503,7 @@
                                     $bhk = $v->select_bhk;
                                     $area = $v->area;
                                 ?>
-                                <div class="col-md-3">
+                                <div class="col-12 col-md-3"> <!-- 1 card per slide on mobile, 4 per slide on desktop -->
                                     <a href="{{ url('property-details/'.$v->properties_id) }}" target="_blank">
                                         <div class="blog-item">
                                             <div class="blog-img">
