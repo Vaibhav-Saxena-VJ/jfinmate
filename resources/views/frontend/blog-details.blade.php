@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="about-item-content p-4 mt-3">
+                <div class="about-item-content mt-3">
                     <div class="row g-4">
                         <div class="col-md-12">
                             <div class="property_block_wrap style-2">
