@@ -63,12 +63,12 @@
                                 <div id="clOne" class="panel-collapse collapse show" aria-labelledby="clOne">
                                     <div class="block-body">
                                         <div class="row mt-3">
-                                            <div class="col-md-8">
+                                            <div class="col-10 col-md-8">
                                                 <!-- <p><span class="prop-type">{{ $category }}</span></p> -->
                                                 <p class="h5 mb-0 text-capitalize"><i class="far fa-building"></i> By {{ $builder_name }} <span class="rera"><i class="far fa-check-circle" style="color: #f74400; font-size: 14px;"></i> RERA:  {{ $rera }}</span></h4>
                                                 <p class="mb-0"><i class="fa-duotone fa-solid fa-location-dot"></i> {{ $address }}</p>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-9 col-md-4">
                                                 <p class="float-end mb-1">Last Updated: {{ \Carbon\Carbon::parse($v->created_at)->format('M d, Y') }}</p>
                                                 <h4 class="prt-price-fix float-end">₹{{ number_format($s_price, 0, '.', ',') }}* Onwards</h4> 
                                             </div>
@@ -98,7 +98,7 @@
                                     <div class="block-body">
                                         <div class="row g-3">  <!-- Added Bootstrap's gutter spacing -->
                                             @if(!empty($area))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Carpet Area:</strong> {{$area}} sqft
                                                     </div>
@@ -106,7 +106,7 @@
                                             @endif
 
                                             @if(!empty($builtup_area))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Builtup Area:</strong> {{$builtup_area}} sqft
                                                     </div>
@@ -114,7 +114,7 @@
                                             @endif
 
                                             @if(!empty($floor))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Floor:</strong> {{$floor}}
                                                     </div>
@@ -122,7 +122,7 @@
                                             @endif
 
                                             @if(!empty($beds))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Bedrooms:</strong> {{$beds}}
                                                     </div>
@@ -130,7 +130,7 @@
                                             @endif
 
                                             @if(!empty($baths))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Bathrooms:</strong> {{$baths}}
                                                     </div>
@@ -138,7 +138,7 @@
                                             @endif
 
                                             @if(!empty($balconies))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Balconies:</strong> {{$balconies}}
                                                     </div>
@@ -146,7 +146,7 @@
                                             @endif
 
                                             @if(!empty($parking))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Parking:</strong> {{$parking}}
                                                     </div>
@@ -154,7 +154,7 @@
                                             @endif
 
                                             @if(!empty($land_type))
-                                                <div class="col-md-4">
+                                                <div class="col-6 col-md-4">
                                                     <div class="card p-3 border rounded shadow-sm">
                                                         <strong>Property Type:</strong> {{$land_type}}
                                                     </div>
