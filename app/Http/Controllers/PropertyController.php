@@ -296,84 +296,110 @@ public function allProperties()
         return view('property.editProperty', compact('data'));
     }
     public function updatePropertie(Request $request) {
-        $propertie_id = $request->propertie_id;
-    
-        // Fetching old images and boucher
-        $property = DB::table('properties')->where('properties_id', $propertie_id)->first();
-        $old_image = $property->image;
-        $old_boucher = $property->boucher;
-    
-        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
-        $property_image_name = substr(str_shuffle($permitted_chars), 0, 8);
-    
-        // Handle property image upload
-        if ($request->hasFile('property_image')) {
-            $property_image_name = substr(str_shuffle($permitted_chars), 0, 8) . time() . '.' . $request->property_image->extension();
-            // Move the uploaded image to the public directory
-            $request->property_image->move(public_path('property_photoes'), $property_image_name);
-        } else {
-            // Keep the old image if no new one is uploaded
-            $property_image_name = $old_image;
-        }
-    
-        // Handle property voucher upload
-        $boucher_name = substr(str_shuffle($permitted_chars), 0, 8);
-        if ($request->hasFile('property_voucher')) {
-            $property_voucher = "property_bouchers/" . $boucher_name . time() . '.' . $request->property_voucher->extension();
-            $request->property_voucher->move(public_path('property_bouchers'), $property_voucher);
-        } else {
-            // Keep the old boucher if no new one is uploaded
-            $property_voucher = $old_boucher;
-        }
-    
-        // Update property details in the database
-        $updateProperty = [
-            'title' => $request->property_title,
-            'property_type_id' => $request->property_type_id,
-            'builder_name' => $request->builder_name,
-            's_price' => $request->s_price,
-            'select_bhk' => $request->select_bhk,
-            'property_details' => $request->property_description,
-            'address' => $request->property_address,
-            'email' => $request->email_id,
-            'contact' => $request->contact_number,
-            'price_range_id' => $request->price_range,
-            'creator_id' => $request->creator_id,
-            'image' => $property_image,
-            'boucher' => $property_voucher,
-            'facilities' => $request->amenities,
-            'area' => $request->area,
-            'builtup_area' => $request->builtup_area,
-            'city' => $request->city,
-            'rera' => $request->rera,
-            'beds' => $request->beds,
-            'baths' => $request->baths,
-            'balconies' => $request->balconies,
-            'parking' => $request->parking,
-            'localities' => $request->localities,
-            'location' => $request->location,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-            'land_type' => $request->land_type,
-        ];
-    
         try {
-            // Activity logs
-            $username = Session::get('username');
-            $user_id = Session::get('user_id');
-            $details = "Property Updated successfully by " . $username;
-            app(UsersController::class)->insertActivityLogs($user_id, $details);
+            // Validate request
+            $request->validate([
+                'propertie_id' => 'required|integer|exists:properties,properties_id',
+                'property_title' => 'required|string|max:255',
+                'property_type_id' => 'required|integer',
+                'builder_name' => 'nullable|string|max:255',
+                's_price' => 'nullable|numeric',
+                'select_bhk' => 'nullable|integer',
+                'property_description' => 'nullable|string',
+                'property_address' => 'nullable|string',
+                'email_id' => 'nullable|email|max:255',
+                'contact_number' => 'nullable|string|max:255',
+                'price_range' => 'nullable|integer',
+                'creator_id' => 'nullable|integer',
+                'property_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+                'property_voucher' => 'nullable|mimes:pdf|max:4096',
+                'latitude' => 'nullable|numeric',
+                'longitude' => 'nullable|numeric',
+            ]);
     
-            // Update property information in the database
-            DB::table('properties')->where('properties_id', $propertie_id)->update($updateProperty);
+            $propertie_id = $request->propertie_id;
     
-            // Handle multiple images update
+            // Fetch property
+            $property = DB::table('properties')->where('properties_id', $propertie_id)->first();
+            if (!$property) {
+                return response()->json(['status' => 0, 'msg' => 'Property not found']);
+            }
+    
+            // Store old image and voucher
+            $old_image = $property->image;
+            $old_boucher = $property->boucher;
+    
+            // Generate new filenames
+            $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+            $property_image_name = $old_image;
+            $boucher_name = $old_boucher;
+    
+            // Handle Property Image Upload
+            if ($request->hasFile('property_image')) {
+                $property_image_name = substr(str_shuffle($permitted_chars), 0, 8) . time() . '.' . $request->property_image->extension();
+                $request->property_image->move(public_path('property_photoes'), $property_image_name);
+            }
+    
+            // Handle Boucher Upload
+            if ($request->hasFile('property_voucher')) {
+                $boucher_name = "property_bouchers/" . substr(str_shuffle($permitted_chars), 0, 8) . time() . '.' . $request->property_voucher->extension();
+                $request->property_voucher->move(public_path('property_bouchers'), $boucher_name);
+            }
+    
+            // Prepare update data
+            $updateProperty = [
+                'title' => $request->property_title,
+                'property_type_id' => $request->property_type_id,
+                'builder_name' => $request->builder_name ?? '',
+                's_price' => $request->s_price ?? 0,
+                'select_bhk' => $request->select_bhk ?? 0,
+                'property_details' => $request->property_description ?? '',
+                'address' => $request->property_address ?? '',
+                'email' => $request->email_id ?? '',
+                'contact' => $request->contact_number ?? '',
+                'price_range_id' => $request->price_range ?? 0,
+                'creator_id' => $request->creator_id ?? 0,
+                'image' => $property_image_name,
+                'boucher' => $boucher_name,
+                'facilities' => $request->amenities ?? '',
+                'area' => $request->area ?? 0,
+                'builtup_area' => $request->builtup_area ?? 0,
+                'city' => $request->city ?? '',
+                'rera' => $request->rera ?? '',
+                'beds' => $request->beds ?? 0,
+                'baths' => $request->baths ?? 0,
+                'balconies' => $request->balconies ?? 0,
+                'parking' => $request->parking ?? 0,
+                'localities' => $request->localities ?? '',
+                'location' => $request->location ?? '',
+                'latitude' => $request->latitude ?? 0,
+                'longitude' => $request->longitude ?? 0,
+                'land_type' => $request->land_type ?? '',
+                'updated_at' => now()
+            ];
+    
+            // Start transaction
+            DB::beginTransaction();
+    
+            // Debugging: Print Update Query
+            DB::enableQueryLog();
+    
+            // Perform update
+            $affectedRows = DB::table('properties')->where('properties_id', $propertie_id)->update([
+                'property_details' => $request->property_description, // Ensure data is sent
+                'updated_at' => now()
+            ]);
+            
+            if ($affectedRows === 0) {
+                return response()->json(['status' => 0, 'msg' => 'No changes detected!']);
+            }
+    
+            // Handle multiple images upload
             if ($request->hasFile('additional_images')) {
                 foreach ($request->file('additional_images') as $image) {
                     $imageName = "property_photoes/" . time() . rand(1000, 9999) . '.' . $image->extension();
                     $image->move(public_path('property_photoes'), $imageName);
     
-                    // Insert the new image record into the database
                     DB::table('property_images')->insert([
                         'properties_id' => $propertie_id,
                         'image_url' => $imageName,
@@ -383,12 +409,24 @@ public function allProperties()
                 }
             }
     
-            return response()->json(['status' => 1, 'msg' => 'Property information updated successfully!']);
+            // Commit transaction
+            DB::commit();
+    
+            // Insert activity logs
+            $username = Session::get('username', 'Unknown User');
+            $user_id = Session::get('user_id', 0);
+            $details = "Property Updated successfully by " . $username;
+            app(UsersController::class)->insertActivityLogs($user_id, $details);
+    
+            return response()->json(['status' => 1, 'msg' => 'Property updated successfully!', 'query' => DB::getQueryLog()]);
+    
         } catch (\Exception $e) {
-            return response()->json(['status' => 0, 'msg' => 'Error updating property: ' . $e->getMessage()]);
+            DB::rollBack();
+            return response()->json(['status' => 0, 'msg' => 'Error: ' . $e->getMessage()]);
         }
     }
-
+    
+    
 
     public function deletePropertie(Request $request){
           //activity logs
@@ -411,7 +449,18 @@ public function allProperties()
             dd($e->getMessage());
         }
     }
-
+    public function uploadTinyMCEImage(Request $request) {
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/tinymce'), $filename);
+            $url = asset('uploads/tinymce/' . $filename);
+    
+            return response()->json(['location' => $url]);
+        }
+        
+        return response()->json(['error' => 'Image upload failed'], 400);
+    }
     public function getLocalities()
     {
         $localities = DB::table('localities')->get();
