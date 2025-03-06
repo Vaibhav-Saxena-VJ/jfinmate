@@ -171,6 +171,7 @@ public function allProperties()
 
     // Fetch All Properties (Curated)
     $data['allProperties'] = $query->paginate(50);
+    
 
     // Fetch Only Featured Properties
     $data['featuredProperties'] = DB::table('properties')

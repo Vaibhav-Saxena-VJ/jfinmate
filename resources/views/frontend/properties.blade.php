@@ -778,25 +778,32 @@
             </p>
         </div>
         <div class="row g-4 justify-content-center">
-            <div class="col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="{{ asset('theme') }}/frontend/img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
-                        <div class="blog-categiry bg-dark py-2 px-4">
-                            <span>Business</span>
+            @foreach ($blogs as $blog)
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                        <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid blogs-image" alt="{{ $blog->title }}">
+
+                            <div class="blog-categiry bg-dark py-2 px-4">
+                            <span>{{ $blog->category_name }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="blog-content p-4">
-                        <div class="blog-comment d-flex justify-content-between mb-3">
-                            <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
-                            <!-- <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div> -->
+                        <div class="blog-content p-4">
+                            <div class="blog-comment d-flex justify-content-between mb-3">
+                                <div class="small">
+                                <span class="fa fa-calendar text-primary"></span> {{ \Carbon\Carbon::parse($blog->created_at)->format('d M Y') }}                                </div>
+                            </div>
+                            <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="h5 d-inline-block">
+                                {{ Str::limit($blog->title, 40) }}
+                            </a>
+                            <p class="mb-3">{!! Str::limit($blog->description, 150) !!}</p>
+                            <a href="#" class="btn p-0">
+                                Read More <i class="fa fa-arrow-right"></i>
+                            </a>
                         </div>
-                        <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down bills</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
