@@ -185,7 +185,7 @@
                     <div id="collapseBlog" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Blog Management:</h6>
-                            <a class="collapse-item" href="{{ route('admin.blogs.index') }}">blogs</a>
+                            <a class="collapse-item" href="{{ route('admin.blogs.index') }}">Blogs</a>
                             <a class="collapse-item" href="{{ route('admin.blogs.create') }}">Add Blog</a>
                         </div>
                     </div>
@@ -215,7 +215,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLeads"
                         aria-expanded="true" aria-controls="collapseLeads">
                         <i class="fas fa-fw fa-tasks custom-icon"></i>
-                        <span>Web Form & Leads</span>
+                        <span>Lead Management</span>
                     </a>
                     <div id="collapseLeads" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">

@@ -141,4 +141,11 @@ class BlogController extends Controller {
 
         return redirect()->route('admin.blogs.index')->with('success', 'Blog created.');
     }
+    public function toggleStatus($id) {
+        $blog = Blog::findOrFail($id);
+        $blog->is_active = !$blog->is_active;
+        $blog->save();
+    
+        return redirect()->back()->with('success', 'Blog status updated successfully.');
+    }
 }
