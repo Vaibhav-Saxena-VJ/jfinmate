@@ -12,7 +12,7 @@ class Blog extends Model
     protected $fillable = [
         'title', 'slug', 'description', 'image',
         'category_id', 'meta_title', 'meta_keyword',
-        'meta_description', 'published_at', 'status'
+        'meta_description', 'published_at', 'status', 'is_featured', 'latest'
     ];
 
     protected static function boot() {
@@ -25,5 +25,15 @@ class Blog extends Model
 
     public function category() {
         return $this->belongsTo(BlogCategory::class, 'category_id');
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', true);
+    }
+
+    public function scopeLatestBlogs($query)
+    {
+        return $query->where('latest', true);
     }
 }

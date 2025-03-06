@@ -12,7 +12,50 @@ class BlogController extends Controller {
         $blogs = Blog::where('status', 'published')->paginate(10);
         return view('blogs.index', compact('blogs'));
     }
- 
+    public function edit($id) {
+        $blog = Blog::findOrFail($id);
+        $categories = BlogCategory::all();
+        return view('blogs.edit', compact('blog', 'categories'));
+    }
+    public function update(Request $request, $id) {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_featured' => 'nullable|boolean',
+            'latest' => 'nullable|boolean',
+        ]);
+    
+        $blog = Blog::findOrFail($id);
+    
+        // Handle image update
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($blog->image) {
+                Storage::disk('public')->delete($blog->image);
+            }
+            $imagePath = $request->file('image')->store('blogs', 'public');
+        } else {
+            $imagePath = $blog->image;
+        }
+    
+        $blog->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+            'image' => $imagePath,
+            'meta_title' => $request->meta_title,
+            'meta_keyword' => $request->meta_keyword,
+            'meta_description' => $request->meta_description,
+            'status' => $request->status,
+            'is_featured' => $request->has('is_featured'),
+            'latest' => $request->has('latest'),
+        ]);
+    
+        return redirect()->route('admin.blogs.index')->with('success', 'Blog updated successfully.');
+    }
     public function showById($id) {
         $blog = Blog::join('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
                     ->where('blogs.id', $id)
@@ -38,6 +81,8 @@ class BlogController extends Controller {
             'description' => 'required',
             'category_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_featured' => 'nullable|boolean',
+            'latest' => 'nullable|boolean',
         ]);
 
         $imagePath = $request->file('image') ? $request->file('image')->store('blogs', 'public') : null;
