@@ -89,7 +89,7 @@ Edit Blog
                         <label>Blog Image</label>
                         @if(isset($blog->image) && !empty($blog->image))
                             <div class="mb-2">
-                                <img src="{{ asset('uploads/blogs/' . $blog->image) }}" alt="Blog Image" width="150">
+                                <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid rounded w-100" alt="{{ $blog->title }}" width="150">
                             </div>
                         @endif
                         <input type="file" name="image" class="form-control">

@@ -16,7 +16,7 @@
                             <div class="thumbnail_slider">
                                 <!-- Primary Slider Start-->
                                 <div id="primary_slider">
-                                    <img src="{{ asset('theme') }}/frontend/img/banner-1.png" class="img-fluid rounded w-100" alt="Additional Property Image">
+                                    <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid rounded w-100" alt="{{ $blog->title }}">
                                 </div>
                                 <!-- Primary Slider End-->
                             </div>
@@ -28,7 +28,7 @@
                                         <div class="row mt-3">
                                             <div class="col-md-10">
                                                 <p class="mb-1">Published On: 03/03/2025</p> 
-                                                <p class="h3 mb-0 text-capitalize">{{ $blog->title }}</h4>
+                                                <p class="h2 mb-0 text-capitalize fw-bold">{{ $blog->title }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -43,11 +43,7 @@
                         <div class="col-md-12">
                             <div class="property_block_wrap style-2">
                                 <div class="block-body">
-                                    <h2>Introduction:</h2>
-                                    <p>Selling a house for cash can be overwhelming, especially when you need to close quickly. At DNT Home Buyers, We Buy Houses Fast New Jersey for cash, ensuring a fast and hassle-free process. Whether you’re facing foreclosure or divorce, or want to sell without the headaches of traditional real estate transactions, we are here to help.</p>
-                                    <p>Last year, after receiving feedback from surveys and customer interviews, Realtor.com’s Enterprise Systems team was challenged to clarify our billing models for our customers. Internally, we were able to report on most of these questions and provide answers; however, customer self-service options were limited.</p>
-                                    <p>Customers could access some billing information by accessing Account Statements and Invoices through their Product & Billing Portal. Although these documents had been revised a few times to mirror bank statements and other industry-standard documents, they still didn’t exist in a format that met customers’ needs.</p>
-                                    <p>For example, the Account Statements and Invoices presented a running list of information in chronological order, which was often confusing and generated more questions than answers. Also, for larger customers, these documents could be many pages long without a clear summary to provide the information they need. To solve this problem, our business stakeholders came to us with a new proposal to modify the current Account Statements and Invoices. The new format would need to provide summary-level information and enable customers to drill down into specific data items. </p>
+                                    {!! $blog->description !!}
                                 </div>
                             </div>
                         </div>
@@ -150,45 +146,37 @@
                 </div>
                 <div class="bg-white rounded p-3 mt-3 shadow-sm">
                     <div class="row g-4 justify-content-center">
-                        <div class="col-12">
-                            <h5 class="mb-0">Featured Properties</h5><hr class="mt-2">
-                            <!-- Brochure Box with Image -->
-                            <div class="row align-items-center">
-                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                <div class="col-md-7">
-                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
-                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                <div class="col-md-7">
-                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
-                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                <div class="col-md-7">
-                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
-                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                <div class="col-md-7">
-                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
-                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-md-5"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                <div class="col-md-7">
-                                    <p class="mb-0">Luxaury Hilux<br>By Myntra</p>
-                                    <p class="mb-0"><a href="#"><small><em>View More <i class="fas fa-long-arrow-right"></i></em></small></a></p>
-                                </div>
-                            </div>
-                        </div>
+                    <?php if(isset($data['featuredProperties']) && count($data['featuredProperties']) > 0): ?>
+    <div class="col-12">
+        <h5 class="mb-0">Featured Properties</h5>
+        <hr class="mt-2">
+        
+        <?php foreach ($data['featuredProperties'] as $v): ?>
+            <?php 
+                $img = env('baseURL'). "/" . $v->image;
+                $title = $v->title;
+                $builder_name = $v->builder_name;
+            ?>
+            
+            <div class="row align-items-center mb-3">
+                <div class="col-md-5">
+                    <img src="<?php echo $img; ?>" class="trendy-blog img-fluid" alt="<?php echo $title; ?>">
+                </div>
+                <div class="col-md-7">
+                    <p class="mb-0"><?php echo $title; ?><br>By <?php echo $builder_name; ?></p>
+                    <p class="mb-0">
+                        <a href="<?php echo url('property-details/'.$v->properties_id); ?>" target="_blank">
+                            <small><em>View More <i class="fas fa-long-arrow-right"></i></em></small>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <p>No featured properties available.</p>
+<?php endif; ?>
+
                     </div>
                 </div>
             </div>
