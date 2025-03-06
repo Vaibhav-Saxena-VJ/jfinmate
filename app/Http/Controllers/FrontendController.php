@@ -325,11 +325,12 @@ class FrontendController extends Controller
         ->select('localities.id', 'localities.name')
         ->limit(3)
         ->get();
-        $blogs = DB::table('blogs')
-        ->join('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
-        ->where('blogs.status', 'published')
-        ->select('blogs.*', 'blog_categories.name as category_name')
-        ->paginate(10);
+        
+        $data['blogs'] = DB::table('blogs')
+            ->join('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
+            ->where('blogs.status', 'published')
+            ->select('blogs.*', 'blog_categories.name as category_name')
+            ->paginate(10);
     // Fetch **Properties for Each Selected Locality (First 2 Properties)**
         $data['selectedLocalities'] = [];
             foreach ($selectedLocalities as $locality) {
@@ -359,7 +360,7 @@ class FrontendController extends Controller
                     'properties' => $properties
                 ];
             }
-        return view('frontend.properties', compact('data','blogs'));
+        return view('frontend.properties', compact('data'));
     }
         
     public function search_properties(Request $request)

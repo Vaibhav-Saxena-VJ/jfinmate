@@ -94,91 +94,64 @@
                     <div class="row g-4 justify-content-center">
                         <div class="sides-widget">
                             <div class="sides-widget-header">
-                                <!-- <div class="agent-photo">
-                                    <img src="{{ asset('theme/frontend/img/contact-avatar.png') }}" alt="Jfinmate">
-                                    
-                                </div> -->
                                 <div class="sides-widget-details">
                                     <h4>Trending Blogs</h4>
-                                    <!-- <a href="tel:+17817548182"><span><i class="lni-phone-handset"></i> +17817548182</span></a> -->
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="sides-widget-body simple-form">
-                                <div class="row align-items-center">
-                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                    <div class="col-md-8">
-                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
-                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
+                                @foreach($featuredBlogs as $featuredBlog)
+                                    <div class="row align-items-center mt-2">
+                                        <div class="col-md-5">
+                                            <img src="{{ asset('storage/' . $blog->image) }}" class="trendy-blog img-fluid" alt="{{ $blog->title }}">
+                                        </div>
+                                        <div class="col-md-7">
+                                            <p class="mb-0"><a href="{{ route('blogs.showById', ['id' => $blog->id]) }}">{{ $featuredBlog->title }}</a></p>
+                                            <p class="mb-0"><small><em>{{ $featuredBlog->created_at->format('F d, Y') }}</em></small></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row align-items-center mt-2">
-                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                    <div class="col-md-8">
-                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
-                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mt-2">
-                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                    <div class="col-md-8">
-                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
-                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mt-2">
-                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                    <div class="col-md-8">
-                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
-                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mt-2">
-                                    <div class="col-md-4"><img src="https://img.staticmb.com/mbcontent/images/uploads/2024/1/pay-rent-using-a-credit-card-online.jpg" class="trendy-blog" alt="Additional Property Image"></div>
-                                    <div class="col-md-8">
-                                        <p class="mb-0">Top 10 Best Properties Near Pune</p>
-                                        <p class="mb-0"><small><em>January 25, 2025</em></small></p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>                            
                     </div>
                 </div>
+
+                
                 <div class="bg-white rounded p-3 mt-3 shadow-sm">
                     <div class="row g-4 justify-content-center">
-                    <?php if(isset($data['featuredProperties']) && count($data['featuredProperties']) > 0): ?>
-    <div class="col-12">
-        <h5 class="mb-0">Featured Properties</h5>
-        <hr class="mt-2">
-        
-        <?php foreach ($data['featuredProperties'] as $v): ?>
-            <?php 
-                $img = env('baseURL'). "/" . $v->image;
-                $title = $v->title;
-                $builder_name = $v->builder_name;
-            ?>
-            
-            <div class="row align-items-center mb-3">
-                <div class="col-md-5">
-                    <img src="<?php echo $img; ?>" class="trendy-blog img-fluid" alt="<?php echo $title; ?>">
-                </div>
-                <div class="col-md-7">
-                    <p class="mb-0"><?php echo $title; ?><br>By <?php echo $builder_name; ?></p>
-                    <p class="mb-0">
-                        <a href="<?php echo url('property-details/'.$v->properties_id); ?>" target="_blank">
-                            <small><em>View More <i class="fas fa-long-arrow-right"></i></em></small>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-<?php else: ?>
-    <p>No featured properties available.</p>
-<?php endif; ?>
-
+                        <?php if(isset($featuredProperties) && count($featuredProperties) > 0): ?>
+                        <div class="col-12">
+                            <h5 class="mb-0">Featured Properties</h5>
+                            <hr class="mt-2">
+                            
+                            <?php foreach ($featuredProperties as $v): ?>
+                                <?php 
+                                    $img = $v->image;
+                                    $title = $v->title;
+                                    $builder_name = $v->builder_name;
+                                ?>
+                                
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-md-5">
+                                        <img src="<?php echo $img; ?>" class="trendy-blog img-fluid" alt="<?php echo $title; ?>">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p class="mb-0"><?php echo $title; ?><br>By <?php echo $builder_name; ?></p>
+                                        <p class="mb-0">
+                                            <a href="<?php echo url('property-details/'.$v->properties_id); ?>" target="_blank">
+                                                <small><em>View More <i class="fas fa-long-arrow-right"></i></em></small>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php else: ?>
+                            <p>No featured properties available.</p>
+                        <?php endif; ?>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
