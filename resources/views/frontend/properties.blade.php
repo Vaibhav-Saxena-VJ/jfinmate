@@ -775,38 +775,45 @@
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">From Blog</h4>
             <h2 class="display-4 mb-4">News And Updates</h2>
-            </p>
         </div>
-        <div class="row g-4 justify-content-center">
-            @foreach ($blogs as $blog)
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                        <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid blogs-image" alt="{{ $blog->title }}">
 
-                            <div class="blog-categiry bg-dark py-2 px-4">
-                            <span>{{ $blog->category_name }}</span>
+        <div class="row g-4 justify-content-center">
+            @if(isset($data['blogs']) && $data['blogs']->count() > 0)
+                @foreach ($data['blogs'] as $blog)
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid blogs-image" alt="{{ $blog->title }}">
+                                <div class="blog-categiry bg-dark py-2 px-4">
+                                    <span>{{ $blog->category_name }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small">
-                                <span class="fa fa-calendar text-primary"></span> {{ \Carbon\Carbon::parse($blog->created_at)->format('d M Y') }}                                </div>
+
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small">
+                                        <span class="fa fa-calendar text-primary"></span> 
+                                        {{ \Carbon\Carbon::parse($blog->created_at)->format('d M Y') }}
+                                    </div>
+                                </div>
+                                <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="h5 d-inline-block">
+                                    {{ Str::limit($blog->title, 40) }}
+                                </a>
+                                <p class="mb-3">{!! Str::limit(strip_tags($blog->description), 100) !!}</p>
+                                <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="btn p-0">
+                                    Read More <i class="fa fa-arrow-right"></i>
+                                </a>
                             </div>
-                            <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="h5 d-inline-block">
-                                {{ Str::limit($blog->title, 40) }}
-                            </a>
-                            <p class="mb-3">{!! Str::limit($blog->description, 150) !!}</p>
-                            <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="btn p-0">
-                                Read More <i class="fa fa-arrow-right"></i>
-                            </a>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @else
+                <p class="text-center">No blog posts available.</p>
+            @endif
         </div>
     </div>
 </div>
+
 
 <div id="search_data"></div>
     
