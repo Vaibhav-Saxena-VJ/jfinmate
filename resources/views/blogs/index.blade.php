@@ -26,31 +26,39 @@ All Blogs
         <div class="card pt-3">
             <div class="card-body">
                 <div class="table-responsive" id="user_table_container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        @foreach ($blogs as $blog)
+                <table class="table">
+                    <thead>
                         <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($blogs as $index => $blog)
+                        <tr>
+                            <td>{{ $index + 1 }}.</td>
                             <td>{{ $blog->title }}</td>
                             <td>{{ $blog->category->name }}</td>
                             <td>{{ ucfirst($blog->status) }}</td>
                             <td>
-                                <a href="{{ route('admin.blogs.edit', $blog->id) }}">Edit</a> |
+                                <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-warning">
+                                    <i class="far fa-edit"></i>
+                                </a>
                                 <form action="{{ route('admin.blogs.destroy', $blog->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
                                 </form>
                             </td>
                         </tr>
                         @endforeach
-                    </table>
+                    </tbody>
+                </table>
 
                     {{ $blogs->links() }}
                 </div>
