@@ -85,7 +85,7 @@ Route::get('msme-loan', [FrontendController::class, 'MSMELoanView']);
 
 Route::get('/blog-detail', function () {
     return view('frontend.blog-details');
-});
+})->name('blog.detail');;
 //blog crud
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
@@ -93,6 +93,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', BlogCategoryController::class);
     Route::resource('blogs', BlogController::class);
 });
+Route::get('/blogs/id/{id}', [BlogController::class, 'showById'])->name('blogs.showById');
 
 Route::post('search_properties', [FrontendController::class, 'search_properties'])->name('search_properties');
 

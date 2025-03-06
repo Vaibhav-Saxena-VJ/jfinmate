@@ -13,11 +13,13 @@ class BlogController extends Controller {
         return view('blogs.index', compact('blogs'));
     }
  
+    public function showById($id) {
+        $blog = Blog::join('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
+                    ->where('blogs.id', $id)
+                    ->select('blogs.*', 'blog_categories.name as category_name')
+                    ->firstOrFail();
     
-    public function edit($id) {
-        $blog = Blog::findOrFail($id);
-        $categories = BlogCategory::all();
-        return view('blogs.edit', compact('blog', 'categories'));
+        return view('blogs.show', compact('blog'));
     }
 
     public function show($slug) {
