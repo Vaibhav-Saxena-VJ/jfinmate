@@ -94,7 +94,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('blogs', BlogController::class);
 });
 Route::get('/blogs/id/{id}', [BlogController::class, 'showById'])->name('blogs.showById');
-
+Route::patch('/admin/blogs/{id}/toggle-status', [BlogController::class, 'toggleStatus'])->name('admin.blogs.toggleStatus');
 Route::post('search_properties', [FrontendController::class, 'search_properties'])->name('search_properties');
 
 

@@ -33,6 +33,7 @@ All Blogs
                             <th>Title</th>
                             <th>Category</th>
                             <th>Status</th>
+                            <th>Flag<th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -43,6 +44,15 @@ All Blogs
                             <td>{{ $blog->title }}</td>
                             <td>{{ $blog->category->name }}</td>
                             <td>{{ ucfirst($blog->status) }}</td>
+                            <td>
+                                <form action="{{ route('admin.blogs.toggleStatus', $blog->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit" class="btn btn-sm {{ $blog->is_active ? 'btn-success' : 'btn-secondary' }}">
+                                        {{ $blog->is_active ? 'Active' : 'Inactive' }}
+                                    </button>
+                                </form>
+                            </td>
                             <td>
                                 <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-warning">
                                     <i class="far fa-edit"></i>
