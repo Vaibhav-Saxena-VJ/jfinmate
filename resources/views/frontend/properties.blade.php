@@ -797,7 +797,7 @@
                                 {{ Str::limit($blog->title, 40) }}
                             </a>
                             <p class="mb-3">{!! Str::limit($blog->description, 150) !!}</p>
-                            <a href="#" class="btn p-0">
+                            <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="btn p-0">
                                 Read More <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
