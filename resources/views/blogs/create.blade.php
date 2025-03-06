@@ -60,7 +60,17 @@ Create New Blog
                             <input type="date" class="form-control" name="published_date" value="{{ isset($blog->published_at) ? \Carbon\Carbon::parse($blog->published_at)->format('Y-m-d') : '' }}">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="is_featured" value="1"> Featured Blog
+                        </label>
+                    </div>
 
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="latest" value="1"> Mark as Latest
+                        </label>
+                    </div>
                     <div class="mb-3">
                         <label>Blog Title</label>
                         <input type="text" class="form-control" name="title" value="{{ old('title') }}" required>

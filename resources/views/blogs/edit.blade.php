@@ -66,6 +66,17 @@ Edit Blog
                         <label>Blog Title</label>
                         <input type="text" class="form-control" name="title" value="{{ $blog->title }}" required>
                     </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="is_featured" value="1" {{ $blog->is_featured ? 'checked' : '' }}> Featured Blog
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="latest" value="1" {{ $blog->latest ? 'checked' : '' }}> Mark as Latest
+                        </label>
+                    </div>
 
                     <div class="mb-3">
                         <label>Blog Description</label>
