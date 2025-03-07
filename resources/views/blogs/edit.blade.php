@@ -4,7 +4,7 @@
 Edit Blog
 @endsection
 @section('content')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @parent
 <!-- Breadcrumbs and Search Bar -->
 <div class="card-header py-3">
@@ -116,42 +116,56 @@ Edit Blog
                 </div>
             </div>
         </form>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js"></script>
-
-        <!-- Initialize TinyMCE -->
-        <script>
-            tinymce.init({
-                selector: '#editor',  // Change this if your selector is different
-                plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
-                toolbar: 'undo redo | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
-                height: 400,
-                menubar: true,
-                branding: false,
-
-                // Apply Poppins font in TinyMCE
-                content_style: `
-                    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-                    body { font-family: 'Poppins', sans-serif !important; }
-                    p, h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif !important; }
-                `,
-
-                font_formats: 
-                    "Poppins=Poppins,sans-serif; " +
-                    "Arial=arial,helvetica,sans-serif; " +
-                    "Courier New=courier new,courier,monospace; " +
-                    "Georgia=georgia,palatino,serif; " +
-                    "Times New Roman=times new roman,times,serif; " +
-                    "Verdana=verdana,geneva,sans-serif; " +
-                    "Comic Sans MS=comic sans ms,sans-serif; ",
-
-                setup: function (editor) {
-                    editor.on('init', function () {
-                        editor.getBody().style.fontFamily = "Poppins, sans-serif"; // Ensure font applies
-                    });
-                }
-            });
-        </script>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js"></script>
+
+<script>
+    tinymce.init({
+        selector: '#editor',
+        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
+        toolbar: 'undo redo | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
+        height: 400,
+        menubar: true,
+        branding: false,
+
+        font_formats: "Sans Serif=sans-serif; Arial=arial,helvetica,sans-serif; Times New Roman=times new roman,times,serif; Verdana=verdana,geneva,sans-serif; Courier New=courier new,courier,monospace;",
+
+        content_style: "body { font-family: sans-serif !important; }",
+
+        images_upload_url: '/upload-image',
+        automatic_uploads: false,
+        images_reuse_filename: true,
+        paste_data_images: false,
+
+        images_upload_handler: function (blobInfo, success, failure) {
+            let formData = new FormData();
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+            // Get CSRF token
+            let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            formData.append('_token', csrfToken);
+
+            fetch('/upload-image', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.location) {
+                    let cleanUrl = result.location.replace(/^.*?:\/\//, '');  
+                    success(cleanUrl);
+                } else {
+                    failure('Image upload failed');
+                }
+            })
+            .catch(error => {
+                console.error('Upload error:', error);
+                failure('Image upload failed');
+            });
+        }
+    });
+</script>
+
+
 @endsection

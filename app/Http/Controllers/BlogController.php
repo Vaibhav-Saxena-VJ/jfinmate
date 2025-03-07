@@ -119,7 +119,7 @@ class BlogController extends Controller {
             'title' => 'required',
             'description' => 'required',
             'category_id' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,webp,gif,svg|max:2048',
             'is_featured' => 'nullable|boolean',
             'latest' => 'nullable|boolean',
         ]);

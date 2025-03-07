@@ -9,12 +9,14 @@ class TinyMCEController extends Controller
     public function uploadImage(Request $request)
     {
         if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName()); // Removes special characters
-            $path = 'uploads/tinymce/';
-            $file->move(public_path($path), $filename);
-        
-            return response()->json(['location' => asset($path . $filename)], 200);
+            $image = $request->file('file');
+            $path = $image->store('uploads', 'public'); // Store in `storage/app/public/uploads`
+
+            // Return a clean relative URL
+            return response()->json(['location' => asset('storage/' . $path)]);
         }
+
+        return response()->json(['error' => 'Image upload failed'], 400);
     }
+
 }

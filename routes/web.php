@@ -96,8 +96,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::get('/blogs/id/{id}', [BlogController::class, 'showById'])->name('blogs.showById');
 Route::patch('/admin/blogs/{id}/toggle-status', [BlogController::class, 'toggleStatus'])->name('admin.blogs.toggleStatus');
 Route::post('search_properties', [FrontendController::class, 'search_properties'])->name('search_properties');
-
-
+Route::post('/upload-image', [TinyMCEController::class, 'uploadImage'])->name('image.upload');
 // Loan Application Routes
 Route::get('professional-detail', [FrontendController::class, 'ProfessionalDetailView']);
 
@@ -409,6 +408,3 @@ Route::post('/banners', [BannerController::class, 'store'])->name('banners.store
 Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('banners.edit');
 Route::put('/banners/{id}', [BannerController::class, 'update'])->name('banners.update');
 Route::delete('/banners/{id}', [BannerController::class, 'destroy'])->name('banners.destroy');
-
-//text-editor
-Route::post('/upload-tinymce-image', [TinyMCEController::class, 'uploadImage'])->name('tinymce.upload');
