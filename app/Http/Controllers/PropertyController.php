@@ -316,6 +316,13 @@ public function allProperties()
                 'property_voucher' => 'nullable|mimes:pdf|max:4096',
                 'latitude' => 'nullable|numeric',
                 'longitude' => 'nullable|numeric',
+                'beds' => 'nullable|integer',
+                'baths' => 'nullable|integer',
+                'balconies' => 'nullable|integer',
+                'parking' => 'nullable|integer',
+                'localities' => 'nullable|string',
+                'city' => 'nullable|string',
+                'property_status' => 'nullable|string',
             ]);
     
             $propertie_id = $request->propertie_id;
@@ -376,6 +383,7 @@ public function allProperties()
                 'latitude' => $request->latitude ?? 0,
                 'longitude' => $request->longitude ?? 0,
                 'land_type' => $request->land_type ?? '',
+                'property_status' => $request->property_status ?? 'Default Status',
                 'updated_at' => now()
             ];
     
