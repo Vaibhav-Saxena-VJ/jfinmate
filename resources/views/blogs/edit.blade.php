@@ -137,6 +137,7 @@ Edit Blog
         automatic_uploads: false,
         images_reuse_filename: true,
         paste_data_images: false,
+        images_upload_url: '/upload-image', // Backend route to handle image uploads
 
         images_upload_handler: function (blobInfo, success, failure) {
             let formData = new FormData();

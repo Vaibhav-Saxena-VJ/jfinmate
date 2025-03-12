@@ -265,9 +265,11 @@
                         <div class="row">
                             @foreach($localityData['properties'] as $property)
                                 <div class="col-md-6 col-6 col-xs-12">
-                                    <p class="h6 text-primary">{{ $property->builder_name }}</p>
-                                    <img src="{{ $property->image }}" class="img-fluid mb-2" alt="{{ $property->title }}" style="height:125px;">
-                                    <p class="text-muted">{{ $property->title }}</p>
+                                    <a href="{{ url('property-details/'.$property->properties_id) }}" target="_blank">
+                                        <p class="h6 text-primary">{{ $property->builder_name }}</p>
+                                        <img src="{{ $property->image }}" class="img-fluid mb-2" alt="{{ $property->title }}" style="height:125px;">
+                                        <p class="text-muted">{{ $property->title }}</p>
+                                    </a>
                                 </div>
                             @endforeach
                         </div>
@@ -780,15 +782,16 @@
         <div class="row g-4 justify-content-center">
             @if(isset($data['blogs']) && $data['blogs']->count() > 0)
                 @foreach ($data['blogs'] as $blog)
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid blogs-image" alt="{{ $blog->title }}">
-                                <div class="blog-categiry bg-dark py-2 px-4">
-                                    <span>{{ $blog->category_name }}</span>
+                            <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}">
+                                <div class="blog-img">
+                                    <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid blogs-image" alt="{{ $blog->title }}">
+                                    <div class="blog-categiry bg-dark py-2 px-4">
+                                        <span>{{ $blog->category_name }}</span>
+                                    </div>
                                 </div>
-                            </div>
-
+                            </a>
                             <div class="blog-content p-4">
                                 <div class="blog-comment d-flex justify-content-between mb-3">
                                     <div class="small">
@@ -799,7 +802,7 @@
                                 <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="h5 d-inline-block">
                                     {{ Str::limit($blog->title, 40) }}
                                 </a>
-                                <p class="mb-3">{!! Str::limit(strip_tags($blog->description), 100) !!}</p>
+                                <p class="mb-3">{!! Str::limit(strip_tags($blog->description), 120) !!}</p>
                                 <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="btn p-0">
                                     Read More <i class="fa fa-arrow-right"></i>
                                 </a>

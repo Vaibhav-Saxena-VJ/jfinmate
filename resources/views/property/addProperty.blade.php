@@ -348,6 +348,7 @@
             height: 300,
             menubar: true,
             branding: false,
+            images_upload_url: '/upload-image', // Backend route to handle image uploads
             setup: function (editor) {
                 editor.on('change', function () {
                     tinymce.triggerSave(); // Ensure the form gets updated value
