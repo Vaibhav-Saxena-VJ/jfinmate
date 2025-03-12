@@ -59,7 +59,7 @@
         <!-- Main content -->
         <div class="row">
             <!-- Left side -->
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <!-- Basic information -->
                 <div class="card-body">
                     <div class="row">
@@ -116,24 +116,97 @@
 
                             </div>
                         </div> -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="mb-3">
                                 <label class="form-label">Starting Price</label>
                                 <input type="text" name="s_price" class="form-control" placeholder="Staring price" value="{{ $v->s_price }}" />
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="mb-3">
                                 <label class="form-label">Carpet area</label>
                                 <input type="text" name="area" class="form-control" placeholder="Carpet Area" value="{{ $v->area }}" />
                             </div>
                         </div>
-                        <div class="col-lg-4">
+
+                        <div class="col-lg-3">
                             <div class="mb-3">
                                 <label class="form-label">Built-up area</label>
                                 <input type="text" name="builtup_area" class="form-control" placeholder="Builtup Area" value="{{ $v->builtup_area }}" />
                             </div>
                         </div>
+
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <label class="form-label">Select BHK</label>
+                                <select class="form-control" name="select_bhk">
+                                    <option selected hidden value="{{ $v->select_bhk }}">{{ $v->select_bhk }}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="2 & 3">2 & 3</option>
+                                    <option value="2,3 & 4">2,3 & 4</option>
+                                    <option value="3 & 4">3 & 4</option>
+                                    <option value="3,4 & 5">3,4 & 5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <label class="form-label">Bedrooms</label><span class="text-danger">*</span>
+                                <select class="form-control" name="beds">
+                                    <option selected hidden value="{{ $v->beds }}">{{ $v->beds }}</option>
+                                    <option value="No">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <label class="form-label">Bathrooms</label><span class="text-danger">*</span>
+                                <select class="form-control" name="baths">
+                                    <option selected hidden value="{{ $v->baths }}">{{ $v->baths }}</option>
+                                    <option value="No">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>                                                
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <label class="form-label">Balconies</label><span class="text-danger">*</span>
+                                <select class="form-control" name="balconies">
+                                    <option selected hidden value="{{ $v->baths }}">{{ $v->baths }}</option>
+                                    <option value="No">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>                                                
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <label class="form-label">Parking</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control" name="parking" placeholder="Parking" value="{{ $v->parking }}">
+                            </div>  
+                        </div>
+
                         <div class="col-lg-12">
                             <div class="mb-3">
                                 <label class="form-label">Property Description</label>
@@ -163,7 +236,7 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Latitude</label>
-                                <input type="text" name="latitude" class="form-control" value="{{ $data['propertie_details'][0]->latitude ?? '' }}" placeholder="Latitude" required>
+                                <input type="text" name="latitude" class="form-control" value="{{ $v->latitude}}" placeholder="Latitude" required>
                             </div>
                         </div>
 
@@ -217,7 +290,7 @@
                 </div>
             </div>
             <!-- Right side -->
-            <div class="col-lg-4 pb-3 bg-light">
+            <div class="col-lg-3 bg-light">
                 <div class="card-body">
                     <label class="form-label">Rera No.</label>
                     <input type="text" name="rera" class="form-control" placeholder="Rera No." value="{{ $v->rera }}" />
@@ -252,7 +325,26 @@
                         ?>
                         <?php } ?>
                     </select>
-                </div>  
+                </div> 
+                
+                <div class="mb-3">
+                    @php
+                        $property_status_list = !empty($v->property_status) ? json_decode($v->property_status, true) : [];
+                    @endphp
+
+                    <label class="form-label">Property Status</label>
+                    <select name="property_status" class="form-control" required>
+                        <option value="">Select Status</option>
+                        @if(!empty($property_status_list))
+                            @foreach($property_status_list as $status)
+                                <option value="{{ $status['id'] }}">{{ $status['status_name'] }}</option>
+                            @endforeach
+                        @else
+                            <option value="">No statuses available</option>
+                        @endif
+                    </select>
+                </div>
+
                 
                 <div class="card-body">
                     <label for="amenities"><strong>Select Amenities:</strong></label><br>
