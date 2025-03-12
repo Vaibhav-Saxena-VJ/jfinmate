@@ -240,14 +240,57 @@ class FrontendController extends Controller
         return view('frontend.termcond');
     }
 
-    public function PropDetailsView($property_id){
-        $data['propertie_details'] = DB::select('select * from properties as p, price_range as pr, property_category as pc where 
-        p.price_range_id = pr.range_id and pc.pid = p.property_type_id and p.properties_id =' . $property_id);
-        $data['additional_images'] = DB::table('property_images')
-        ->where('properties_id', $property_id)
-        ->get();
-
-        return view('frontend.property-details-test',compact('data'));
+    public function PropDetailsView($property_id) {
+        // Fetch the main property details
+        $propertyDetails = DB::select('
+            SELECT * FROM properties as p
+            JOIN price_range as pr ON p.price_range_id = pr.range_id
+            JOIN property_category as pc ON pc.pid = p.property_type_id
+            WHERE p.properties_id = ?', [$property_id]);
+    
+        if (empty($propertyDetails)) {
+            abort(404); // Property not found
+        }
+    
+        // Extract locality from the fetched property
+        $locality = $propertyDetails[0]->localities;
+    
+        // Fetch additional images
+        $additionalImages = DB::table('property_images')
+            ->where('properties_id', $property_id)
+            ->get();
+    
+        // Fetch properties from the same locality, excluding the current property
+        $localityProperties = DB::table('properties')
+            ->where('localities', $locality)
+            ->where('properties_id', '!=', $property_id)
+            ->where('is_active', 1)
+            ->select('properties_id', 'title', 'builder_name', 'address', 'select_bhk', 'area')
+            ->limit(10) // Limit to 10 for better performance
+            ->get();
+    
+        // Fetch images for locality properties
+        $propertyImages = DB::table('property_images')
+            ->whereIn('properties_id', $localityProperties->pluck('properties_id'))
+            ->select('properties_id', 'image_url')
+            ->get()
+            ->groupBy('properties_id');
+    
+        // Assign images to each locality property
+        foreach ($localityProperties as $localityProperty) {
+            $localityProperty->image = isset($propertyImages[$localityProperty->properties_id])
+                ? $propertyImages[$localityProperty->properties_id]->first()->image_url
+                : 'default.jpg';
+        }
+    
+        // Pass data to view
+        $data = [
+            'propertie_details' => $propertyDetails,
+            'additional_images' => $additionalImages,
+            'localityProperties' => $localityProperties
+        ];
+    
+        return view('frontend.property-details-test', compact('data'));
     }
     
     // Loan Application

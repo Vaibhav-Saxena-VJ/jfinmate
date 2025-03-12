@@ -452,6 +452,20 @@
             </div>
         </div>
     </div>
+    <div class="row">
+            @foreach ($data['localityProperties'] as $localityProperty)
+                <div class="col-md-4">
+                    <div class="property-card">
+                        <img src="{{ asset($localityProperty->image) }}" alt="Property Image" width="100%">
+                        <h4>{{ $localityProperty->title }}</h4>
+                        <p><strong>Builder:</strong> {{ $localityProperty->builder_name }}</p>
+                        <p><strong>BHK:</strong> {{ $localityProperty->select_bhk }}</p>
+                        <p><strong>Area:</strong> {{ $localityProperty->area }} sq.ft</p>
+                        <a href="{{ route('property.details', $localityProperty->properties_id) }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     <?php } ?> 
 </div>
 
