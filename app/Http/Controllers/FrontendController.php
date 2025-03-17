@@ -241,7 +241,6 @@ class FrontendController extends Controller
     }
 
     public function PropDetailsView($property_id) {
-        // Fetch the main property details
         $propertyDetails = DB::select('
             SELECT * FROM properties as p
             JOIN price_range as pr ON p.price_range_id = pr.range_id
@@ -265,7 +264,7 @@ class FrontendController extends Controller
             ->where('localities', $locality)
             ->where('properties_id', '!=', $property_id)
             ->where('is_active', 1)
-            ->select('properties_id', 'title', 'builder_name', 'address', 'select_bhk', 'area')
+            ->select('properties_id', 'title', 'builder_name', 'address', 'select_bhk', 'area',  'meta_title', 'meta_description', 'meta_keywords')
             ->limit(10) // Limit to 10 for better performance
             ->get();
     
@@ -290,7 +289,12 @@ class FrontendController extends Controller
             'localityProperties' => $localityProperties
         ];
     
-        return view('frontend.property-details-test', compact('data'));
+        return view('frontend.property-details-test', compact('data'))
+        ->with([
+            'meta_title' => $propertyDetails[0]->meta_title ?? 'Default Property Title',
+            'meta_description' => $propertyDetails[0]->meta_description ?? 'Default Property Description',
+            'meta_keywords' => $propertyDetails[0]->meta_keywords ?? 'Default Keywords'
+        ]);
     }
     
     // Loan Application
