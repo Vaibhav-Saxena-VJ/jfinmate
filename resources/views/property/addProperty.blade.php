@@ -245,7 +245,20 @@
                             <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="meta_title">Meta Title</label>
+                        <input type="text" class="form-control" name="meta_title" id="meta_title" placeholder="Enter Meta Title">
+                    </div>
 
+                    <div class="form-group">
+                        <label for="meta_description">Meta Description</label>
+                        <textarea class="form-control" name="meta_description" id="meta_description" placeholder="Enter Meta Description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="meta_keywords">Meta Keywords</label>
+                        <textarea class="form-control" name="meta_keywords" id="meta_keywords" placeholder="Enter Meta Keywords (comma separated)"></textarea>
+                    </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Email ID</label>
