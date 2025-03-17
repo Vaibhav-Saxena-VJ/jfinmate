@@ -40,6 +40,9 @@ class PropertyController extends Controller
             // Save the property details
             $p = new Property;
             $p->title = $request->property_title;
+            $p->meta_title = $request->meta_title; 
+            $p->meta_description = $request->meta_description; 
+            $p->meta_keywords = $request->meta_keywords; 
             $p->property_type_id = $request->property_type;
             $p->builder_name = $request->builder_name;
             $p->property_details = $request->property_description;
@@ -48,7 +51,7 @@ class PropertyController extends Controller
             // Handle Amenities
             $locality = DB::table('localities')->where('id', $request->localitie)->value('name');
             $property_status = DB::table('property_status')
-            ->where('id', $request->localitie)
+            ->where('id', $request->property_status)
             ->value('status_name');
 
             $amenities = $request->input('amenities', []); // Default to an empty array if null
@@ -302,6 +305,9 @@ public function allProperties()
             $request->validate([
                 'propertie_id' => 'required|integer|exists:properties,properties_id',
                 'property_title' => 'required|string|max:255',
+                'meta_title' => 'required|string|max:255',
+                'meta_description' => 'required|string|max:255',
+                'meta_keywords' => 'required|string|max:255',
                 'property_type_id' => 'required|integer',
                 'builder_name' => 'nullable|string|max:255',
                 's_price' => 'nullable|numeric',
@@ -357,6 +363,9 @@ public function allProperties()
             // Prepare update data
             $updateProperty = [
                 'title' => $request->property_title,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'meta_keywords' => $request->meta_keywords,
                 'property_type_id' => $request->property_type_id,
                 'builder_name' => $request->builder_name ?? '',
                 's_price' => $request->s_price ?? 0,
