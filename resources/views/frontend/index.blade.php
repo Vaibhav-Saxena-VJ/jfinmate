@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Carousel Start -->
-<div class="header-carousel owl-carousel">
+<div class="header-carousel owl-carousel index-slide">
     <div class="header-carousel-item hero-bg" style="background-image: url(../theme/frontend/img/banner-1.png);">
         <div class="carousel-caption">
             <div class="container">
@@ -54,30 +54,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="header-carousel-item bg-primary">
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row gy-4 gy-lg-0 gx-0 gx-lg-5 align-items-center">
-                    <div class="col-lg-6 animated fadeInLeft">
-                        <div class="calrousel-img">
-                            <img src="{{ asset('theme') }}/frontend/img/fast-process.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 animated fadeInRight">
-                        <div class="text-sm-center text-md-end">
-                            <h4 class="text-white text-uppercase fw-bold mb-4">Welcome To Jfinserv</h4>
-                            <h1 class="display-3 text-white mb-4">Fastest, Secure & Easy Loan Process</h1>
-                            <p class="mb-5 fs-5">Experience fast, secure loans with competitive rates and personalized support in Pune. Enjoy seamless service and exceptional rewards.</p>
-                            <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
-                                <a class="btn-search btn btn-light rounded-pill py-3 px-4 px-md-5 me-2 flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal" href="#"><i class="fas fa-info-circle me-2" style="font-size: 20px"></i> Enquire Now</a>
-                                <a class="btn-search btn btn-light rounded-pill py-3 px-4 px-md-5 ms-2" href="{{ url('/applyNow') }}"><i class="far fa-hand-point-right me-2" style="font-size: 20px"></i> Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </div>
 <!-- Carousel End -->
 
@@ -295,6 +271,410 @@
     </div>
 </div>
 <!-- Service End -->
+
+<!-- Calculator Start -->
+<div class="container-fluid emi-calculator">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-3 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">EMI Calculator</h4>
+            <h2 class="display-4 mb-4">Calculate Your Monthly EMI</h2>
+        </div>
+        <div class="cal-wrapper m-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="calulator-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="calculator" id="calculator">
+                            <div class="loan-amount mb-5">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h2>Loan Amount</h2>
+                                    <div class="d-flex align-items-center range-number">
+                                        <p>₹</p>
+                                        <input type="number" id="loanAmountNumber" min="1000000" max="1000000000" value="10000000" oninput="loanAmountRange.value=value">
+                                    </div>
+                                </div>
+                                <input type="range" value="10000000" min="1000000" max="1000000000" id="loanAmountRange" oninput="loanAmountNumber.value=value" step="50000" />
+                                <div class="d-flex justify-content-between">
+                                    <span>1L</span>
+                                    <span>100C</span>
+                                </div>
+                            </div>
+                            <div class="Interest mb-5">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h2>Rate of Interest (p.a)</h2>
+                                    <div class="d-flex align-items-center range-number">
+                                        <p>%</p>
+                                        <input type="number" id="interestNumber" min="1" max="30" value="6" oninput="interestRange.value=value">
+                                    </div>
+                                </div>
+                                <input type="range" value="6" min="1" max="30" id="interestRange" oninput="interestNumber.value=value" step=".1" />
+                                <div class="d-flex justify-content-between">
+                                    <span>1%</span>
+                                    <span>30%</span>
+                                </div>
+                            </div>
+                            <div class="Loan Tenure">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h2>Loan Tenure</h2>
+                                    <div class="d-flex align-items-center range-number">
+                                        <p>Yr</p>
+                                        <input type="number" id="tenureNumber" min="1" max="30" value="5" oninput="tenureRange.value=value">
+                                    </div>
+                                </div>
+                                <input type="range" value="5" min="1" max="30" id="tenureRange" oninput="tenureNumber.value=value" step="1" />
+                                <div class="d-flex justify-content-between">
+                                    <span>1Yr</span>
+                                    <span>30Yr</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 m-auto">
+                        <div class="piechart-wrapper">
+                            <div class="piechart">
+                                <canvas width="1000" height="1000" id="pieChart" style="width:100%; height:100%"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- detail calculation -->
+                <div class="details-wrapper">
+                    <h2>Detailed Calculation</h2>
+                    <div class="details">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-3 col-sm-6 col-12 details-card">
+                                <p>Monthly EMI</p>
+                                <bold id="showEmi"></bold>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 details-card">
+                                <p>Principal Amount</p>
+                                <bold id="showPrincipal"></bold>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 details-card">
+                                <p>Total Interest</p>
+                                <bold id="showInterest"></bold>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 details-card">
+                                <p>Total Amount</p>
+                                <bold id="showTotalAmount"></bold>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- table section -->
+                <div class="details-table d-none">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Month - Year</th>
+                            <th scope="col">Principal Amount</th>
+                            <th scope="col">Interest Charged</th>
+                            <th scope="col">Total EMI</th>
+                            <th scope="col">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-primary mt-4 d-none" id="showMoreBtn">View All</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+    <script>
+        if (document.getElementById("calculator")) {
+        document.getElementsByTagName("body").onload = cal();
+        }
+        if (document.getElementById("calculator")) {
+        // slider styling and color functions
+        const rangeInputs = document.querySelectorAll('input[id="loanAmountRange"]');
+        const numberInput = document.querySelector('input[id="loanAmountNumber"]');
+        function handleInputChange(e) {
+            let target = e.target;
+            if (e.target.type !== "range") {
+            target = document.getElementById("loanAmountRange");
+            }
+            const min = target.min;
+            const max = target.max;
+            const val = target.value;
+            target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+        }
+        rangeInputs.forEach((input) => {
+            input.addEventListener("input", handleInputChange);
+        });
+        numberInput.addEventListener("input", handleInputChange);
+        // slider styling and color functions
+
+        // Interest styling and color functions
+        const interestrangeInputs = document.querySelectorAll(
+            'input[id="interestRange"]'
+        );
+        const interestnumberInput = document.querySelector(
+            'input[id="interestNumber"]'
+        );
+        function handleInterestChange(e) {
+            let target = e.target;
+            if (e.target.type !== "range") {
+            target = document.getElementById("interestRange");
+            }
+            const min = target.min;
+            const max = target.max;
+            const val = target.value;
+            target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+        }
+        interestrangeInputs.forEach((input) => {
+            input.addEventListener("input", handleInterestChange);
+        });
+        interestnumberInput.addEventListener("input", handleInterestChange);
+        // Interest styling and color functions
+
+        // Loan Tenure styling and color functions
+        const tenureInputs = document.querySelectorAll('input[id="tenureRange"]');
+        const tenureInput = document.querySelector('input[id="tenureNumber"]');
+        function handletenureChange(e) {
+            let target = e.target;
+            if (e.target.type !== "range") {
+            target = document.getElementById("tenureRange");
+            }
+            const min = target.min;
+            const max = target.max;
+            const val = target.value;
+            target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
+        }
+        tenureInputs.forEach((input) => {
+            input.addEventListener("input", handletenureChange);
+        });
+        tenureInput.addEventListener("input", handletenureChange);
+        // Loan Tenure styling and color functions
+        }
+        //calcualtion function
+        function cal() {
+        let loanEvent = document.getElementById("loanAmountRange").value;
+        let interestEvent = document.getElementById("interestRange").value;
+        let tenureEvent = document.getElementById("tenureRange").value;
+
+        let loanAmount = Number(loanEvent);
+        let rate = interestEvent;
+        let tenure = tenureEvent * 12;
+        let r = rate / (12 * 100);
+        let emi =
+            (loanAmount * r * Math.pow(1 + r, tenure)) / (Math.pow(1 + r, tenure) - 1);
+        let interest = emi * tenure - loanAmount;
+        let totalAmount = parseFloat(loanAmount) + parseFloat(interest);
+        //show Details
+        document.getElementById("showEmi").innerHTML =
+            "₹" + Number(emi.toFixed(0)).toLocaleString("en-IN");
+        document.getElementById("showPrincipal").innerHTML =
+            "₹" + Number(loanAmount.toFixed(0)).toLocaleString("en-IN");
+        document.getElementById("showInterest").innerHTML =
+            "₹" + Number(interest.toFixed(0)).toLocaleString("en-IN");
+        document.getElementById("showTotalAmount").innerHTML =
+            "₹" + Number(totalAmount.toFixed(0)).toLocaleString("en-IN");
+        //pie chart
+        let AmountValue = Number(loanAmount);
+        let interestValue = Number(interest.toFixed(0));
+        // pie chart
+        var xValues = ["Loan Amount", "Interest"];
+        var yValues = [AmountValue, interestValue];
+        var barColors = ["#feb234", "#f64d3f"];
+
+        var ctx = document.getElementById("pieChart").getContext("2d");
+        if (window.myCharts != undefined) window.myCharts.destroy();
+        window.myCharts = new Chart(ctx, {
+            type: "doughnut",
+            data: {
+            labels: xValues,
+            datasets: [
+                {
+                backgroundColor: barColors,
+                data: yValues,
+                borderWidth: "0",
+                },
+            ],
+            },
+
+            options: {
+            title: {
+                display: true,
+            },
+            },
+        });
+
+        // pie chart
+        //table function
+
+        function calculateEMI(principal, rate, duration) {
+            const monthlyRate = rate / 1200;
+            const numPayments = duration;
+            const emi =
+            (principal * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+            (Math.pow(1 + monthlyRate, numPayments) - 1);
+            const monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+            ];
+
+            // Get the current date and year
+            const currentDate = new Date();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+
+            let balance = principal;
+            let data = "";
+            for (let i = 0; i < numPayments; i++) {
+            const interest = balance * monthlyRate;
+            const principalPaid = emi - interest;
+            balance -= principalPaid;
+            // Calculate the payment month and year
+            let paymentMonth = currentMonth + i + 1;
+            let paymentYear = currentYear + Math.floor(paymentMonth / 12);
+            paymentMonth %= 12;
+
+            let month = monthNames[paymentMonth];
+            let year = paymentYear;
+            let monthlyPrincipal = Number(principalPaid.toFixed(0)).toLocaleString(
+                "en-IN"
+            );
+            let monthlyInterest = Number(interest.toFixed(0)).toLocaleString("en-IN");
+            let monthlyEmi = Number(emi.toFixed(0)).toLocaleString("en-IN");
+            let monthlyBalance = Number(balance.toFixed(0)).toLocaleString("en-IN");
+            data += `
+                        <tr>
+                                            <td>${month}  ${year}</th>
+                            <td>₹${monthlyPrincipal}</td>
+                            <td>₹${monthlyInterest}</td>
+                                            <td>₹${monthlyEmi}</td>
+                            <td>₹${monthlyBalance}</td>
+                                        </tr>
+                `;
+            }
+            document.getElementById("tbody").innerHTML = data;
+        }
+        // Declare Values
+        var principal = loanAmount;
+        var duration = tenure;
+        calculateEMI(principal, rate, duration);
+
+        //rows hide show function
+        let rows = document.querySelectorAll("tr");
+        let showMoreBtn = document.getElementById("showMoreBtn");
+        if (rows.length > 10) {
+            showMoreBtn.style.display = "block";
+        } else {
+            showMoreBtn.style.display = "none";
+        }
+        if (rows.length === 0) {
+            showMoreBtn.style.display = "none";
+        }
+
+        const initialRows = 10;
+        for (let i = initialRows; i < rows.length; i++) {
+            rows[i].style.display = "none";
+        }
+        function showMoreRows() {
+            for (let i = 0; i <= rows.length; i++) {
+            if (rows[i]) {
+                rows[i].style.display = "";
+                showMoreBtn.style.display = "none";
+            }
+            }
+        }
+        showMoreBtn.addEventListener("click", showMoreRows);
+        //rows hide show function
+        //cal() end
+        }
+
+        //validate input fields
+        function validateAmount() {
+        let val = document.getElementById("loanAmountNumber").value;
+        if (val < 100000 || val > 10000000) {
+            document.getElementById("loanAmountNumber").style.cssText = `
+                background-color: #f8d9d9;
+                border-color: #ff2020;
+                color: #ff2020;
+                `;
+        } else {
+            document.getElementById("loanAmountNumber").style.cssText = `
+                background-color: #fff;
+                border: 1px solid #464646;
+                color: #111;
+                `;
+        }
+        }
+        function validateInterest() {
+        let val = document.getElementById("interestNumber").value;
+        if (val < 1 || val > 30) {
+            document.getElementById("interestNumber").style.cssText = `
+                background-color: #f8d9d9;
+                border-color: #ff2020;
+                color: #ff2020;
+                `;
+        } else {
+            document.getElementById("interestNumber").style.cssText = `
+                background-color: #fff;
+                border: 1px solid #464646;
+                color: #111;
+                `;
+        }
+        }
+        function validateTenure() {
+        let val = document.getElementById("tenureNumber").value;
+        if (val < 1 || val > 30) {
+            document.getElementById("tenureNumber").style.cssText = `
+                background-color: #f8d9d9;
+                border-color: #ff2020;
+                color: #ff2020;
+                `;
+        } else {
+            document.getElementById("tenureNumber").style.cssText = `
+                background-color: #fff;
+                border: 1px solid #464646;
+                color: #111;
+                `;
+        }
+        }
+        if (document.getElementById("calculator")) {
+        document.getElementById("loanAmountRange").addEventListener("change", cal);
+        document.getElementById("interestRange").addEventListener("change", cal);
+        document.getElementById("tenureRange").addEventListener("change", cal);
+        document
+            .getElementById("loanAmountNumber")
+            .addEventListener("keyup", cal, true);
+        document
+            .getElementById("loanAmountNumber")
+            .addEventListener("keyup", validateAmount, true);
+        document
+            .getElementById("interestNumber")
+            .addEventListener("keyup", cal, true);
+        document
+            .getElementById("interestNumber")
+            .addEventListener("keyup", validateInterest, true);
+        document.getElementById("tenureNumber").addEventListener("keyup", cal, true);
+        document
+            .getElementById("tenureNumber")
+            .addEventListener("keyup", validateTenure, true);
+        }
+
+        //initailize function
+    </script>
+</div>
+<!-- Calculator End -->
 
 <!-- Testimonial Start -->
 <div class="container-fluid testimonial bg-light py-5">
