@@ -245,20 +245,7 @@
                             <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="meta_title">Meta Title</label>
-                        <input type="text" class="form-control" name="meta_title" id="meta_title" placeholder="Enter Meta Title">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="meta_description">Meta Description</label>
-                        <textarea class="form-control" name="meta_description" id="meta_description" placeholder="Enter Meta Description"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="meta_keywords">Meta Keywords</label>
-                        <textarea class="form-control" name="meta_keywords" id="meta_keywords" placeholder="Enter Meta Keywords (comma separated)"></textarea>
-                    </div>
+                    
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Email ID</label>
@@ -281,20 +268,36 @@
         <!-- Right side -->
         <div class="col-lg-3 bg-light p-4">
             <div class=" mb-4">
+                <div class="form-group">
+                    <label for="meta_title">Meta Title</label>
+                    <input type="text" class="form-control" name="meta_title" id="meta_title" placeholder="Enter Meta Title">
+                </div>
+                <div class="form-group">
+                    <label for="meta_description">Meta Description</label>
+                    <textarea class="form-control" name="meta_description" id="meta_description" placeholder="Enter Meta Description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="meta_keywords">Meta Keywords</label>
+                    <textarea class="form-control" name="meta_keywords" id="meta_keywords" placeholder="Enter Meta Keywords (comma separated)"></textarea>
+                </div>
+            </div>
+
+            <div class=" mb-4">
                 <!-- Multiple Property Images Upload -->
-                <h3 class="h6"><strong>Property Images<span class="text-danger">*</span></strong></h3>
+                <h3 class="h6">Property Images<span class="text-danger">*</span></h3>
                 <input class="form-control" type="file" accept=".jpg,.jpeg,.png,.webp" name="property_images[]" multiple required />
                 <small class="text-muted">You can upload multiple images (JPG, JPEG, PNG, WEBP).</small>
 
                 <!-- Property Boucher Upload -->
-                <h3 class="h6 mt-2"><strong>Property Brochure<span class="text-danger">*</span></strong></h3>
+                <h3 class="h6 mt-2">Property Brochure<span class="text-danger">*</span></h3>
                 <input class="form-control" type="file" accept=".pdf" name="property_voucher" />
                 <small class="text-muted">Upload the property brochure in PDF format.</small>
             </div>
             <!-- Notes -->
 
             <div class="mb-4">
-                <label class="form-label"><strong>Price Range</strong></label><span class="text-danger">*</span>
+                <label class="form-label">Price Range</label><span class="text-danger">*</span>
                 <select name="price_range" class="form-control">
                         <?php
                         foreach($data['range'] as $v) {  
@@ -319,14 +322,13 @@
             </div>
                   
             <div class="mb-4">
-                <label class="form-label"><strong>Rera No.</strong></label><span class="text-danger">*</span>
+                <label class="form-label">Rera No.</label><span class="text-danger">*</span>
                 <input type="text" name="rera" class="form-control" placeholder="Ex: P5XXXXXXXX14" required />
                 <span class="text-danger error-text jixname2_err"></span>   
-            </div>    
-                                                    
+            </div>                                                    
 
             <div class=" mb-4">
-                <label for="amenities"><strong>Select Amenities:</strong></label><br>
+                <label for="amenities">Select Amenities:</label><br>
                 <input type="checkbox" name="amenities[]" value="WiFi"> WiFi<br>
                 <input type="checkbox" name="amenities[]" value="Parking"> Parking<br>
                 <input type="checkbox" name="amenities[]" value="Swimming Pool"> Swimming Pool<br>

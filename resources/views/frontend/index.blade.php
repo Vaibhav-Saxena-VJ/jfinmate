@@ -482,7 +482,7 @@
         // pie chart
         var xValues = ["Loan Amount", "Interest"];
         var yValues = [AmountValue, interestValue];
-        var barColors = ["#feb234", "#f64d3f"];
+        var barColors = ["#015fc9", "#ed1c23"];
 
         var ctx = document.getElementById("pieChart").getContext("2d");
         if (window.myCharts != undefined) window.myCharts.destroy();
