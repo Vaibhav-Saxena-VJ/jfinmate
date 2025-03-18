@@ -30,8 +30,7 @@ class PropertyController extends Controller
         return view('property.addProperty',compact('data'));
     }
 
-    public function insertProperty(Request $request)
-    {
+    public function insertProperty(Request $request){
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 
         DB::beginTransaction();
@@ -299,6 +298,7 @@ public function allProperties()
     
         return view('property.editProperty', compact('data'));
     }
+    
     public function updatePropertie(Request $request) {
         try {
             // Validate request
@@ -442,8 +442,7 @@ public function allProperties()
             DB::rollBack();
             return response()->json(['status' => 0, 'msg' => 'Error: ' . $e->getMessage()]);
         }
-    }
-    
+    }    
     
 
     public function deletePropertie(Request $request){
