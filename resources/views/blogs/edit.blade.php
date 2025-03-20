@@ -122,49 +122,44 @@ Edit Blog
 
 <script>
     tinymce.init({
-        selector: '#editor',
-        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
-        toolbar: 'undo redo | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
-        height: 400,
-        menubar: true,
-        branding: false,
+    selector: '#editor',
+    plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
+    toolbar: 'undo redo | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
+    height: 400,
+    menubar: true,
+    branding: false,
 
-        font_formats: "Sans Serif=sans-serif; Arial=arial,helvetica,sans-serif; Times New Roman=times new roman,times,serif; Verdana=verdana,geneva,sans-serif; Courier New=courier new,courier,monospace;",
+    images_upload_url: '/upload-image',
+    automatic_uploads: false,
+    images_reuse_filename: true,
+    paste_data_images: false,
 
-        content_style: "body { font-family: sans-serif !important; }",
+    images_upload_handler: function (blobInfo, success, failure) {
+    let formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
 
-        images_upload_url: '/upload-image',
-        automatic_uploads: false,
-        images_reuse_filename: true,
-        paste_data_images: false,
-        images_upload_url: '/upload-image', // Backend route to handle image uploads
+    // Get CSRF token
+    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    formData.append('_token', csrfToken);
 
-        images_upload_handler: function (blobInfo, success, failure) {
-            let formData = new FormData();
-            formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-            // Get CSRF token
-            let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            formData.append('_token', csrfToken);
-
-            fetch('/upload-image', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(result => {
-                if (result.location) {
-                    let cleanUrl = result.location.replace(/^.*?:\/\//, '');  
-                    success(cleanUrl);
-                } else {
-                    failure('Image upload failed');
-                }
-            })
-            .catch(error => {
-                console.error('Upload error:', error);
-                failure('Image upload failed');
-            });
-        }
+    fetch('/upload-image', {
+    method: 'POST',
+    body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+    if (result.location) {
+    let cleanUrl = result.location.replace(/^.*?:\/\//, ''); // Removes http:// or https:// if needed
+    success(cleanUrl);
+    } else {
+    failure('Image upload failed');
+    }
+    })
+    .catch(error => {
+    console.error('Upload error:', error);
+    failure('Image upload failed');
+    });
+    }
     });
 </script>
 
