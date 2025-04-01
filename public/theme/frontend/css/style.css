@@ -1829,3 +1829,11 @@ ul.detail_features li strong {
     background-color: #000;
     border-color: #000;
 }
+
+.feature .properties .feature-item {
+    min-height: 380px;
+}
+
+.service .property .service-content { 
+    min-height: 250px;
+}

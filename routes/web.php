@@ -410,3 +410,20 @@ Route::post('/banners', [BannerController::class, 'store'])->name('banners.store
 Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('banners.edit');
 Route::put('/banners/{id}', [BannerController::class, 'update'])->name('banners.update');
 Route::delete('/banners/{id}', [BannerController::class, 'destroy'])->name('banners.destroy');
+
+// Landing Pages
+Route::get('/sukhwani-skylines', function () {
+    return view('frontend.lp.sukhwani-skylines.index');
+});
+
+Route::get('/pharande-l-axis', function () {
+    return view('frontend.lp.pharande-laxis.index');
+});
+
+Route::get('/pharande-puneville', function () {
+    return view('frontend.lp.pharande-puneville.index');
+});
+
+Route::get('/sukhwani-celaeno', function () {
+    return view('frontend.lp.sukhwani-celaeno.index');
+});

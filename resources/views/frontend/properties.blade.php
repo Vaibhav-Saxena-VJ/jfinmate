@@ -297,8 +297,8 @@
                             "bhk" => "2 & 3 BHK",
                             "size" => "756 SQ. FT.",
                             "price" => "₹89.9L*",
-                            "img" => "prop-1.webp",
-                            "link" => "https://jfsrealty.in/sukhwani-skylines.html",
+                            "img" => "sukhwani-skylines/b1.jpg",
+                            "link" => "/sukhwani-skylines",
                             "category" => "Residential"
                         ],
                         [
@@ -308,8 +308,8 @@
                             "bhk" => "2, 3 & 4 BHK",
                             "size" => "819* SQ. FT.",
                             "price" => "₹97L*",
-                            "img" => "prop-1.webp",
-                            "link" => "https://jfsrealty.in/pharande-l-axis.html",
+                            "img" => "pharande-laxis/b1.jpg",
+                            "link" => "pharande-l-axis",
                             "category" => "Residential"
                         ],
                         [
@@ -319,8 +319,8 @@
                             "bhk" => "2 & 2.5 BHK",
                             "size" => "728* SQ. FT.",
                             "price" => "₹80L*",
-                            "img" => "prop-1.webp",
-                            "link" => "https://jfsrealty.in/pharande-puneville.html",
+                            "img" => "pharande-puneville/b1.jpg",
+                            "link" => "pharande-puneville",
                             "category" => "Residential"
                         ],
                         [
@@ -330,20 +330,9 @@
                             "bhk" => "3 & 4 BHK",
                             "size" => "1325 SQ. FT.",
                             "price" => "₹1.72Cr*",
-                            "img" => "prop-1.webp",
-                            "link" => "https://jfsrealty.in/sukhwani-celaeno.html",
+                            "img" => "sukhwani-celaeno/b1.jpg",
+                            "link" => "sukhwani-celaeno",
                             "category" => "Residential"
-                        ],
-                        [
-                            "name" => "Pharande Felicity",
-                            "developer" => "By Pharande Spaces",
-                            "location" => "Block-B1, FELICITY, Ravet, PCMC",
-                            "bhk" => "Shops & Offices",
-                            "size" => "245* SQ. FT.",
-                            "price" => "₹32L*",
-                            "img" => "prop-1.webp",
-                            "link" => "https://jfsrealty.in/pharande-felicity.html",
-                            "category" => "Commercial"
                         ]
                     ]; 
 
@@ -361,7 +350,7 @@
                                     <a href="{{ $property['link'] }}" target="_blank">
                                         <div class="blog-item shadow-sm rounded">
                                             <div class="blog-img position-relative">
-                                                <img src="{{ asset('theme/frontend/img/' . $property['img']) }}" class="img-fluid rounded-top w-100" alt="">
+                                                <img src="{{ asset('theme/frontend/lp/' . $property['img']) }}" class="img-fluid rounded-top w-100" alt="">
                                                 <div class="blog-categiry">
                                                     <span>{{ $property['category'] }}</span>
                                                 </div>
@@ -557,14 +546,14 @@
             <h4 class="text-primary">Our Features</h4>
             <h2 class="display-5">Why Choose Us?</h2>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 properties">
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="feature-item p-4 pt-0">
                     <div class="feature-icon p-4 mb-4">
                         <i class="far fa-handshake fa-3x"></i>
                     </div>
                     <h4 class="mb-4">Trusted Company</h4>
-                    <p>Trust is our foundation. With experience and a strong track record, we guide clients confidently through their financial journeys.</p>
+                    <p>Trust is our foundation. With experience, integrity, and a strong track record, we guide clients confidently through their financial journeys with personalized support.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
@@ -573,7 +562,7 @@
                         <i class="fas fa-gift fa-3x"></i>
                     </div>
                     <h4 class="mb-4">Unlimited Rewards</h4>
-                    <p>Earn income for each successful referral. We offer performance bonuses to unlock more earning potential.</p>
+                    <p>Earn a steady income for each successful referral. We offer generous performance bonuses and exclusive incentives to help you unlock even greater earning potential.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
@@ -582,7 +571,7 @@
                         <i class="fa fa-bullseye fa-3x"></i>
                     </div>
                     <h4 class="mb-4">Fast & Easier Process</h4>
-                    <p>A fast & simple loan process provides quick approvals, minimal paperwork, & access to funds within 7 working days.</p>
+                    <p>A fast & simple loan process provides quick approvals, minimal paperwork, competitive rates, and access to funds within 7 days.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
@@ -591,7 +580,7 @@
                         <i class="fas fa-chart-line fa-3x"></i>
                     </div>
                     <h4 class="mb-4">High Range Loan</h4>
-                    <p>A high range loan of up to ₹100Cr. offers substantial funding for major investments or purchases, with flexible terms & competitive rates.</p>
+                    <p>A high-range loan of up to ₹100Cr. offers substantial funding for major investments or purchases with flexible terms, competitive rates, and quick processing.</p>
                 </div>
             </div>
         </div>
@@ -606,11 +595,11 @@
             <h1 class="display-4 mb-4">We Provide Best Services</h1>
             <p class="mb-0">Choose your loan amount, answer a few questions, and receive an instant loan offer. Share the necessary documents with our representative effortlessly, and select the final loan offer with terms that suit you best.</p>
         </div>
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center property">
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/Home_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset('theme') }}/frontend/img/nri.jpg" class="img-fluid rounded-top w-100" alt="">
                         <!-- <div class="service-icon p-3">
                             <i class="fa-solid fa-house-chimney fa-2x"></i>
                         </div> -->
@@ -618,7 +607,7 @@
                     <div class="service-content p-4">
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">NRI Friendly</a>
-                            <p class="mb-4">We understand you're seeking a new home, with low rates & a seamless process, we’re here to help you through this important financial decision.</p>
+                            <p class="mb-4">We understand you're seeking a new home, and with low rates, flexible options, quick approvals, and a seamless process, we’re here to help you through this important financial decision.</p>
                         </div>
                     </div>
                 </div>
@@ -626,7 +615,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/Project_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset('theme') }}/frontend/img/prop-manage.jpg" class="img-fluid rounded-top w-100" alt="">
                         <!-- <div class="service-icon p-3">
                             <i class="fa-solid fa-building-shield fa-2x"></i>
                         </div> -->
@@ -634,7 +623,7 @@
                     <div class="service-content p-4">
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Property Management</a>
-                            <p class="mb-4">We simplify construction financing with low rates and an easy online application, offering tailored loans that ensure a smooth and timely process.</p>
+                            <p class="mb-4">We simplify construction financing with low rates and an easy online application, offering tailored loans that ensure a smooth, hassle-free, and timely funding process.</p>
                         </div>
                     </div>
                 </div>
@@ -642,7 +631,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset('theme') }}/frontend/img/prop-deals.jpg" class="img-fluid rounded-top w-100" alt="">
                     </div>
                     <div class="service-content p-4">
                         <div class="service-content-inner">
@@ -655,7 +644,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset('theme') }}/frontend/img/loan-assist.jpg" class="img-fluid rounded-top w-100" alt="">
                         <!-- <div class="service-icon p-3">
                             <i class="fa-solid fa-house-laptop fa-2x"></i>
                         </div> -->
@@ -672,7 +661,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/MSME_Loan.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset('theme') }}/frontend/img/grp-book.jpg" class="img-fluid rounded-top w-100" alt="">
                         <!-- <div class="service-icon p-3">
                             <i class="fa-solid fa-business-time fa-2x"></i>
                         </div> -->
@@ -688,7 +677,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{{ asset('theme') }}/frontend/img/Loan_Against_Property.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset('theme') }}/frontend/img/visits.jpg" class="img-fluid rounded-top w-100" alt="">
                         <!-- <div class="service-icon p-3">
                             <i class="fa-solid fa-house-laptop fa-2x"></i>
                         </div> -->
@@ -781,35 +770,61 @@
 
         <div class="row g-4 justify-content-center">
             @if(isset($data['blogs']) && $data['blogs']->count() > 0)
-                @foreach ($data['blogs'] as $blog)
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="blog-item">
-                            <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}">
-                                <div class="blog-img">
-                                    <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid blogs-image" alt="{{ $blog->title }}">
-                                    <div class="blog-categiry bg-dark py-2 px-4">
-                                        <span>{{ $blog->category_name }}</span>
-                                    </div>
+                <div id="BlogCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <?php
+                            $isMobile = isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile|android|touch|webos|iphone|ipad/i', strtolower($_SERVER['HTTP_USER_AGENT']));
+                            $chunkSize = $isMobile ? 1 : 4; // 1 blog per slide on mobile, 3 per slide on desktop
+                            $blogChunks = $data['blogs']->chunk($chunkSize);
+                            $first = true;
+                        ?>
+
+                        @foreach($blogChunks as $blogGroup)
+                            <div class="carousel-item {{ $first ? 'active' : '' }}">
+                                <div class="row g-4 d-flex justify-content-center">
+                                    @foreach($blogGroup as $blog)
+                                        <div class="col-12 col-md-3">
+                                            <div class="blog-item">
+                                                <div class="blog-img">
+                                                    <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid blogs-image" alt="{{ $blog->title }}">
+                                                    <div class="blog-categiry bg-dark py-2 px-4">
+                                                        <span>{{ $blog->category_name }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="blog-content p-4">
+                                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                                        <div class="small">
+                                                            <span class="fa fa-calendar text-primary"></span> 
+                                                            {{ \Carbon\Carbon::parse($blog->created_at)->format('d M Y') }}
+                                                        </div>
+                                                    </div>
+                                                    <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="h5 d-inline-block">
+                                                        {{ Str::limit($blog->title, 40) }}
+                                                    </a>
+                                                    <p class="mb-3">{!! Str::limit(strip_tags($blog->description), 70) !!}</p>
+                                                    <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="btn p-0">
+                                                        Read More <i class="fa fa-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                            </a>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small">
-                                        <span class="fa fa-calendar text-primary"></span> 
-                                        {{ \Carbon\Carbon::parse($blog->created_at)->format('d M Y') }}
-                                    </div>
-                                </div>
-                                <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="h5 d-inline-block">
-                                    {{ Str::limit($blog->title, 40) }}
-                                </a>
-                                <p class="mb-3">{!! Str::limit(strip_tags($blog->description), 120) !!}</p>
-                                <a href="{{ route('blogs.showById', ['id' => $blog->id]) }}" class="btn p-0">
-                                    Read More <i class="fa fa-arrow-right"></i>
-                                </a>
                             </div>
-                        </div>
+                            <?php $first = false; ?>
+                        @endforeach
                     </div>
-                @endforeach
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#BlogCarousel" data-bs-slide="prev">
+                        <i class="fas fa-chevron-left text-dark fs-4"></i>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#BlogCarousel" data-bs-slide="next">
+                        <i class="fas fa-chevron-right text-dark fs-4"></i>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             @else
                 <p class="text-center">No blog posts available.</p>
             @endif
