@@ -4,7 +4,6 @@
     JFS | Update Property
 @endsection
 @section('content')
-
 @parent
 
 <style>
@@ -59,7 +58,7 @@
         <!-- Main content -->
         <div class="row">
             <!-- Left side -->
-            <div class="col-lg-9">
+            <div class="col-lg-8">
                 <!-- Basic information -->
                 <div class="card-body">
                     <div class="row">
@@ -116,103 +115,28 @@
 
                             </div>
                         </div> -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="mb-3">
                                 <label class="form-label">Starting Price</label>
                                 <input type="text" name="s_price" class="form-control" placeholder="Staring price" value="{{ $v->s_price }}" />
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="mb-3">
                                 <label class="form-label">Carpet area</label>
                                 <input type="text" name="area" class="form-control" placeholder="Carpet Area" value="{{ $v->area }}" />
                             </div>
                         </div>
-
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="mb-3">
                                 <label class="form-label">Built-up area</label>
                                 <input type="text" name="builtup_area" class="form-control" placeholder="Builtup Area" value="{{ $v->builtup_area }}" />
                             </div>
                         </div>
-
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <label class="form-label">Select BHK</label>
-                                <select class="form-control" name="select_bhk">
-                                    <option selected hidden value="{{ $v->select_bhk }}">{{ $v->select_bhk }}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="2 & 3">2 & 3</option>
-                                    <option value="2,3 & 4">2,3 & 4</option>
-                                    <option value="3 & 4">3 & 4</option>
-                                    <option value="3,4 & 5">3,4 & 5</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <label class="form-label">Bedrooms</label><span class="text-danger">*</span>
-                                <select class="form-control" name="beds">
-                                    <option selected hidden value="{{ $v->beds }}">{{ $v->beds }}</option>
-                                    <option value="No">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <label class="form-label">Bathrooms</label><span class="text-danger">*</span>
-                                <select class="form-control" name="baths">
-                                    <option selected hidden value="{{ $v->baths }}">{{ $v->baths }}</option>
-                                    <option value="No">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>                                                
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <label class="form-label">Balconies</label><span class="text-danger">*</span>
-                                <select class="form-control" name="balconies">
-                                    <option selected hidden value="{{ $v->baths }}">{{ $v->baths }}</option>
-                                    <option value="No">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>                                                
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <label class="form-label">Parking</label><span class="text-danger">*</span>
-                                <input type="text" class="form-control" name="parking" placeholder="Parking" value="{{ $v->parking }}">
-                            </div>  
-                        </div>
-
                         <div class="col-lg-12">
                             <div class="mb-3">
                                 <label class="form-label">Property Description</label>
-                                <textarea name="property_description" id="editor" class="form-control" rows="5">
-                                    {{ $data['propertie_details'][0]->property_details }}
-                                </textarea>
+                                <textarea name="property_description" class="form-control" rows="5" maxlength="250" value="" >{{ $v->property_details }} </textarea>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -236,7 +160,7 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Latitude</label>
-                                <input type="text" name="latitude" class="form-control" value="{{ $v->latitude}}" placeholder="Latitude" required>
+                                <input type="text" name="latitude" class="form-control" value="{{ $data['propertie_details'][0]->latitude ?? '' }}" placeholder="Latitude" required>
                             </div>
                         </div>
 
@@ -247,33 +171,6 @@
                                 <input type="text" name="longitude" class="form-control" value="{{ $data['propertie_details'][0]->longitude ?? '' }}" placeholder="Longitude" required>
                             </div>
                         </div>
-
-                        <!-- Nearby Location 1 -->
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label class="form-label">Nearby Locations</label>
-                                @if(!empty($v->nearby_locations))  
-                                    @php
-                                        $nearbyLocations = json_decode($v->nearby_locations, true); // Decode JSON to an array
-                                    @endphp
-
-                                    @if(is_array($nearbyLocations) && count($nearbyLocations) > 0)
-                                        <div class="row g-3">  <!-- Bootstrap Grid for Proper Spacing -->
-                                            @foreach($nearbyLocations as $location)
-                                                @if(!empty($location))
-                                                    <div class="col-md-4 col-sm-6">
-                                                        <input type="text" name="nearby[]" class="form-control mb-2" 
-                                                            placeholder="example: Lexicon - 02 km" 
-                                                            value="{{ $location }}">
-                                                    </div>
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Email ID</label>
@@ -290,23 +187,7 @@
                 </div>
             </div>
             <!-- Right side -->
-            <div class="col-lg-3 bg-light">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="meta_title">Meta Title</label>
-                        <input type="text" class="form-control" name="meta_title" id="meta_title" placeholder="Enter Meta Title" value="{{ $v->meta_title }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="meta_description">Meta Description</label>
-                        <textarea class="form-control" name="meta_description" id="meta_description" placeholder="Enter Meta Description" value="{{ $v->meta_description }}"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="meta_keywords">Meta Keywords</label>
-                        <textarea class="form-control" name="meta_keywords" id="meta_keywords" placeholder="Enter Meta Keywords (comma separated)" value="{{ $v->meta_keywords }}"></textarea>
-                    </div>
-                </div>
-
+            <div class="col-lg-4 pb-3 bg-light">
                 <div class="card-body">
                     <label class="form-label">Rera No.</label>
                     <input type="text" name="rera" class="form-control" placeholder="Rera No." value="{{ $v->rera }}" />
@@ -341,26 +222,7 @@
                         ?>
                         <?php } ?>
                     </select>
-                </div> 
-                
-                <div class="card-body">
-                    @php
-                        $property_status_list = !empty($v->property_status) ? json_decode($v->property_status, true) : [];
-                    @endphp
-
-                    <label class="form-label">Property Status</label>
-                    <select name="property_status" class="form-control" required>
-                        <option value="">Select Status</option>
-                        @if(!empty($property_status_list))
-                            @foreach($property_status_list as $status)
-                                <option value="{{ $status['id'] }}">{{ $status['status_name'] }}</option>
-                            @endforeach
-                        @else
-                            <option value="">No statuses available</option>
-                        @endif
-                    </select>
-                </div>
-
+                </div>  
                 
                 <div class="card-body">
                     <label for="amenities"><strong>Select Amenities:</strong></label><br>
@@ -388,51 +250,6 @@
 @parent
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js"></script>
-
-<!-- Initialize TinyMCE -->
-<script>
-    tinymce.init({
-    selector: '#editor',
-    plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
-    toolbar: 'undo redo | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
-    height: 400,
-    menubar: true,
-    branding: false,
-
-    images_upload_url: '/upload-image',
-    automatic_uploads: false,
-    images_reuse_filename: true,
-    paste_data_images: false,
-
-    images_upload_handler: function (blobInfo, success, failure) {
-    let formData = new FormData();
-    formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-    // Get CSRF token
-    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    formData.append('_token', csrfToken);
-
-    fetch('/upload-image', {
-    method: 'POST',
-    body: formData
-    })
-    .then(response => response.json())
-    .then(result => {
-    if (result.location) {
-    let cleanUrl = result.location.replace(/^.*?:\/\//, ''); // Removes http:// or https:// if needed
-    success(cleanUrl);
-    } else {
-    failure('Image upload failed');
-    }
-    })
-    .catch(error => {
-    console.error('Upload error:', error);
-    failure('Image upload failed');
-    });
-    }
-    });
-</script>
 
 <script>
     const chooseFile = document.getElementById("choose-file");

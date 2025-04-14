@@ -1,13 +1,36 @@
 @extends('frontend.layouts.header')
-@section('title', "Refer for loan with low ROI | Financial Consultants in Pune - Jfinserv")
+@section('title', "Refer for loan with low ROI | Financial Consultants in Pune")
 @section('description', "Explore the best Financial Consultants in Pune with refer for secure loans with low ROI. Apply now for the more financial benefits.")
-@section('keywords', "Financial Consultants in Pune, Home finance in pune, Refer for loan with low ROI")
+@section('keywords', "Refer for loan with low ROI, Financial Consultants in Pune, Home finance in pune, ")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/referral-program" />
+<meta name="robots" content="index, follow">
+@endsection
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Refer for loan with low ROI",
+    "item": "https://jfinserv.com/referral-program"  
+  }]
+}
+</script>
+@endsection
 
 @section('content')
 <!-- Header Start -->
 <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/ref-bnr.jpg);">
     <div class="container py-5">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Jfinserv Referral Program</h4>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Refer for loan <br>with low ROI</br></h1>
     </div>
 </div>
 
@@ -17,7 +40,7 @@
             <div class="row g-5">
                 <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                     <div class="about-item-content bg-white rounded p-5 h-100">
-                        <!-- <h2 class="display-4 mb-4">Invite Friends & Help Them Achieve Their Dreams.</h2> -->
+                        <!-- <h2 class="display-4 mb-4">Refer for loan with low ROI</h2> -->
                         <p>There’s no limit to your earning potential when you refer our service. Earn for each successful referral and unlock more with performance bonuses. Our referral process is quick and easy—share your code with friends and colleagues in under a minute.</p>
                         <h4 class="text-primary"><strong>How Does It Work?</strong></h4>
                         <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Go to ‘Refer Your Friend’ section.</p>
@@ -34,7 +57,7 @@
                         <div class="row g-4 justify-content-center">
                             <div class="col-12">
                                 <div class="rounded">
-                                    <img src="{{ asset('theme') }}/frontend/img/referral_inner.jpg" class="img-fluid rounded w-100" alt="">
+                                    <img src="{{ asset('theme') }}/frontend/img/referral_inner.jpg" class="img-fluid rounded w-100" alt="Refer for loan with low ROI">
                                 </div>
                             </div>
                             <!-- <div class="col-sm-12">

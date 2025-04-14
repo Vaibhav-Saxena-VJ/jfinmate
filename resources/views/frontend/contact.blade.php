@@ -1,5 +1,9 @@
 @extends('frontend.layouts.header')
-@section('title', "Financial Services in Pune | Lowest Loan Interest in PCMC - Jfinserv")
+@section('title', "Jfinserv Contact | Lowest Loan Interest in PCMC")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/contact" />
+<meta name="robots" content="index, follow">
+@endsection
 
 @section('content')
 <!-- Header Start -->

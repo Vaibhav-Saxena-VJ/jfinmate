@@ -35,11 +35,9 @@
         <!-- Cutomized Scripts and CSS -->
         <script src="@yield('scripts')"></script>
         <script src="@yield('scripts2')"></script>
-        <link rel="stylesheet" href="{{ asset('theme') }}/frontend/prop/@yield('links')"/>
-        <link rel="stylesheet" href="{{ asset('theme') }}/frontend/prop/@yield('links2')"/>
-        <link rel="stylesheet" type="text/css" href="@yield('link')"/>
+        <link rel="stylesheet" href="@yield('links')"/>
 
-        <link rel="icon" type="image/png" href="{{ asset('theme') }}/frontend/img/favicon.png">
+        <link rel="icon" type="image/png" href="{{ asset('theme') }}/frontend//img/favicon.png">
     </head>
 
     <body>
@@ -108,7 +106,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light"> 
                     <a href="{{ asset('') }}" class="navbar-brand p-0">
-                        <img src="{{ asset('theme') }}/frontend/img/logo-white.svg" alt="Logo" class="w-100">
+                        <img src="{{ asset('theme') }}/frontend/img/logo-white.svg" alt="Jfinserv Logo" class="w-100">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars"></span>
@@ -219,11 +217,11 @@
                         <div class="input-group w-100 mx-auto d-flex">
                             <div class="row text-center pt-3">
                                 <div class="col-lg-6 border-end">
-                                    <img src="{{ asset('theme') }}/frontend/img/loan.png" alt="Logo" class="w-50">
+                                    <img src="{{ asset('theme') }}/frontend/img/loan.png" alt="Jfinserv Logo" class="w-50">
                                     <a class="btn-search btn btn-dark mt-3 px-md-5 ms-2" href="{{ url('/login') }}"> For Finance</a>
                                 </div>
                                 <div class="col-lg-6">
-                                    <img src="{{ asset('theme') }}/frontend/img/housing.png" alt="Logo" class="w-50">
+                                    <img src="{{ asset('theme') }}/frontend/img/housing.png" alt="Jfinserv Logo" class="w-50">
                                     <a class="btn-search btn btn-dark mt-3 px-md-5 ms-2" href="{{ url('/login') }}"> For Property</a>
                                 </div>
                             </div>

@@ -30,6 +30,7 @@ JFS | Add Property
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive" id="user_table">
+        
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
@@ -39,34 +40,57 @@ JFS | Add Property
                         <th>BHK Details</th>
                         <th>Address</th>
                         <th>Price</th>
-                        <th>Featured</th>
-                        <th>Action</th>
+                        <th>Action</th> 
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($data['allProperties'] as $p)
                     <tr>
-                        <td>{{$p->title}}</td>
-                        <td>{{ $p->category_name }}</td>
-                        <td>{{$p->builder_name}}</td>
-                        <td>{{$p->select_bhk}} BHK</td>
-                        <td>{{$p->address}}</td>
-                        <td>{{$p->from_price}} to {{$p->to_price}}</td>
                         <td>
-                            <input type="checkbox" class="toggle-featured"
-                                data-id="{{ $p->properties_id }}"
-                                {{ $p->is_featured ? 'checked' : '' }}>
-                        </td>
+                            {{$p->title}}
+                        </td>   
                         <td>
-                            <a class="btn btn-primary btn-xs eye" title="ViewDetails" href="{{ url('viewDetails/'.$p->properties_id) }}"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-primary btn-xs edit" title="Edit" href="{{ url('editProperty/'.$p->properties_id) }}"><i class="fa fa-edit"></i></a>
-                            <button class="btn btn-danger btn-xs delete" title="Delete" onclick="deleteProperty('{{$p->properties_id}}')"><i class="fa fa-trash"></i></button>
+                            {{ $p->category_name }}
+                        </td>  
+                        <td>
+                            {{$p->builder_name}}
+                        </td> 
+                        
+                        <td>
+                                {{$p->select_bhk}} BHK
+                        </td> 
+
+                        <td>
+                                {{$p->address}}
+                        </td> 
+
+                        
+                        <td>
+                                {{$p->from_price}} to {{$p->to_price}} 
+                        </td> 
+                        
+                        <td>
+                            <a class="btn btn-primary btn-xs eye" title="ViewDetails"href="{{ url('viewDetails/'.$p->properties_id) }}"><i class="fa fa-eye"></i></a> 
+                            <a class="btn btn-primary btn-xs edit" title="Edit"href="{{ url('editProperty/'.$p->properties_id) }}"><i class="fa fa-edit"></i></a> 
+                            <button class="btn btn-danger btn-xs delete" title="Delete" data-userid="" onclick="deletePropertie('{{$p->properties_id}}')"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
+                    
+                <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>Property Type</th>
+                        <th>Builder Name</th>
+                        <th>BHK Details</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Action</th> 
+                    </tr>
+                </tfoot>
             </table>
-            <div class="float-right">
+            <div class="float-right"> 
                 {{ $data['allProperties']->links() }}
             </div>
         </div>
@@ -244,35 +268,4 @@ JFS | Add Property
         });      
 	}
 </script>
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-
-        $('.toggle-featured').change(function() {
-            var propertyId = $(this).data('id');
-            var isFeatured = $(this).is(':checked') ? 1 : 0;
-
-            $.ajax({
-                url: "{{ route('toggleFeatured') }}",
-                type: "POST",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    property_id: propertyId,
-                    is_featured: isFeatured
-                },
-                success: function(response) {
-                    if (response.success) {
-                        alert(response.message);
-                    } else {
-                        alert("Failed to update. Try again!");
-                    }
-                },
-                error: function() {
-                    alert("An error occurred!");
-                }
-            });
-        });
-    });
-</script>
-
 @endsection

@@ -54,7 +54,7 @@ All Users
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email_id }}</td>
                                 <td>{{ $user->mobile_no }}</td>
-                                <td>{{ $user->mobile_no }}</td>
+                                <td>{{ $user->dob }}</td>
                                 <td>
                                     <label>
                                         <input type="radio" name="status_{{ $user->id }}" value="1" onclick="updateStatus({{ $user->id }}, 1)" {{ $user->is_email_verify == 1 ? 'checked' : '' }}>
@@ -182,111 +182,111 @@ All Users
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
 
 <script>
-    $(document).ready(function () {
-        $('#user_table').DataTable({
-            dom: 'Bfrtip',
-            buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
-            info: true,
-            ordering: true,
-            paging: true,
-            pageLength: 10,
-            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
-        });
-
-        // Search functionality
-        $('#search').on('keyup', function () {
-            let input = this.value.toLowerCase();
-            $('#user_table_body tr').each(function () {
-                let name = $(this).find('td:nth-child(2)').text().toLowerCase();
-                let email = $(this).find('td:nth-child(3)').text().toLowerCase();
-                let mobile = $(this).find('td:nth-child(4)').text().toLowerCase();
-                $(this).toggle(name.includes(input) || email.includes(input) || mobile.includes(input));
-            });
-        });
-
-        // Add User Form Submission
-        $('#addUser').on('submit', function (e) {
-            e.preventDefault();
-            $.ajax({
-                url: "{{ route('insertUser') }}",
-                method: "POST",
-                data: new FormData(this),
-                processData: false,
-                contentType: false,
-                dataType: 'json',
-                beforeSend: function () {
-                    $('span.error-text').text('');
-                },
-                success: function (data) {
-                    if (data.status == 0) {
-                        $.each(data.error, function (prefix, val) {
-                            $('span.' + prefix + '_error').text(val[0]);
-                        });
-                    } else if (data.status == 2) {
-                        $("#skill_title_error[" + data.id + "]").text(data.msg);
-                    } else {
-                        $('#addUser')[0].reset();
-                        swal({
-                            title: data.msg,
-                            icon: "success",
-                        }).then(() => location.reload());
-                    }
-                }
-            });
-        });
-
-        // Delete User Function
-        window.deleteUser = function (id) {
-            swal({
-                title: "Are you sure?",
-                text: "Do you really want to delete this user? This action cannot be undone.",
-                icon: "warning",
-                buttons: ["Cancel", "Yes, Delete"],
-                dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
-                    $.ajax({
-                        url: "{{ route('deleteUser') }}",
-                        type: "POST",
-                        data: {
-                            _token: "{{ csrf_token() }}",
-                            user_id: id
-                        },
-                        dataType: "json",
-                        success: function (response) {
-                            swal({
-                                title: response.msg,
-                                icon: response.status == 0 ? "error" : "success",
-                            }).then(() => location.reload());
-                        },
-                        error: function () {
-                            swal("Error", "Something went wrong! Please try again.", "error");
-                        }
-                    });
-                }
-            });
-        };
-
-        // Update User Status
-        window.updateStatus = function (userId, status) {
-            $.ajax({
-                url: "{{ route('updateUserStatus') }}",
-                type: "POST",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    user_id: userId,
-                    is_email_verify: status
-                },
-                success: function (response) {
-                    alert(response.message);
-                },
-                error: function (error) {
-                    console.log(error);
-                    alert("Error updating status");
-                }
-            });
-        };
+$(document).ready(function () {
+    $('#user_table').DataTable({
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+        info: true,
+        ordering: true,
+        paging: true,
+        pageLength: 10,
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
     });
+
+    // Search functionality
+    $('#search').on('keyup', function () {
+        let input = this.value.toLowerCase();
+        $('#user_table_body tr').each(function () {
+            let name = $(this).find('td:nth-child(2)').text().toLowerCase();
+            let email = $(this).find('td:nth-child(3)').text().toLowerCase();
+            let mobile = $(this).find('td:nth-child(4)').text().toLowerCase();
+            $(this).toggle(name.includes(input) || email.includes(input) || mobile.includes(input));
+        });
+    });
+
+    // Add User Form Submission
+    $('#addUser').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "{{ route('insertUser') }}",
+            method: "POST",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            beforeSend: function () {
+                $('span.error-text').text('');
+            },
+            success: function (data) {
+                if (data.status == 0) {
+                    $.each(data.error, function (prefix, val) {
+                        $('span.' + prefix + '_error').text(val[0]);
+                    });
+                } else if (data.status == 2) {
+                    $("#skill_title_error[" + data.id + "]").text(data.msg);
+                } else {
+                    $('#addUser')[0].reset();
+                    swal({
+                        title: data.msg,
+                        icon: "success",
+                    }).then(() => location.reload());
+                }
+            }
+        });
+    });
+
+    // Delete User Function
+    window.deleteUser = function (id) {
+        swal({
+            title: "Are you sure?",
+            text: "Do you really want to delete this user? This action cannot be undone.",
+            icon: "warning",
+            buttons: ["Cancel", "Yes, Delete"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: "{{ route('deleteUser') }}",
+                    type: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        user_id: id
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        swal({
+                            title: response.msg,
+                            icon: response.status == 0 ? "error" : "success",
+                        }).then(() => location.reload());
+                    },
+                    error: function () {
+                        swal("Error", "Something went wrong! Please try again.", "error");
+                    }
+                });
+            }
+        });
+    };
+
+    // Update User Status
+    window.updateStatus = function (userId, status) {
+        $.ajax({
+            url: "{{ route('updateUserStatus') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                user_id: userId,
+                is_email_verify: status
+            },
+            success: function (response) {
+                alert(response.message);
+            },
+            error: function (error) {
+                console.log(error);
+                alert("Error updating status");
+            }
+        });
+    };
+});
 </script>
 
 @endsection

@@ -203,6 +203,7 @@ Route::get('/export-eligibility', function () {
 //enquiry form
 Route::get('enquiry', [EnquiryController::class, 'showForm'])->name('enquiry.form');
 Route::post('enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
+
 //register 
 Route::post('register', [UsersController::class, 'register'])->name('register');
 

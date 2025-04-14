@@ -1,7 +1,35 @@
 @extends('frontend.layouts.header')
-@section('title', "Loan Against Property in Pune | Contract Loan in Pune - Jfinserv")
-@section('description', "Explore competitive Contract Loan in Pune and loan against property services in Pune. Secure your dream home with our expert Contractual loan services.")
-@section('keywords', "Contract Loan in Pune, Loan against property in Pune, Contractual loan in Pune, Contractual loan services in PCMC")
+@section('title', "Loan Against Property in Pune | Contract Loan in Pune")
+@section('description', "Explore competitive Contract Loan in Pune and loan against property in Pune. Secure your dream home with our expert Contractual loan services.")
+@section('keywords', "Loan Against Property in Pune, Contract Loan in Pune, Loan Against Property Services in Pune, Contractual loan in Pune, Contractual loan services in PCMC")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/loan-against-property" />
+<meta name="robots" content="index, follow">
+@endsection
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Loan Services in Pune",
+    "item": "https://jfinserv.com/services"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Loan Against Property in Pune",
+    "item": "https://jfinserv.com/loan-against-property"  
+  }]
+}
+</script>
+@section('endsection')
 
 @section('content')
 <!-- Header Start -->
@@ -22,7 +50,7 @@
 
 <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/la-bnr.jpg);">
     <div class="container py-5">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Loan Against Property</h4>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Loan Against Property<br>in Pune</br></h1>
     </div>
 </div>
 <!-- Header End -->
@@ -32,12 +60,12 @@
     <div class="container">
         <div class="wow fadeInUp text-dark" data-wow-delay="0.2s">
             <h2 class="display-6 mb-4">Overview</h2>
-            <p>In need of quick funds? Look no further than Loan Against Property, commonly referred to simply as Contracts. They stand out as one of the most straightforward and popular financing choices on the market. Typically, Contracts boast rapid approval and favorable interest rates.</p>
-            <p>A Loan Against Property can essentially be labeled as a Contract Loan, as it entails mortgaging your property to mitigate the risk of non-payment or default in repaying the borrowed funds. To secure approval for such a loan, lenders typically scrutinize your personal and financial background, assessing factors such as nationality, age, occupation, income, and the market value of the collateral being offered.</p>
+            <p>In need of quick funds? Look no further than Loan Against Property in Pune, commonly referred to simply as Contracts. They stand out as one of the most straightforward and popular financing choices on the market. Typically, Contracts boast rapid approval and favorable interest rates.</p>
+            <p>A Loan Against Property in Pune can essentially be categorized as a Contract Loan in Pune, as it involves mortgaging your property to reduce the lender’s risk of non-payment or default. To approve such a loan, lenders typically evaluate your personal and financial profile, considering factors like nationality, age, occupation, income, and the market value of the collateral offered.</p>
         </div>    
 
         <div class="wow fadeInUp pt-5" data-wow-delay="0.2s">
-            <h2 class="display-6 mb-4">Loan Against Property Features</h2>
+            <h2 class="display-6 mb-4">Loan Against Property in Pune Features</h2>
         </div>
         <div class="row g-2 pb-4" data-wow-delay="0.2s">
             <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
@@ -62,7 +90,7 @@
 
     <!-- Features and Benefits of our Loan Against Property -->
         <div class="wow fadeInUp py-5 text-dark loan-features" data-wow-delay="0.2s">
-            <h2 class="display-6 mb-4">Benefits of Our Loan Against Property</h2>
+            <h2 class="display-6 mb-4">Benefits of Our Loan Against Property in Pune</h2>
             <ul class="fa-ul">
                 <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
                     You maintain legal ownership of the property you offer as collateral.
@@ -71,7 +99,7 @@
                     Due to its secured nature, a Loan Against Property generally garners quicker approval.
                 </li>
                 <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
-                    Loan Against Property interest rates tend to be lower than those of personal loans.
+                    Loan Against Property in Pune interest rates tend to be lower than those of personal loans.
                 </li>
                 <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
                     <strong>Loan Amount:</strong> The loan amount is determined by the value of the property you use as collateral. Typically, this allows you to borrow a larger sum compared to personal loans or other unsecured loans.
@@ -83,7 +111,7 @@
                     <strong>Multipurpose:</strong> The loan amount can be utilized for a variety of purposes, providing you with the flexibility to meet different financial needs without any limitations.
                 </li>
                 <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
-                    <strong>Flexible Tenure:</strong> The repayment period for a Loan Against Property is typically longer than for other types of loans, usually ranging from 5 to 20 years. This extended tenure results in lower monthly installments.
+                    <strong>Flexible Tenure:</strong> The repayment period for a Loan Against Property in Pune is typically longer than for other types of loans, usually ranging from 5 to 20 years. This extended tenure results in lower monthly installments.
                 </li>
                 <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
                     <strong>Improves Credit Scores:</strong> Successfully repaying a Loan Against Property can boost your credit score, as it reflects responsible borrowing habits.
@@ -98,8 +126,8 @@
                     <div class="row g-4 justify-content-center align-items-center bg-light rounded p-3 mx-auto" style="background-image: url({{ asset('theme') }}/frontend/img/cta_banner.webp);">
                         <div class="col-md-9">
                             <div class="counter-item h-100">
-                                <h3 class="text-light">Loan Against Property Eligibility & Documents</h3>
-                                <p class="text-light pb-2">Your eligibility for a Loan Against Property application is usually determined by your age, work status, credit score, and income.</p>
+                                <h3 class="text-light">Loan Against Property in Pune Eligibility & Documents</h3>
+                                <p class="text-light pb-2">Your eligibility for a Loan Against Property in Pune application is usually determined by your age, work status, credit score, and income.</p>
                             </div>
                         </div>
                         <div class="col-md-3 m-0">
@@ -114,10 +142,10 @@
         <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
             <div class="row py-3 align-items-center">
                 <div class="col-md-5 text-center">
-                    <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="" class="w-100 rounded shadow">
+                    <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="Loan Against Property" class="w-100 rounded shadow">
                 </div>
                 <div class="col-md-7">
-                    <h2 class="display-6 mb-4">Loan Against Property Eligibility Criteria</h2>
+                    <h2 class="display-6 mb-4">Loan Against Property in Pune Eligibility Criteria</h2>
                     <p>The basic criteria for home loan eligibility are as follows:</p>
                     <ul class="fa-ul">
                         <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
@@ -147,7 +175,7 @@
         <div class="wow fadeInUp py-3 text-dark" data-wow-delay="0.2s">
             <div class="row py-3 align-items-center">
                 <div class="col-md-7">
-                    <h2 class="display-6 mb-4">Documentation for Loan Against Property</h2>
+                    <h2 class="display-6 mb-4">Documentation for Loan Against Property in Pune</h2>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Proof of income <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Proof of identity/residence</span></p>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>6 months Bank Statements <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Property-related documents</span></p>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Latest 3 years Income Tax Returns <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Proof of Business (for self-employed)</span></p>
@@ -157,7 +185,7 @@
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>All legal and title/Property Documents to be offered as collateral</p>
                 </div>
                 <div class="col-md-5 text-center">
-                    <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="" class="w-75 shadow rounded">
+                    <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="Loan Against Property" class="w-75 shadow rounded">
                 </div>
             </div>
         </div>
@@ -180,7 +208,7 @@
             <div class="col-xl-8 mx-auto wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="h-100">
                     <div class="mb-4 text-center">
-                        <h2 class="display-4 mb-0">Loan ​​​​​​​Against Property FAQ's</h2>
+                        <h2 class="display-4 mb-0">Loan ​​​​​​​Against Property in Pune FAQ's</h2>
                     </div>
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
@@ -239,19 +267,19 @@
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    A: The maximum loan amount and tenure offered for Loan Against Property depends on factors like value of the property and the borrower's repayment capacity.
+                                    A: The maximum loan amount and tenure offered for Loan Against Property in Pune depends on factors like value of the property and the borrower's repayment capacity.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    Q: What is the process for applying for a Loan Against Property with Jfinserv?
+                                    Q: What is the process for applying for a Loan Against Property in Pune with Jfinserv?
                                 </button>
                             </h2>
                             <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    A: The process for applying for a Loan Against Property with Jfinserv involves filling out an application form, submitting the required documents, undergoing property valuation and legal verification, and loan approval. Our dedicated team of experts will guide you through the process to ensure a smooth experience.
+                                    A: The process for applying for a Loan Against Property in Pune with Jfinserv involves filling out an application form, submitting the required documents, undergoing property valuation and legal verification, and loan approval. Our dedicated team of experts will guide you through the process to ensure a smooth experience.
                                 </div>
                             </div>
                         </div>

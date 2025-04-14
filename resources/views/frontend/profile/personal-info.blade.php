@@ -306,7 +306,7 @@
 				@if ($documents && count($documents) > 0)
 					<div class="row">
 						@foreach ($documents as $document)
-							<div class="col-md-4 pt-2 me-3 bg-white">
+							<div class="col-md-2 pt-2 me-3 bg-white">
 								<h5>{{ucfirst($document->document_name) }}:</h5 >
 								<p><a href="{{ Storage::url($document->file_path) }}" target="_blank">View</a> <span class="px-2">|</span> <a href="#" class="text-dark text-end" target="_blank">Replace</a></p>
 							</div>

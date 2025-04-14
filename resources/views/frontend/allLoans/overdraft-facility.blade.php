@@ -1,7 +1,35 @@
 @extends('frontend.layouts.header')
-@section('title', "Overdraft facility | Financial Consultant in Pune - Jfinserv")
-@section('description', "Discover JfInserv&#039;s versatile overdraft facility offering flexible credit solutions to meet your financial requirements. Contact financial consultant in Pune Now.")
-@section('keywords', "Overdraft facility, Financial Consultant in Pune, Credit Line, Flexible Financing, Revolving Credit, Emergency Fund, Financial Flexibility, Credit Facility")
+@section('title', "Overdraft facility in Pune | Financial Consultant in Pune")
+@section('description', "Discover JfInserv's versatile Overdraft facility in Pune offering flexible credit solutions to meet your financial requirements. Contact financial consultant in Pune Now.")
+@section('keywords', "Overdraft facility in Pune, Financial Consultant in Pune, Housing Finance in Pune, Homeownership in PCMC")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/overdraft-facility" />
+<meta name="robots" content="index, follow">
+@endsection
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Loan Services in Pune",
+    "item": "https://jfinserv.com/services"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Overdraft Facility in Pune",
+    "item": "https://jfinserv.com/overdraft-facility"  
+  }]
+}
+</script>
+@endsection
 
 @section('content')
 <!-- Header Start -->
@@ -22,7 +50,7 @@
 
 <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/of-bnr.jpg);">
     <div class="container py-5">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Overdraft Facility</h4>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Overdraft facility in Pune</h1>
     </div>
 </div>
     <!-- Header End -->
@@ -33,40 +61,40 @@
                 <div class="wow fadeInUp text-dark" data-wow-delay="0.2s">
                     <h2 class="display-6 mb-4">Overview</h2>
                     <p>
-                    Business proprietors often face scenarios necessitating extra funds to maintain seamless business operations. Such obstacles can momentarily pause business activities, proving detrimental irrespective of the business's scale. Any disruption in operations leads to financial setbacks. Should you encounter a shortfall in funds as a business owner, you can depend on JFinserv's Overdraft Facility. Tailored to address your urgent capital requirements, this service shields your business from adverse repercussions.</p>
+                    Business proprietors often face scenarios necessitating extra funds to maintain seamless business operations. Such obstacles can momentarily pause business activities, proving detrimental irrespective of the business's scale. Any disruption in operations leads to financial setbacks. Should you encounter a shortfall in funds as a business owner, you can depend on JFinserv's Overdraft Facility in Pune. Tailored to address your urgent capital requirements, this service shields your business from adverse repercussions.</p>
                     <p>An Overdraft (OD) is a credit option provided by banks, enabling borrowers to cover business expenditures. It enables borrowing funds even when account balances are minimal. This facility offers a pre-established fund limit, which differs depending on the bank and customer connection. Banks levy interest solely on the amount utilized from the approved limit.</p>
                 </div>
                 <div class="wow fadeInUp pt-5" data-wow-delay="0.2s">
-                    <h2 class="display-6 mb-4">Overdraft Facility Loan Features</h2>
+                    <h2 class="display-6 mb-4">Overdraft Facility in Pune Loan Features</h2>
                 </div>
                 <div class="row g-2 pb-4">
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
-                            <p class="m-0 text-dark">Banks offer business borrowers a variable credit limit through an Overdraft Facility.</p>
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="Overdraft facility in Pune">
+                            <p class="m-0 text-dark">Banks offer business borrowers a variable credit limit through an Overdraft Facility in Pune.</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="Overdraft facility in Pune">
                             <p class="m-0 text-dark">Interest on an Overdraft loan is calculated only on the amount used by the borrower.</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="Overdraft facility in Pune">
                             <p class="m-0 text-dark">Offers for New Customers</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="Overdraft facility in Pune">
                             <p class="m-0 text-dark">Offers for New Customers</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="Overdraft facility in Pune">
                             <p class="m-0 text-dark">Offers for New Customers</p>
                         </div>
                     </div>
@@ -74,7 +102,7 @@
 
             <!-- Features and Benefits of our Overdraft Facility Loan -->
                 <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
-                    <h2 class="display-6 mb-4">Features & Benefits of our Overdraft Facility Loan</h2>
+                    <h2 class="display-6 mb-4">Features & Benefits of our Overdraft Facility in Pune</h2>
                     <p>We acknowledge that buying a home is one of life's most significant financial decisions. With our array of customizable home loan options, we're here to assist you at every turn, ensuring a seamless and stress-free process. The followings are the ways a Overdraft Facility Loan can be useful:</p>
                     <p class="text-dark"><i class="fa fa-check text-primary me-3"></i><strong>Competitive Interest Rates:</strong> Take advantage of our competitive interest rates, guaranteeing that you can comfortably afford your dream home while safeguarding your financial stability.</p>
                     <p class="text-dark"><i class="fa fa-check text-primary me-3"></i><strong>Flexible Repayment Options:</strong> Customize your repayment schedule to align with your financial capacity, whether you opt for a shorter duration to minimize interest costs or a longer duration for more manageable monthly payments.</p>
@@ -91,8 +119,8 @@
                             <div class="row g-4 justify-content-center align-items-center bg-light rounded p-3 mx-auto" style="background-image: url({{ asset('theme') }}/frontend/img/cta_banner.webp);">
                                 <div class="col-md-9">
                                     <div class="counter-item h-100">
-                                        <h3 class="text-light">Overdraft Facility Loan Eligibility & Documents</h3>
-                                        <p class="text-light pb-2">Your eligibility for a Overdraft Facility Loan application is usually determined by your age, work status, credit score, and income.</p>
+                                        <h3 class="text-light">Eligibility & Documents for Overdraft facility in Pune</h3>
+                                        <p class="text-light pb-2">Your eligibility for a Overdraft Facility in Pune Loan application is usually determined by your age, work status, credit score, and income.</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 m-0">
@@ -107,10 +135,10 @@
                 <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
                     <div class="row py-3 align-items-center">
                         <div class="col-md-5 text-center">
-                            <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="" class="w-75 rounded shadow">
+                            <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="Overdraft facility in Pune" class="w-75 rounded shadow">
                         </div>
                         <div class="col-md-7">
-                            <h2 class="display-6 mb-4">Overdraft Facility Loan Eligibility Criteria</h2>
+                            <h2 class="display-6 mb-4">Eligibility Criteria of Overdraft Facility in Pune</h2>
                             <p>The basic criteria for home loan eligibility are as follows:</p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -152,7 +180,7 @@
                 <div class="wow fadeInUp py-3 text-dark" data-wow-delay="0.2s">
                     <div class="row py-3 align-items-center">
                         <div class="col-md-7">
-                            <h2 class="display-6 mb-4">Documentation for Overdraft Facility Loan</h2>
+                            <h2 class="display-6 mb-4">Documentation for Overdraft Facility in Pune</h2>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="salaried-tab" data-bs-toggle="tab" data-bs-target="#salaried" type="button" role="tab" aria-controls="salaried" aria-selected="true">Salaried Individuals</button>
@@ -193,7 +221,7 @@
                             </div>
                         </div>
                         <div class="col-md-5 text-center">
-                            <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="" class="w-75 rounded shadow">
+                            <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="Overdraft facility in Pune" class="w-75 rounded shadow">
                         </div>
                     </div>
                 </div>
@@ -222,46 +250,42 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
                                         <button class="accordion-button border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Q: What is a home loan?
+                                            Q: What is an overdraft facility?
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show active" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body rounded">
-                                            A: A home loan is a loan provided by a financial organisation to help individuals or families purchase a home. It allows borrowers to finance the purchase of a property by borrowing money from the lender and repaying it over a specified period of time, along with interest.
+                                            A: An overdraft facility allows you to withdraw more money than what is available in your account, up to a pre-approved limit, helping manage short-term cash needs.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Q: What documents are required for a salaried individual to apply for a home loan?
+                                            Q: Who is eligible for an overdraft facility in Pune?
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            A: Following documents of a salaried person are needed to apply for home loan.
-                                            <ul>
-                                                <li>KYC documents (identity and address proof)</li>
-                                                <li>Income proof (Salary slips)</li>
-                                                <li>Last 6 months account statements</li>
-                                            </ul>
+                                            A: Eligibility varies by bank or financial institution but generally includes salaried individuals, self-employed professionals, business owners, and companies with a good credit history.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingThree">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Q: What documents are required for a self-employed individual to apply for a home loan?
+                                            Q: What documents are required to apply for an overdraft facility?
                                         </button>
                                     </h2>
                                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            A: Following documents of a salaried person are needed to apply for home loan.
+                                            A: Typically, you’ll need:
                                             <ul>
-                                                <li>KYC documents (identity and address proof)</li>
-                                                <li>Income proof (P & L Statement)</li>
-                                                <li>Last 6 months account statements</li>
-                                                <li>Business Proof</li>
+                                                <li>Identity & address proof (Aadhaar, PAN, etc.)</li>
+                                                <li>Bank statements (3–6 months)</li>
+                                                <li>Income proof or business financials</li>
+                                                <li>GST returns (for businesses)</li>
+                                                <li>Security/collateral documents (if applicable)</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -269,48 +293,48 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingFour">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            Q: What are the interest rates for home loans offered by Jfinserv?
+                                            Q: Is collateral required for an overdraft facility?
                                         </button>
                                     </h2>
                                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            A: The interest rate for home loans offered by Jfinserv is based on market conditions, the loan amount, tenure, and the applicant's credit profile. Jfinserv strives to offer competitive interest rates to make home ownership affordable for its customers.
+                                            A: Overdrafts can be secured or unsecured. Secured overdrafts require collateral like property, FDs, or insurance, while unsecured overdrafts depend on your creditworthiness.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingFive">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                            Q: What is the maximum loan amount and tenure offered for home loans by Jfinserv?
+                                            Q: How is interest charged on an overdraft?
                                         </button>
                                     </h2>
                                     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            A: The maximum loan amount and tenure offered for home loans may vary depending on factors like applicant's income, repayment capacity, and the value of the property. Jfinserv offers competitive loan amounts and flexible repayment tenures to suit the needs of borrowers.
+                                            A: Interest is charged only on the amount used and for the duration it's used. Rates vary based on the lender and type of overdraft (secured/unsecured).
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSix">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                            Q: What is the process for applying for a home loan with Jfinserv?
+                                            Q: Can businesses in Pune apply for overdraft facilities?
                                         </button>
                                     </h2>
                                     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            A: The process for applying for a home loan involves, filling out an application form, submitting the required documents, undergoing credit appraisal, property valuation, and loan approval. Our dedicated team of experts will assist you at every step of the application process to ensure a smooth and hassle-free experience.
+                                            A: Yes, both small and large businesses can apply for overdraft facilities to manage their working capital needs.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSeven">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                            Q: What are the different types of home loans offered by Jfinserv?
+                                            Q: Where can I apply for an overdraft facility in Pune?
                                         </button>
                                     </h2>
                                     <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            A: Jfinserv offers various types of home loans to meet the diverse needs of customers, including home purchase loans, home construction loans, home improvement loans, and balance transfer loans. Each type of loan is designed to address specific requirements related to buying, constructing, or renovating a home.
+                                            A: You can apply through banks, NBFCs, or financial consultants like Jfinserv, which assist in choosing the best overdraft options based on your needs.
                                         </div>
                                     </div>
                                 </div>
