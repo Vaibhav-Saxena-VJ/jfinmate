@@ -1,15 +1,38 @@
 @extends('frontend.layouts.header')
-@section('title', "Home Loan - Jfinserv")
-@section('description', "Discover tailored home loan solutions and comprehensive financial services in Pune. Our expert team is business loan services in Pune.")
-@section('keywords', "financial services in pune, Home loan services in Pune, business loan provider in pune, Business loan services in Pune, Business loan in Pune")
-
+@section('title', "Best Home Loan in Pune | Housing Finance in Pune")
+@section('description', "Unlock your dream home with JFInserv's personalized best home loan in pune. Your pathway to Housing Finance in Pune and PCMC!")
+@section('keywords', "best home loan in pune, Housing Finance in Pune, Homeownership in PCMC, Property Loans in Pune, Real Estate Financing in Pune, Housing Loans in Pune")
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Loan Services in Pune",
+    "item": "https://jfinserv.com/services"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Home Loan in Pune",
+    "item": "https://jfinserv.com/home-loan"  
+  }]
+}
+</script>
+@section(endsection)
 @section('content')
 <!-- Header Start -->
     <div class="details-hero d-flex justify-content-center align-items-center" style="background-image: url({{ asset('theme') }}/frontend/img/loan-background.webp);">
         <div class="container d-flex align-items-center justify-content-between py-5">
             <div class="row">
                 <div class="col-md-6 py-5">
-                    <h2 class="text-dark display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Secure Your Dream Home with Easy Home Loans</h2>
+                    <h1 class="text-dark display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Secure Your Dream Home with Best Home Loan in Pune</h1>
                     <p class="mt-4 text-dark"><strong>We're dedicated to being your trusted companion on the journey to realizing your dream home.</strong></p>
                     <a href="/loan-application" class="btn btn-primary rounded py-3 px-5 mt-5 flex-shrink-0">Apply Now</a>
                 </div>

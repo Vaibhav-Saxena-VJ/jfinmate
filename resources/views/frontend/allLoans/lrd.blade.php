@@ -1,7 +1,35 @@
 @extends('frontend.layouts.header')
-@section('title', "Lease Rental Discounting Loan - Jfinserv")
-@section('description', "Discover tailored Lease Rental Discounting Loan solutions and comprehensive financial services in Pune. Our expert team is business loan services in Pune.")
-@section('keywords', "financial services in pune, Lease Rental Discounting Loan services in Pune, business loan provider in pune, Business loan services in Pune, Business loan in Pune")
+@section('title', "Lease rental discounting | Property for Lease in Pune")
+@section('description', "Maximize liquidity and leverage your rental income with Lease Rental Discounting services. Access hassle-free financing against your leased properties")
+@section('keywords', "Lease rental discounting, Property for Lease in Pune, leased property financing")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/lease-rental-discounting" />
+<meta name="robots" content="index, follow">
+@endsection
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Loan Services in Pune",
+    "item": "https://jfinserv.com/services"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Lease Rental Discounting",
+    "item": "https://jfinserv.com/lease-rental-discounting"  
+  }]
+}
+</script>
+@endsection
 
 @section('content')
 <!-- Header Start -->
@@ -20,9 +48,9 @@
         </div>
     </div> -->
 
-<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/lrd-bnr.jpg);">
+<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/lrd-bnr.jpg);" alt = "Lease Rental Discounting">
     <div class="container py-5">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Lease Rental Discounting</h4>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Lease Rental Discounting</h1>
     </div>
 </div>
     <!-- Header End -->
@@ -41,25 +69,25 @@
                 <div class="row g-2 pb-4">
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt = "Lease Rental Discounting">
                             <p class="m-0 text-dark">High-value Financing</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt = "Lease Rental Discounting">
                             <p class="m-0 text-dark">Comfortable Repayment Plans</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt = "Lease Rental Discounting">
                             <p class="m-0 text-dark">Flexi Loan Facility</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt = "Lease Rental Discounting">
                             <p class="m-0 text-dark">Foreclosure Benefits</p>
                         </div>
                     </div>
@@ -100,7 +128,7 @@
                 <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
                     <div class="row py-3 align-items-center">
                         <div class="col-md-5">
-                            <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="" class="w-75 rounded shadow">
+                            <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="Lease Rental Discounting" class="w-75 rounded shadow">
                         </div>
                         <div class="col-md-7">
                             <h2 class="display-6 mb-4">Lease Rental Discounting Loan Eligibility Criteria</h2>
@@ -186,7 +214,7 @@
                             </div>
                         </div>
                         <div class="col-md-5 text-center">
-                            <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="" class="w-75 rounded shadow">
+                            <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="Lease Rental Discounting" class="w-75 rounded shadow">
                         </div>
                     </div>
                 </div>

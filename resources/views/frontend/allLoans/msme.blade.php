@@ -1,7 +1,35 @@
 @extends('frontend.layouts.header')
-@section('title', "MSME Loan - Jfinserv")
-@section('description', "Discover tailored MSME Loan solutions and comprehensive financial services in Pune. Our expert team is business loan services in Pune.")
-@section('keywords', "financial services in pune, MSME Loan services in Pune, business loan provider in pune, Business loan services in Pune, Business loan in Pune")
+@section('title', "MSME loan in Pune | Business loan services in PCMC")
+@section('description', "Jfinserv offers MSME loan in Pune with competitive rates, flexible repayment options, and a quick application process for Business loan services in PCMC and Pune.")
+@section('keywords', "MSME loan in Pune, Business loan services in PCMC, Business loan in Pune, financial services in pune, MSME Loan services in Pune, business loan provider in pune")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/msme-loan" />
+<meta name="robots" content="index, follow">
+@endsection
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Loan Services in Pune",
+    "item": "https://jfinserv.com/services"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "MSME Loan in Pune",
+    "item": "https://jfinserv.com/msme-loan"  
+  }]
+}
+</script>
+@endsection
 
 @section('content')
 <!-- Header Start -->
@@ -20,9 +48,9 @@
         </div>
     </div> -->
 
-<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/msme-bnr.jpg);">
+<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/msme-bnr.jpg);" alt="MSME Loan in Pune">
     <div class="container py-5">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">MSME Loan</h4>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">MSME Loan in Pune</h1>
     </div>
 </div>
     <!-- Header End -->
@@ -32,27 +60,27 @@
             <div class="container">
                 <div class="wow fadeInUp text-dark" data-wow-delay="0.2s">
                     <h2 class="display-6 mb-4">Overview</h2>
-                    <p>MSME Loans are specialized financial products designed to support Micro, Small, and Medium Enterprises (MSMEs) in meeting their business needs. These loans provide much-needed funding for working capital, business expansion, equipment purchases, and infrastructure development. Tailored to boost entrepreneurship and economic growth, MSME loans come with flexible repayment options, competitive interest rates, and minimal documentation. They empower small businesses to scale operations, improve productivity, and seize growth opportunities without compromising cash flow. With government-backed initiatives and schemes like MUDRA Loans, CGTMSE, and PMEGP, MSME loans have become more accessible, enabling businesses to thrive in today’s competitive landscape.</p>
+                    <p>MSME Loan in Pune are specialized financial products designed to support Micro, Small, and Medium Enterprises (MSMEs) in meeting their business needs. These loans provide much-needed funding for working capital, business expansion, equipment purchases, and infrastructure development. Tailored to boost entrepreneurship and economic growth, MSME loan in Pune come with flexible repayment options, competitive interest rates, and minimal documentation. They empower small businesses to scale operations, improve productivity, and seize growth opportunities without compromising cash flow. With government-backed initiatives and schemes like MUDRA Loans, CGTMSE, and PMEGP, MSME loans have become more accessible, enabling businesses to thrive in today’s competitive landscape.</p>
                 </div>
                 <div class="wow fadeInUp pt-5" data-wow-delay="0.2s">
-                    <h2 class="display-6 mb-4">MSME Loan Features</h2>
+                    <h2 class="display-6 mb-4">MSME Loan in Pune Features</h2>
                 </div>
                 <div class="row g-2 pb-4">
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="MSME Loan in Pune">
                             <p class="m-0 text-dark">Offers for New Customers</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="MSME Loan in Pune">
                             <p class="m-0 text-dark">Swift Loan Processing</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                         <div class="p-3">
-                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png">
+                            <img src="https://www.ruloans.com/assets/icons/percentageTag.png" alt="MSME Loan in Pune">
                             <p class="m-0 text-dark">Digital Loan Management</p>
                         </div>
                     </div>
@@ -60,7 +88,7 @@
 
             <!-- Features and Benefits of our MSME Loan -->
                 <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
-                    <h2 class="display-6 mb-4">Features & Benefits of our MSME Loan</h2>
+                    <h2 class="display-6 mb-4">Features & Benefits of our MSME Loan in Pune</h2>
                     <p>We acknowledge that buying a home is one of life's most significant financial decisions. With our array of customizable MSME Loan options, we're here to assist you at every turn, ensuring a seamless and stress-free process. The followings are the ways a MSME Loan can be useful:</p>
                     <p class="text-dark"><i class="fa fa-check text-primary me-3"></i><strong>Competitive Interest Rates:</strong> Take advantage of our competitive interest rates, guaranteeing that you can comfortably afford your dream home while safeguarding your financial stability.</p>
                     <p class="text-dark"><i class="fa fa-check text-primary me-3"></i><strong>Flexible Repayment Options:</strong> Customize your repayment schedule to align with your financial capacity, whether you opt for a shorter duration to minimize interest costs or a longer duration for more manageable monthly payments.</p>
@@ -74,11 +102,11 @@
                 <div class="row g-5 py-2 px-5 justify-content-center align-items-center">
                     <div class="col-xl-12 wow fadeInRight" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;">
                         <div class="rounded p-3 h-100">
-                            <div class="row g-4 justify-content-center align-items-center bg-light rounded p-3 mx-auto" style="background-image: url({{ asset('theme') }}/frontend/img/cta_banner.webp);">
+                            <div class="row g-4 justify-content-center align-items-center bg-light rounded p-3 mx-auto" style="background-image: url({{ asset('theme') }}/frontend/img/cta_banner.webp);" "alt="MSME Loan in Pune">
                                 <div class="col-md-9">
                                     <div class="counter-item h-100">
-                                        <h3 class="text-light">MSME Loan Eligibility & Documents</h3>
-                                        <p class="text-light pb-2">Your eligibility for a MSME Loan application is usually determined by your age, work status, credit score, and income.</p>
+                                        <h3 class="text-light">MSME Loan in Pune Eligibility & Documents</h3>
+                                        <p class="text-light pb-2">Your eligibility for a MSME Loan in Pune application is usually determined by your age, work status, credit score, and income.</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 m-0">
@@ -93,10 +121,10 @@
                 <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
                     <div class="row py-3 align-items-center">
                         <div class="col-md-5">
-                            <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="" class="w-75 shadow rounded">
+                            <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="MSME Loan in Pune" class="w-75 shadow rounded">
                         </div>
                         <div class="col-md-7">
-                            <h2 class="display-6 mb-4">MSME Loan Eligibility Criteria</h2>
+                            <h2 class="display-6 mb-4">Eligibility Criteria of MSME Loan in Pune</h2>
                             <p>The basic criteria for MSME Loan eligibility are as follows:</p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -138,7 +166,7 @@
                 <div class="wow fadeInUp py-3 text-dark" data-wow-delay="0.2s">
                     <div class="row py-3 align-items-center">
                         <div class="col-md-7">
-                            <h2 class="display-6 mb-4">Documentation for MSME Loan</h2>
+                            <h2 class="display-6 mb-4">Documentation for MSME Loan in Pune</h2>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="salaried-tab" data-bs-toggle="tab" data-bs-target="#salaried" type="button" role="tab" aria-controls="salaried" aria-selected="true">Salaried Individuals</button>
@@ -179,7 +207,7 @@
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="" class="w-75 shadow rounded">
+                            <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="MSME Loan in Pune" class="w-75 shadow rounded">
                         </div>
                     </div>
                 </div>
@@ -220,7 +248,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Q: What documents are required for a salaried individual to apply for a MSME Loan?
+                                            Q: What documents are required for a salaried individual to apply for a MSME Loan in Pune?
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -237,7 +265,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingThree">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Q: What documents are required for a self-employed individual to apply for a MSME Loan?
+                                            Q: What documents are required for a self-employed individual to apply for a MSME Loan in Pune?
                                         </button>
                                     </h2>
                                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">

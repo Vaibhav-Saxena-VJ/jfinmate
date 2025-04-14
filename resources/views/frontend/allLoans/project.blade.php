@@ -1,7 +1,35 @@
 @extends('frontend.layouts.header')
-@section('title', "Project loan services in Pune | Small and medium Business Loans for PCMC - Jfinserv")
-@section('description', "Explore top Project loan services in Pune and secure the Business Funding . Customized financing solutions to help your Small and medium Business Loans for PCMC and Pune.")
-@section('keywords', "Project loan services in Punem, Project Loans in Pune, Construction Loan in Pune , Business Funding, Commercial Loans in Pune, Small Business Loans for PCMC, Start-up Funding")
+@section('title', "Project Loan in Pune | Small Business Loans for PCMC & Pune")
+@section('description', "Explore top Project loan in Pune and secure the Business Funding . Customized financing solutions to help your Small Business Loans for PCMC and Pune.")
+@section('keywords', "Project Loan in Pune, Small Business Loans for PCMC, Small Business Loans for Pune, Project loan services in Pune, Construction Loan in Pune, Commercial Loans in Pune")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/project-loan" />
+<meta name="robots" content="index, follow">
+@endsection
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Loan Services in Pune",
+    "item": "https://jfinserv.com/services"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Project Loan in Pune",
+    "item": "https://jfinserv.com/project-loan"  
+  }]
+}
+</script>
+@section('endsection')
 
 @section('content')
 <!-- Header Start -->
@@ -14,15 +42,15 @@
                     <a href="/loan-application" class="btn btn-light rounded py-3 px-5 mt-5 flex-shrink-0">Apply Now</a>
                 </div>
                 <div class="col-md-6 px-5">
-                    <img src="{{ asset('theme') }}/frontend/img/personal-loan.png" width="528px">
+                    <img src="{{ asset('theme') }}/frontend/img/personal-loan.png" alt="Project Loan in Pune" width="528px">
                 </div>
             </div>
         </div>
     </div> -->
 
-<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/pl-bnr.jpg);">
+<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/pl-bnr.jpg); alt="Project Loan in Pune"">
     <div class="container py-5">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Loan Against Property</h4>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Project Loan in Pune</h1>
     </div>
 </div>
     <!-- Header End -->
@@ -32,29 +60,29 @@
     <div class="container">
         <div class="wow fadeInUp text-dark" data-wow-delay="0.2s">
             <h2 class="display-6 mb-4">Overview</h2>
-            <p>We offer project finance solutions globally, with a strong focus on maximizing the profitability of each client transaction. At Global Trade Funding, we provide the international project financing you need, along with advisory services for deal structuring to minimize risk and safeguard your interests.</p>
-            <p>Our expertise in structuring successful project financing packages, combined with our ability to connect the right project with the ideal lenders, architects, engineers, consultants, builders, and developers, is truly exceptional. By executing with seamless coordination and perfect timing, we are equipped with all the necessary tools to deliver outstanding financial solutions for challenging and hard-to-place loans and projects.</p>
+            <p>We offer project loan in Pune solutions globally, with a strong focus on maximizing the profitability of each client transaction. At Global Trade Funding, we provide the international project financing you need, along with advisory services for deal structuring to minimize risk and safeguard your interests.</p>
+            <p>Our expertise in structuring successful project financing packages, combined with our ability to connect the right project loan in Pune with the ideal lenders, architects, engineers, consultants, builders, and developers, is truly exceptional. By executing with seamless coordination and perfect timing, we are equipped with all the necessary tools to deliver outstanding financial solutions for challenging and hard-to-place loans and projects.</p>
         </div>    
 
         <div class="wow fadeInUp pt-5" data-wow-delay="0.2s">
-            <h2 class="display-6 mb-4">Project Loan Features</h2>
+            <h2 class="display-6 mb-4">Project Loan in Pune Features</h2>
         </div>
         <div class="row g-2 pb-4" data-wow-delay="0.2s">
             <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                 <div class="p-3">
-                    <img src="{{ asset('theme') }}/frontend/img/interest-rate.png" class="w-25 pb-3">
+                    <img src="{{ asset('theme') }}/frontend/img/interest-rate.png" alt="Project Loan in Pune" class="w-25 pb-3">
                     <p class="m-0 text-dark">Competitive Interest Rates</p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                 <div class="p-3">
-                    <img src="{{ asset('theme') }}/frontend/img/process.png" class="w-25 pb-3">
+                    <img src="{{ asset('theme') }}/frontend/img/process.png" alt="Project Loan in Pune" class="w-25 pb-3">
                     <p class="m-0 text-dark">Streamlined Documentation</p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-12 border me-3">
                 <div class="p-3">
-                    <img src="{{ asset('theme') }}/frontend/img/computer.png" class="w-25 pb-3">
+                    <img src="{{ asset('theme') }}/frontend/img/computer.png" alt="Project Loan in Pune" class="w-25 pb-3">
                     <p class="m-0 text-dark">Online Application Process</p>
                 </div>
             </div>
@@ -62,7 +90,7 @@
 
     <!-- Features and Benefits of our Project Loan -->
         <div class="wow fadeInUp py-5 text-dark loan-features" data-wow-delay="0.2s">
-            <h2 class="display-6 mb-4">Benefits of Our Project Loan</h2>
+            <h2 class="display-6 mb-4">Benefits of Our Project Loan in Pune</h2>
             <ul class="fa-ul">
                 <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
                     <strong>Flexible Financing Solutions:</strong> Customizable loan options designed to suit the unique needs of your project, with adaptable terms and conditions.
@@ -92,8 +120,8 @@
                     <div class="row g-4 justify-content-center align-items-center bg-light rounded p-3 mx-auto" style="background-image: url({{ asset('theme') }}/frontend/img/cta_banner.webp);">
                         <div class="col-md-9">
                             <div class="counter-item h-100">
-                                <h3 class="text-light">Project Loan Eligibility & Documents</h3>
-                                <p class="text-light pb-2">Your eligibility for a Project Loan application is usually determined by your age, work status, credit score, and income.</p>
+                                <h3 class="text-light">Eligibility & Documents for Project Loan in Pune</h3>
+                                <p class="text-light pb-2">Your eligibility for a Project Loan in Pune application is usually determined by your age, work status, credit score, and income.</p>
                             </div>
                         </div>
                         <div class="col-md-3 m-0">
@@ -108,10 +136,10 @@
         <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
             <div class="row py-3 align-items-center">
                 <div class="col-md-4 text-center">
-                    <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="" class="w-100 shadow rounded">
+                    <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="Project Loan in Pune" class="w-100 shadow rounded">
                 </div>
                 <div class="col-md-8">
-                    <h2 class="display-6 mb-4">Project Loan Eligibility Criteria</h2>
+                    <h2 class="display-6 mb-4">Project Loan in Pune Eligibility Criteria</h2>
                     <p>The basic criteria for project loan eligibility are as follows:</p>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>ID proof <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Address Proof</span> <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Company profile including existing product range</span></p>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Promoter profile including KYC details <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Copy of MOA/AOA/partnership deed (as applicable)</span></p>
@@ -128,14 +156,14 @@
         <div class="wow fadeInUp py-3 text-dark" data-wow-delay="0.2s">
             <div class="row py-3 align-items-center">
                 <div class="col-md-8">
-                    <h2 class="display-6 mb-4">Documentation for Project Loan</h2>
+                    <h2 class="display-6 mb-4">Documentation for Project Loan in Pune</h2>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Business Plan <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Financial Statements</span> <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Project Feasibility Study</span></p>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Project Contracts <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Collateral Documentation</span> <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Legal Documentation</span></p>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Insurance Documents <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Personal Financial Statements</span> <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Credit History</span></p>
                     <p class="text-dark"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Tax Returns <span><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i>Environmental Clearances</span></p>
                 </div>
                 <div class="col-md-4 text-center">
-                    <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" class="w-100 shadow rounded" alt="">
+                    <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" class="w-100 shadow rounded" alt="Project Loan in Pune">
                 </div>
             </div>
         </div>
@@ -144,8 +172,8 @@
         <div class="wow fadeInUp py-5 mb-5 text-dark" data-wow-delay="0.2s">
             <h2 class="display-6 mb-4">EMI Calculator for Project Loan</h2>
             <p>The monthly payments you make towards repaying your Project Loan are called Equated Monthly Instalments (EMIs). These payments cover both the principal loan amount, spread over the loan tenure, and the interest on the remaining loan balance.</p>
-            <p>The Ruloans online Project Loan EMI Calculator is a helpful tool to guide you in making informed decisions for managing your Project Loan efficiently. This easy-to-use calculator quickly and accurately computes your EMIs, helping you plan your finances with ease.</p>
-            <a href="/emi-calculator" traget="_blank" class="btn bg-white btn-link rounded border border-2 border-dark px-5 mt-3 flex-shrink-0"><img src="{{ asset('theme') }}/frontend/img/accounting.gif" width="65px"><span class="px-3" style="font-size:20px;">Calculate Now</span></a>                    
+            <p>The Ruloans online Project Loan EMI Calculator is a helpful tool to guide you in making informed decisions for managing your Project Loan in Pune efficiently. This easy-to-use calculator quickly and accurately computes your EMIs, helping you plan your finances with ease.</p>
+            <a href="/emi-calculator" traget="_blank" class="btn bg-white btn-link rounded border border-2 border-dark px-5 mt-3 flex-shrink-0"><img src="{{ asset('theme') }}/frontend/img/accounting.gif" alt="Project Loan in Pune" width="65px"><span class="px-3" style="font-size:20px;">Calculate Now</span></a>                    
         </div>
     </div>
 </div>
@@ -181,7 +209,7 @@
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    A: Jfinserv offers project loans for a wide range of construction projects, including residential housing developments, commercial buildings, infrastructure projects, industrial facilities, and more.
+                                    A: Jfinserv offers project loan in Pune for a wide range of construction projects, including residential housing developments, commercial buildings, infrastructure projects, industrial facilities, and more.
                                 </div>
                             </div>
                         </div>
@@ -200,7 +228,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Q: What documents are required to apply for a project loan with Jfinserv?
+                                    Q: What documents are required to apply for a project loan in Pune with Jfinserv?
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">

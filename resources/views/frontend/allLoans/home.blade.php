@@ -1,8 +1,35 @@
 @extends('frontend.layouts.header')
-@section('title', "Home Loan - Jfinserv")
-@section('description', "Discover tailored home loan solutions and comprehensive financial services in Pune. Our expert team is business loan services in Pune.")
-@section('keywords', "financial services in pune, Home loan services in Pune, business loan provider in pune, Business loan services in Pune, Business loan in Pune")
-
+@section('title', "Best Home Loan in Pune | Housing Finance in Pune")
+@section('description', "Unlock your dream home with JFInserv's personalized best home loan in pune. Your pathway to Housing Finance in Pune and PCMC!")
+@section('keywords', "Best Home Loan in Pune, Housing Finance in Pune, Homeownership in PCMC, Property Loans in Pune, Real Estate Financing in Pune, Housing Loans in Pune")
+@section('canonical')
+<link rel="canonical" href="https://jfinserv.com/home-loan" />
+<meta name="robots" content="index, follow">
+@endsection
+@section('schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Jfinserv",
+    "item": "https://jfinserv.com/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Loan Services in Pune",
+    "item": "https://jfinserv.com/services"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Best Home Loan in Pune",
+    "item": "https://jfinserv.com/home-loan"  
+  }]
+}
+</script>
+@section('endsection')
 @section('content')
 <!-- Header Start -->
     <!-- <div class="details-hero d-flex justify-content-center align-items-center" style="background-image: url({{ asset('theme') }}/frontend/img/loan-background.webp);">
@@ -14,15 +41,15 @@
                     <a href="/loan-application" class="btn btn-light rounded py-3 px-5 mt-5 flex-shrink-0">Apply Now</a>
                 </div>
                 <div class="col-md-6 px-5">
-                    <img src="{{ asset('theme') }}/frontend/img/personal-loan.png" width="528px">
+                    <img src="{{ asset('theme') }}/frontend/img/personal-loan.png" alt="Best Home Loan in Pune" width="528px">
                 </div>
             </div>
         </div>
     </div> -->
 
-<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/hl-bnr.jpg);">
+<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/hl-bnr.jpg);" alt="Best Home Loan in Pune ">
     <div class="container py-5">
-        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Home Loan</h4>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Best Home Loan <br>in Pune</br></h1>
     </div>
 </div>
     <!-- Header End -->
@@ -32,7 +59,7 @@
     <div class="container">
         <div class="wow fadeInUp text-dark" data-wow-delay="0.2s">
             <h2 class="display-6 mb-4">Overview</h2>
-            <p>A home loan is a secured financial product designed to help individuals achieve their dream of owning a home. Whether it’s purchasing a new house, constructing one, or renovating an existing property, home loans provide the necessary funding with flexible repayment options. Given the rising costs of real estate, home loans have become an essential tool for making homeownership more accessible and affordable. Lenders offer home loans with competitive interest rates and long repayment tenures, ensuring borrowers can comfortably manage their finances while securing a valuable asset.</p>
+            <p>A Best Home Loan in Pune is a secured financial product designed to help individuals achieve their dream of owning a home. Whether it’s purchasing a new house, constructing one, or renovating an existing property, home loans provide the necessary funding with flexible repayment options. Given the rising costs of real estate, home loans have become an essential tool for making homeownership more accessible and affordable. Lenders offer home loans with competitive interest rates and long repayment tenures, ensuring borrowers can comfortably manage their finances while securing a valuable asset.</p>
             <p>The property being financed serves as collateral, making home loans a safer option for lenders and a more affordable choice for borrowers. Home loans not only offer financial support but also come with tax benefits, making them a preferred choice for buyers and investors looking to build long-term wealth through real estate. With advancements in digital banking, the loan application process has become faster and more transparent, providing a seamless experience for borrowers.</p>
         </div>
 
@@ -42,19 +69,19 @@
         <div class="row g-2 pb-4">
             <div class="col-lg-2 col-md-6 col-sm-12 border me-3 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="p-3">
-                    <img src="{{ asset('theme') }}/frontend/img/interest-rate.png" class="w-25 pb-3">
+                    <img src="{{ asset('theme') }}/frontend/img/interest-rate.png" alt="Best Home Loan in Pune" class="w-25 pb-3">
                     <p class="m-0 text-dark">Competitive Interest Rates</p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-12 border me-3 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="p-3">
-                    <img src="{{ asset('theme') }}/frontend/img/process.png" class="w-25 pb-3">
+                    <img src="{{ asset('theme') }}/frontend/img/process.png" alt="Best Home Loan in Pune" class="w-25 pb-3">
                     <p class="m-0 text-dark">Streamlined Documentation</p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-12 border me-3 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="p-3">
-                    <img src="{{ asset('theme') }}/frontend/img/computer.png" class="w-25 pb-3">
+                    <img src="{{ asset('theme') }}/frontend/img/computer.png" alt="Best Home Loan in Pune"class="w-25 pb-3">
                     <p class="m-0 text-dark">Online Application Process</p>
                 </div>
             </div>
@@ -62,7 +89,7 @@
 
     <!-- Features and Benefits of our Home Loan -->
         <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
-            <h2 class="display-6 mb-4">Features & Benefits of our Home Loan</h2>
+            <h2 class="display-6 mb-4">Features & Benefits of Our Best Home Loan in Pune</h2>
             <p>We acknowledge that buying a home is one of life's most significant financial decisions. With our array of customizable home loan options, we're here to assist you at every turn, ensuring a seamless and stress-free process. The followings are the ways a Home Loan can be useful:</p>
             <ul class="fa-ul">
                 <li class="mb-3"><span class="fa-li"><i class="fa-regular fa-circle-check me-2" style="color: #4DA9EA;"></i></span>
@@ -93,7 +120,7 @@
                     <div class="row g-4 justify-content-center align-items-center bg-light rounded p-3 mx-auto" style="background-image: url({{ asset('theme') }}/frontend/img/cta_banner.webp);">
                         <div class="col-md-9">
                             <div class="counter-item h-100">
-                                <h3 class="text-light">Home Loan Eligibility & Documents</h3>
+                                <h3 class="text-light">Best Home Loan in Pune Eligibility & Documents</h3>
                                 <p class="text-light pb-2">Your eligibility for a Home Loan application is usually determined by your age, work status, credit score, and income.</p>
                             </div>
                         </div>
@@ -109,10 +136,10 @@
         <div class="wow fadeInUp py-5 text-dark" data-wow-delay="0.2s">
             <div class="row py-3 align-items-center">
                 <div class="col-md-5 text-center">
-                    <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="" class="w-75 shadow rounded">
+                    <img src="{{ asset('theme') }}/frontend/img/criteria.jpg" alt="Best Home Loan in Pune " class="w-75 shadow rounded">
                 </div>
                 <div class="col-md-7">
-                    <h2 class="display-6 mb-4">Home Loan Eligibility Criteria</h2>
+                    <h2 class="display-6 mb-4">Eligibility Criteria of Best Home Loan in Pune</h2>
                     <p>The basic criteria for home loan eligibility are as follows:</p>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -178,7 +205,7 @@
         <div class="wow fadeInUp py-3 text-dark" data-wow-delay="0.2s">
             <div class="row py-3 align-items-center">
                 <div class="col-md-7">
-                    <h2 class="display-6 mb-4">Documentation for Home Loan</h2>
+                    <h2 class="display-6 mb-4">Documentation for Best Home Loan in Pune</h2>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="salaried-tab" data-bs-toggle="tab" data-bs-target="#salaried" type="button" role="tab" aria-controls="salaried" aria-selected="true">Salaried Individuals</button>
@@ -219,7 +246,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 text-center">
-                    <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="" class="w-75 shadow rounded">
+                    <img src="{{ asset('theme') }}/frontend/img/checklist.jpg" alt="Best Home Loan in Pune" class="w-75 shadow rounded">
                 </div>
             </div>
         </div>

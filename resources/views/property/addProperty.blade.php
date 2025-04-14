@@ -67,43 +67,24 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Starting Price</label><span class="text-danger">*</span>
                             <input type="text" name="s_price" class="form-control" placeholder="Starting Price" required />
                         </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Carpet area</label><span class="text-danger">*</span>
                             <input type="text" name="area" class="form-control" placeholder="Carpet Area" required />
                         </div>
                     </div>
 
-                    <div class="col-lg-3"> 
+                    <div class="col-lg-4"> 
                         <div class="mb-3">
                             <label class="form-label">Built-up Area</label><span class="text-danger">*</span>
                             <input type="text" name="builtup_area" class="form-control" placeholder="Built-up Area" required />
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="mb-3">
-                            <label class="form-label">Select BHK</label>
-                            <select class="form-control" name="select_bhk">
-                                <option>Select BHK</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="2 & 3">2 & 3</option>
-                                <option value="2,3 & 4">2,3 & 4</option>
-                                <option value="3 & 4">3 & 4</option>
-                                <option value="3,4 & 5">3,4 & 5</option>
-                            </select> 
                         </div>
                     </div>
 
@@ -167,13 +148,11 @@
                     </div>
 
                     <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label class="form-label">Property Description</label>
-                                <textarea name="property_description" id="editor" class="form-control" rows="5">
-                                    
-                                </textarea>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label">Property Description</label>
+                            <textarea name="property_description" class="form-control" rows="5" placeholder="Property Description" required></textarea>
                         </div>
+                    </div>
 
                     <div class="col-lg-4">
                         <div class="mb-3">
@@ -185,14 +164,10 @@
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Area in City</label>
-                            <select name="localitie" class="form-control" required>
-                                <option value="">Select Locality</option>
-                                @foreach($data['localities'] as $locality)
-                                    <option value="{{ $locality->id }}">{{ $locality->name }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" name="localitie" class="form-control" placeholder="Localities" required />
                         </div>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">City</label><span class="text-danger">*</span>
@@ -222,30 +197,30 @@
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Location Advantages</label>
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 1" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 2" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 3" >
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label text-white invisible">xyz</label>
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 4" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 5" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 6" >
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label text-white invisible">xyz</label>
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
-                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="example Lexicon - 02 km" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 7" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 8" >
+                            <input type="text" name="nearby[]" class="form-control mb-2" placeholder="Enter nearby location 9" >
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Email ID</label>
@@ -268,36 +243,20 @@
         <!-- Right side -->
         <div class="col-lg-3 bg-light p-4">
             <div class=" mb-4">
-                <div class="form-group">
-                    <label for="meta_title">Meta Title</label>
-                    <input type="text" class="form-control" name="meta_title" id="meta_title" placeholder="Enter Meta Title">
-                </div>
-                <div class="form-group">
-                    <label for="meta_description">Meta Description</label>
-                    <textarea class="form-control" name="meta_description" id="meta_description" placeholder="Enter Meta Description"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="meta_keywords">Meta Keywords</label>
-                    <textarea class="form-control" name="meta_keywords" id="meta_keywords" placeholder="Enter Meta Keywords (comma separated)"></textarea>
-                </div>
-            </div>
-
-            <div class=" mb-4">
                 <!-- Multiple Property Images Upload -->
-                <h3 class="h6">Property Images<span class="text-danger">*</span></h3>
+                <h3 class="h6"><strong>Property Images<span class="text-danger">*</span></strong></h3>
                 <input class="form-control" type="file" accept=".jpg,.jpeg,.png,.webp" name="property_images[]" multiple required />
                 <small class="text-muted">You can upload multiple images (JPG, JPEG, PNG, WEBP).</small>
 
                 <!-- Property Boucher Upload -->
-                <h3 class="h6 mt-2">Property Brochure<span class="text-danger">*</span></h3>
+                <h3 class="h6 mt-2"><strong>Property Brochure<span class="text-danger">*</span></strong></h3>
                 <input class="form-control" type="file" accept=".pdf" name="property_voucher" />
                 <small class="text-muted">Upload the property brochure in PDF format.</small>
             </div>
             <!-- Notes -->
 
             <div class="mb-4">
-                <label class="form-label">Price Range</label><span class="text-danger">*</span>
+                <label class="form-label"><strong>Price Range</strong></label><span class="text-danger">*</span>
                 <select name="price_range" class="form-control">
                         <?php
                         foreach($data['range'] as $v) {  
@@ -310,25 +269,15 @@
                 </select>    
                 <span class="text-danger error-text jixname2_err"></span>   
             </div>
-            
-            <div class="mb-3">
-                <label class="form-label">Property Status</label>
-                <select name="property_status" class="form-control" required>
-                    <option value="">Select Status</option>
-                    @foreach($data['property_status'] as $status)
-                        <option value="{{ $status->id }}">{{ $status->status_name }}</option>
-                    @endforeach
-                </select>
-            </div>
-                  
             <div class="mb-4">
-                <label class="form-label">Rera No.</label><span class="text-danger">*</span>
+                <label class="form-label"><strong>Rera No.</strong></label><span class="text-danger">*</span>
                 <input type="text" name="rera" class="form-control" placeholder="Ex: P5XXXXXXXX14" required />
                 <span class="text-danger error-text jixname2_err"></span>   
-            </div>                                                    
+            </div>    
+                                                    
 
             <div class=" mb-4">
-                <label for="amenities">Select Amenities:</label><br>
+                <label for="amenities"><strong>Select Amenities:</strong></label><br>
                 <input type="checkbox" name="amenities[]" value="WiFi"> WiFi<br>
                 <input type="checkbox" name="amenities[]" value="Parking"> Parking<br>
                 <input type="checkbox" name="amenities[]" value="Swimming Pool"> Swimming Pool<br>
@@ -351,51 +300,6 @@
 @parent
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js"></script>
-
-<!-- Initialize TinyMCE -->
-<script>
-    tinymce.init({
-    selector: '#editor',
-    plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table help',
-    toolbar: 'undo redo | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview code',
-    height: 400,
-    menubar: true,
-    branding: false,
-
-    images_upload_url: '/upload-image',
-    automatic_uploads: false,
-    images_reuse_filename: true,
-    paste_data_images: false,
-
-    images_upload_handler: function (blobInfo, success, failure) {
-    let formData = new FormData();
-    formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-    // Get CSRF token
-    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    formData.append('_token', csrfToken);
-
-    fetch('/upload-image', {
-    method: 'POST',
-    body: formData
-    })
-    .then(response => response.json())
-    .then(result => {
-    if (result.location) {
-    let cleanUrl = result.location.replace(/^.*?:\/\//, ''); // Removes http:// or https:// if needed
-    success(cleanUrl);
-    } else {
-    failure('Image upload failed');
-    }
-    })
-    .catch(error => {
-    console.error('Upload error:', error);
-    failure('Image upload failed');
-    });
-    }
-    });
-</script>
 
 <script>   
 $('#addNewProperty').on('submit',function(e){
@@ -490,8 +394,7 @@ function deletePropertie(id)
         // Mapping property category IDs to land type options
         var landTypeOptions = {
             1: ['Plot', 'Flat', 'Bungalow', 'Villa'], // Example: Residential (pid = 1)
-            2: ['Office', 'Shop', 'Showroom'], // Example: Commercial (pid = 2)
-            3: ['Plot', 'Flat']
+            2: ['Office', 'Shop', 'Showroom'] // Example: Commercial (pid = 2)
         };
 
         if (landTypeOptions.hasOwnProperty(propertyTypeId)) {

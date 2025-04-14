@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="{{ asset('theme') }}/dist-assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('theme') }}/dist-assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -154,43 +153,25 @@
                 </li>
             <?php } ?> 
 
-        <?php    if($role_id == 4) { ?>
+            <?php    if($role_id == 4) { ?>
            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProperty"
-                        aria-expanded="true" aria-controls="collapseLeads">
-                        <i class="fas fa-fw fa-home custom-icon"></i>
-                        <span>Property</span>
-                    </a>
-                    <div id="collapseProperty" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Property:</h6>
-                            <a class="collapse-item" href="{{ route('banners.index') }}">Banner</a>
-                            <a class="collapse-item" href="{{ route('pendingProperties') }}">Pending Property</a>
-                            <a class="collapse-item" href="{{ route('allProperties') }}">List Property</a>
-                            <a class="collapse-item" href="{{ route('addProperty') }}">Add Property</a>
-                            <a class="collapse-item" href="{{ route('property_takers.index') }}">Property Taker</a>
-                        </div>
+           <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProperty"
+                    aria-expanded="true" aria-controls="collapseLeads">
+                    <i class="fas fa-fw fa-home custom-icon"></i>
+                    <span>Property</span>
+                </a>
+                <div id="collapseProperty" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Property:</h6>
+                        <a class="collapse-item" href="{{ route('pendingProperties') }}">Pending Property</a>
+                        <a class="collapse-item" href="{{ route('allProperties') }}">List Property</a>
+                        <a class="collapse-item" href="{{ route('addProperty') }}">Add Property</a>
+                        <a class="collapse-item" href="{{ route('property_takers.index') }}">Property Taker</a>
                     </div>
-                </li>
-        <?php } ?>   
-        <?php    if($role_id == 4) { ?>
-           <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"
-                        aria-expanded="true" aria-controls="collapseLeads">
-                        <i class="fas fa-fw fa-newspaper custom-icon"></i>
-                        <span>Blog Management</span>
-                    </a>
-                    <div id="collapseBlog" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Blog Management:</h6>
-                            <a class="collapse-item" href="{{ route('admin.blogs.index') }}">Blogs</a>
-                            <a class="collapse-item" href="{{ route('admin.blogs.create') }}">Add Blog</a>
-                        </div>
-                    </div>
-                </li>
-        <?php } ?> 
+                </div>
+            </li>
+            <?php } ?>   
             <?php    if($role_id == env('partnerRole_id')) { ?>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
@@ -215,7 +196,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLeads"
                         aria-expanded="true" aria-controls="collapseLeads">
                         <i class="fas fa-fw fa-tasks custom-icon"></i>
-                        <span>Lead Management</span>
+                        <span>Web Form & Leads</span>
                     </a>
                     <div id="collapseLeads" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
@@ -249,7 +230,7 @@
             </li>
             <?php } ?>
             
-            <!-- <?php    if($role_id == 2) { ?>   
+            <?php    if($role_id == 2) { ?>   
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReferral"
                     aria-expanded="true" aria-controls="collapseReferral">
@@ -261,23 +242,6 @@
                         <h6 class="collapse-header">Referral Management:</h6>
                         <a class="collapse-item" href="{{ route('walletbalance') }}">Wallet</a>
                         <a class="collapse-item" href="{{ route('referral_earnings') }}">Referral Earnings</a>
-                    </div>
-                </div>
-            </li>
-            <?php } ?> -->
-
-            <?php    if($role_id == 2) { ?>   
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReferral"
-                    aria-expanded="true" aria-controls="collapseReferral">
-                    <i class="fas fa-fw fa-tasks custom-icon"></i>
-                    <span>Leads</span>
-                </a>
-                <div id="collapseReferral" class="collapse" aria-labelledby="headingLoan" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Lead Management:</h6>
-                        <a class="collapse-item" href="#">Add Lead</a>
-                        <a class="collapse-item" href="#">All Leads</a>
                     </div>
                 </div>
             </li>
