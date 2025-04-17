@@ -5,6 +5,7 @@
 @endsection
 @section('content')
 @parent
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet">
 
 <style>
     #img-preview {
@@ -136,7 +137,9 @@
                         <div class="col-lg-12">
                             <div class="mb-3">
                                 <label class="form-label">Property Description</label>
-                                <textarea name="property_description" class="form-control" rows="5" maxlength="250" value="" >{{ $v->property_details }} </textarea>
+                                <textarea name="property_description" id="summernote" class="form-control" rows="5">
+                                    {!! $data['propertie_details'][0]->property_details !!}
+                                </textarea>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -254,7 +257,62 @@
 @section('script')
 @parent
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            height: 400,
+            fontNames: ['Arial', 'Courier New', 'Times New Roman', 'Verdana', 'Helvetica', 'Sans Serif'],
+            fontNamesIgnoreCheck: ['Times New Roman'],
+            callbacks: {
+                onImageUpload: function (files) {
+                    for (let i = 0; i < files.length; i++) {
+                        uploadImage(files[i]);
+                    }
+                }
+            }
+        });
+
+        function uploadImage(file) {
+            let data = new FormData();
+            data.append("file", file);
+            data.append("_token", $('meta[name="csrf-token"]').attr('content'));
+
+            $.ajax({
+                url: '/upload-summernote-image',
+                method: "POST",
+                data: data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (response) {
+                    if (response.url) {
+                        // Ask for alt text
+                        let altText = prompt("Enter alt text for the image:", "");
+
+                        // Create image element with alt
+                        const imgNode = $('<img>')
+                            .attr('src', response.url)
+                            .attr('alt', altText || '');
+
+                        // Insert image with alt into the editor
+                        $('#summernote').summernote('insertNode', imgNode[0]);
+                    }
+                },
+                error: function () {
+                    alert('Image upload failed!');
+                }
+            });
+        }
+
+        // Set content on form submit
+        $('form').on('submit', function () {
+            $('#property_description').val($('#summernote').summernote('code'));
+        });
+    });
+</script> 
 
 <script>
     const chooseFile = document.getElementById("choose-file");
