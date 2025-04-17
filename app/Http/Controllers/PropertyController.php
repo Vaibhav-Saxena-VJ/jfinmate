@@ -40,7 +40,8 @@ class PropertyController extends Controller
             $p = new Property;
             $p->title = $request->property_title;
             $p->meta_title = $request->meta_title; 
-            $p->meta_description = $request->meta_description; 
+            $p->meta_description = $request->meta_description;
+            $p->short_description = $request->short_description; 
             $p->meta_keywords = $request->meta_keywords; 
             $p->property_type_id = $request->property_type;
             $p->builder_name = $request->builder_name;
@@ -164,7 +165,8 @@ public function allProperties()
             'price_range.to_price',
             'property_category.category_name', // Ensure this is selected
             'properties.is_featured',
-            'properties.image'
+            'properties.image',
+            'properties.short_description'
         );
 
     if ($role_id == 3) {
@@ -307,6 +309,7 @@ public function allProperties()
                 'property_title' => 'required|string|max:255',
                 'meta_title' => 'required|string|max:255',
                 'meta_description' => 'required|string|max:255',
+                'short_description' => 'required|string|max:255',
                 'meta_keywords' => 'required|string|max:255',
                 'property_type_id' => 'required|integer',
                 'builder_name' => 'nullable|string|max:255',
@@ -366,6 +369,7 @@ public function allProperties()
                 'meta_title' => $request->meta_title,
                 'meta_description' => $request->meta_description,
                 'meta_keywords' => $request->meta_keywords,
+                'short_description' => $request->short_description,
                 'property_type_id' => $request->property_type_id,
                 'builder_name' => $request->builder_name ?? '',
                 's_price' => $request->s_price ?? 0,

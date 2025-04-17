@@ -188,6 +188,11 @@
             </div>
             <!-- Right side -->
             <div class="col-lg-4 pb-3 bg-light">
+                <div class="card-body form-group mb-0">
+                    <label for="short_description">Short Description</label>
+                    <textarea class="form-control" name="short_description" id="short_description" placeholder="Enter short description">{{ $v->short_description ?? '' }}</textarea>
+                </div>
+
                 <div class="card-body">
                     <label class="form-label">Rera No.</label>
                     <input type="text" name="rera" class="form-control" placeholder="Rera No." value="{{ $v->rera }}" />

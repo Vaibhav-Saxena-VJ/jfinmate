@@ -269,12 +269,17 @@
                 </select>    
                 <span class="text-danger error-text jixname2_err"></span>   
             </div>
+
+            <div class="form-group">
+                <label for="short_description">Short Description</label>
+                <textarea class="form-control" name="short_description" id="short_description" placeholder="Enter short description"></textarea>
+            </div>
+
             <div class="mb-4">
                 <label class="form-label"><strong>Rera No.</strong></label><span class="text-danger">*</span>
                 <input type="text" name="rera" class="form-control" placeholder="Ex: P5XXXXXXXX14" required />
                 <span class="text-danger error-text jixname2_err"></span>   
-            </div>    
-                                                    
+            </div>                                                        
 
             <div class=" mb-4">
                 <label for="amenities"><strong>Select Amenities:</strong></label><br>
