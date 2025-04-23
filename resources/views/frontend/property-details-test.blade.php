@@ -8,7 +8,28 @@
     
         foreach($data['propertie_details'] as $v) {  
             $price_range = $v->from_price. " to ". $v->to_price;
-            $img = env('baseURL'). "/".$v->image; $boucher = env('baseURL'). "/".$v->boucher;  $address = $v->localities.", ".$v->city; $area = $v->area; $rera = $v->rera; $category = $v->category_name;  $latitude = $v->latitude; $longitude = $v->longitude; $s_price = $v->s_price; $category = $v->category_name;  $land_type = $v->land_type; $builder_name = $v->builder_name; $facilities = $v->facilities; $title = $v->title; $created_at = $v->created_at; $beds = $v->beds; $baths = $v->baths; $balconies = $v->balconies; $parking = $v->parking; $builtup_area =$v->builtup_area; $nearby_locations = json_decode($v->nearby_locations, true);
+            $img = env('baseURL'). "/".$v->image; 
+            $boucher = env('baseURL'). "/".$v->boucher;  
+            $address = $v->localities.", ".$v->city; 
+            $area = $v->area; 
+            $rera = $v->rera; 
+            $description = $v->property_details;
+            $category = $v->category_name;  
+            $latitude = $v->latitude; 
+            $longitude = $v->longitude; 
+            $s_price = $v->s_price; 
+            $category = $v->category_name;  
+            $land_type = $v->land_type; 
+            $builder_name = $v->builder_name; 
+            $facilities = $v->facilities; 
+            $title = $v->title; 
+            $created_at = $v->created_at; 
+            $beds = $v->beds; 
+            $baths = $v->baths; 
+            $balconies = $v->balconies; 
+            $parking = $v->parking; 
+            $builtup_area =$v->builtup_area; 
+            $nearby_locations = json_decode($v->nearby_locations, true);
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -115,7 +136,7 @@
                                     </div>
                                     <div id="clOne2" class="panel-collapse collapse show" aria-labelledby="clOne2">
                                         <div class="block-body">
-                                            <p>Indulge in a lifestyle of unparalleled sophistication at The Emperor’s Club. With over 30 superlative amenities meticulously curated for your pleasure, revel in the spacious layouts boasting zero space wastage, ensuring every inch of your domain is adorned with magnificence. From the opulent interiors to the expansive windows inviting ample sunlight and refreshing cross ventilation, each residence is crafted to elevate your living experience to celestial heights.</p>
+                                            <p>{!! $description !!}</p>
                                         </div>
                                     </div>
                                 </div>

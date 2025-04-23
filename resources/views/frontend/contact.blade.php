@@ -1,9 +1,7 @@
 @extends('frontend.layouts.header')
 @section('title', "Jfinserv Contact | Lowest Loan Interest in PCMC")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/contact" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/contact")
+@section('robots', "index, follow")
 
 @section('content')
 <!-- Header Start -->

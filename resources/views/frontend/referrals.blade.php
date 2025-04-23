@@ -2,10 +2,9 @@
 @section('title', "Refer for loan with low ROI | Financial Consultants in Pune")
 @section('description', "Explore the best Financial Consultants in Pune with refer for secure loans with low ROI. Apply now for the more financial benefits.")
 @section('keywords', "Refer for loan with low ROI, Financial Consultants in Pune, Home finance in pune, ")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/referral-program" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/referral-program")
+@section('robots', "index, follow")
+
 @section('schema')
 <script type="application/ld+json">
 {
@@ -30,7 +29,7 @@
 <!-- Header Start -->
 <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/ref-bnr.jpg);">
     <div class="container py-5">
-        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Refer for loan <br>with low ROI</br></h1>
+        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Refer for loan with low ROI</h1>
     </div>
 </div>
 

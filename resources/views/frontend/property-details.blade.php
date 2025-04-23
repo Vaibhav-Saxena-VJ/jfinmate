@@ -4,12 +4,21 @@
 @section('keywords', "")
 
 @section('content')
-<?php 
-    
-        foreach($data['propertie_details'] as $v) {  
-            $price_range = $v->from_price. " to ". $v->to_price;
-            $img = env('baseURL'). "/".$v->image; $boucher = env('baseURL'). "/".$v->boucher;  $address = $v->localities.", ".$v->city; $area = $v->area; $category = $v->category_name;  $builder_name = $v->builder_name; $facilities = $v->facilities; $title = $v->title; $created_at = $v->created_at; $beds = $v->beds; $baths = $v->baths; $balconies = $v->balconies; $parking = $v->parking;
-       
+<?php     
+    foreach($data['propertie_details'] as $v) {  
+        $price_range = $v->from_price. " to ". $v->to_price;
+        $img = env('baseURL'). "/".$v->image; 
+        $boucher = env('baseURL'). "/".$v->boucher;  
+        $address = $v->localities.", ".$v->city; 
+        $area = $v->area; $category = $v->category_name;  
+        $builder_name = $v->builder_name; 
+        $facilities = $v->facilities; 
+        $title = $v->title; 
+        $created_at = $v->created_at; 
+        $beds = $v->beds; 
+        $baths = $v->baths; 
+        $balconies = $v->balconies; 
+        $parking = $v->parking; 
 ?>
 <div class="container-fluid bg-breadcrumb" style="background: url(../theme/frontend/img/prop-2.jpg);">
         <div class="container text-center py-5" style="max-width: 900px;">

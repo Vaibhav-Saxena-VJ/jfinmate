@@ -2,10 +2,8 @@
 @section('title', "Properties in Pune | Affordable property in PCMC")
 @section('description', "Looking for the Properties in Pune? Our Affordable property in PCMC offers competitive offers to help you secure your dream home. Apply now.")
 @section('keywords', "Properties in Pune, Affordable property in PCMC, Houses for sell in Pune, Buy house in Pune")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/properties" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/properties")
+@section('robots', "index, follow")
 
 @section('scripts', "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js")
 @section('scripts2', "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
@@ -108,7 +106,7 @@
             <h2 class="display-4 mb-4">All Properties in Pune</h2>
             <p class="mb-0">Properties listed in our website.</p>
         </div>
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center property">
             
         <?php 
             foreach($data['allProperties'] as $v) {  
@@ -135,7 +133,7 @@
                             <p class="mb-0">{{ $bhk }} BHK Flat</p>
                             <p class="mb-3 h4 d-inline-block"><strong>₹ {{ $v->from_price }}<sup>*</sup></strong><span class="px-3">|</span><em>{{ $area }} sqft</em></p>
                             <!-- <p class="h4 d-inline-block mb-3">{{ $title }}</p> -->
-                            <p class="mb-3">{{ $description }}</p>
+                            <p class="mb-3">{!! Str::words($description, 15, '...') !!}</p>
                             <p class="mb-3">{{ $address }}</p>
                             <a href="{{ url('property-details/'.$v->properties_id) }}" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
                         </div>

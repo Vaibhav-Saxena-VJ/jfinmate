@@ -77,10 +77,10 @@
     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row g-4 align-items-center">
-                <div class="col-md-6 mb-md-0">
+                <div class="col-md-8 mb-md-0">
                     <samll><span class="text-body"><a href="#" class="border-bottom text-white">2024 <i class="far fa-copyright text-light me-1"></i>Jfinserv Consultant</a>, All rights reserved | Developed By <a class="border-bottom text-white" href="https://jfstechnologies.com">JFS Technologies</a>.</span></small>
                 </div>
-                <div class="col-md-6 text-md-end text-body">
+                <div class="col-md-4 text-md-end text-body">
                     <small>
                         <a class="text-white" href="/privacy-policy">Privacy Policy</a> | <a class="text-white" href="/terms-and-conditions">Terms & Condition</a>
                     </small>
