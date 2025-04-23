@@ -2,10 +2,9 @@
 @section('title', "Home Loan Services in Pune | Business Loan Services in Pune")
 @section('description', "Discover tailored Home Loan Services in Pune and Business Loan Services in Pune. Our expert team of  business loan provider in Pune.")
 @section('keywords', "loan services in Pune, Home Loan Services in Pune, Business loan services in Pune, business loan provider in pune, Business loan in Pune")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/services" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/services")
+@section('robots', "index, follow")
+
 @section('schema')
 <script type="application/ld+json">
 {
@@ -25,6 +24,7 @@
 }
 </script>
 @section('endsection')
+
 @section('content')
 <!-- Header Start -->
 <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/services.jpg);">
@@ -37,7 +37,7 @@
 <!-- Service Start -->
 <div class="container service py-5 mb-5">
     <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-        <p class="text-primary">One Stop Solution</p>
+        <p class="h4 text-primary">One Stop Solution</p>
         <h1 class="display-4 mb-4">Best Loan Services in Pune for All Your Lending Needs</h1>
         <p class="mb-0">Select your desired loan amount, complete a brief set of questions, and receive an instant loan offer. Effortlessly provide the required documents to our representative. Choose the final sanctioned loan offer with terms that align with your needs.</p>
     </div>

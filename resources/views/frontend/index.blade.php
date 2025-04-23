@@ -2,10 +2,8 @@
 @section('title', "Top Finance Company in Pune | Lowest Loan Interest in PCMC")
 @section('description', "Jfinserv provides top finance company in Pune engaged in business, personal and MSME financing with lowest loan interest rates in PCMC and Pune.")
 @section('keywords', "Top Finance Company in Pune, lowest loan interest in PCMC, business loan with low ROI, financial Services in Pune, Loan services in PCMC, Loan in Pune")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com")
+@section('robots', "index, follow")
 
 @section('content')
         <!-- Carousel Start -->
@@ -25,11 +23,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-lg-6 animated fadeInRight">
-                                <div class="calrousel-img" style="object-fit: cover;">
-                                    <img src="{{ asset('theme') }}/frontend/img/referral.png" class="img-fluid" alt="Top Finance Company in Pune">
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -49,11 +42,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-lg-6 animated fadeInRight">
-                                <div class="calrousel-img" style="object-fit: cover;">
-                                    <img src="{{ asset('theme') }}/frontend/img/fast-process.png" class="img-fluid" alt="Top Finance Company in Pune">
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -89,7 +77,7 @@
         <div class="container-fluid feature bg-light py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <p class="text-primary">Our Features</p>
+                    <p class="h4 text-primary">Our Features</p>
                     <h2 class="display-4 mb-4">Top Finance Company in Pune</h2>
                     <p class="mb-0">We understand that navigating the complexities of the financial landscape can be daunting. That's why our team of experienced professionals is here to guide you every step of the way. With our top financial services in Pune, you can trust us to help you secure the financing you need to achieve your dreams.</p>
                 </div>
@@ -99,7 +87,7 @@
                             <div class="feature-icon p-4 mb-4">
                                 <i class="far fa-handshake fa-3x"></i>
                             </div>
-                            <h3 class="mb-4">Trusted Company</h3>
+                            <h4 class="mb-4">Trusted Company</h4>
                             <p>Trust is our foundation. With experience and a strong track record, we guide clients confidently through their financial journeys.</p>
                         </div>
                     </div>
@@ -108,7 +96,7 @@
                             <div class="feature-icon p-4 mb-4">
                                 <i class="fas fa-gift fa-3x"></i>
                             </div>
-                            <h3 class="mb-4">Unlimited Rewards</h3>
+                            <h4 class="mb-4">Unlimited Rewards</h4>
                             <p>Earn income for each successful referral. We offer performance bonuses to unlock more earning potential.</p>
                         </div>
                     </div>
@@ -117,7 +105,7 @@
                             <div class="feature-icon p-4 mb-4">
                                 <i class="fa fa-bullseye fa-3x"></i>
                             </div>
-                            <h3 class="mb-4">Fast & Easier Process</h3>
+                            <h4 class="mb-4">Fast & Easier Process</h4>
                             <p>A fast & simple loan process provides quick approvals, minimal paperwork, & access to funds within 7 working days.</p>
                         </div>
                     </div>
@@ -126,7 +114,7 @@
                             <div class="feature-icon p-4 mb-4">
                                 <i class="fas fa-chart-line fa-3x"></i>
                             </div>
-                            <h3 class="mb-4">High Range <br>Loan</br></h3>
+                            <h4 class="mb-4">High Range Loan</h4>
                             <p>A high range loan of up to ₹100Cr. offers substantial funding for major investments or purchases, with flexible terms & competitive rates.</p>
                         </div>
                     </div>
@@ -152,10 +140,10 @@
                 <div class="row g-5">
                     <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.1s">
                         <div class="about-item-content bg-white rounded p-5 h-100">
-                            <p class="text-primary">About Our Company</p>
+                            <p class="h4 text-primary">About Our Company</p>
                             <h2 class="display-4 mb-4">Your Security. Our Priority.</h2>
                             <p>JFinserv Consultant India Private Limited offers a range of top finance company in Pune, including Home Loans, Project Loans, and MSME Loans, through multiple bank partnerships. We ensure low interest rates, minimal documentation, and flexible terms for a smooth loan process. Our experienced team is dedicated to guiding you through every step to help you achieve your financial goals.</p>
-                            <h3 class="text-primary">Why Choose us as the Top Finance Company in Pune?</h3>
+                            <h4 class="text-primary">Why Choose us as the Top Finance Company in Pune?</h3>
                             <p class="text-dark"><i class="fas fa-check text-primary me-3 fa-lg"></i>No limit of loan amount</p>
                             <p class="text-dark"><i class="fas fa-check text-primary me-3 fa-lg"></i>Fast Disbursal Procedure</p>
                             <p class="text-dark"><i class="fas fa-check text-primary me-3 fa-lg"></i>Lowest rate of Interest</p>
@@ -219,7 +207,7 @@
         <div class="container-fluid service py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <p class="text-primary">Our Services</p>
+                    <p class="h4 text-primary">Our Services</p>
                     <h2 class="display-4 mb-4">We are Top Finance Company in Pune</h2>
                     <p class="mb-0">Choose your loan amount, answer a few questions, and receive an instant loan offer. Share the necessary documents with our representative effortlessly, and select the final loan offer with top finance company in Pune.</p>
                 </div>
@@ -286,7 +274,7 @@
                             <div class="service-content p-4">
                                 <div class="service-content-inner">
                                     <a href="#" class="d-inline-block h4 mb-4">Loan Against Property</a>
-                                    <p class="mb-4">Get Loan Against Property with flexible and secure repayment from Jfinserv – Pune’s Top Finance Company.</p>
+                                    <p class="mb-4">Get a Loan Against Property with flexible terms and secure repayment from Jfinserv – Pune’s Leading and Trusted Finance Company.</p>
                                     <a class="btn btn-primary uppercase rounded-1 py-2 px-4" href="/loan-against-property">Know More</a>
                                 </div>
                             </div>
@@ -304,7 +292,7 @@
         <div class="container-fluid testimonial bg-light py-5">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <p class="text-primary">Testimonial</p>
+                    <p class="h4 text-primary">Testimonial</p>
                     <h2 class="display-4 mb-4">Hear from Our Customers</h2>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
@@ -373,7 +361,7 @@
                     <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="h-100">
                             <div class="mb-5">
-                                <p class="text-primary">Some Important FAQ's</p>
+                                <p class="h4 text-primary">Some Important FAQ's</p>
                                 <h2 class="display-4 mb-0">Common Frequently Asked Questions</h2>
                             </div>
                             <div class="accordion" id="accordionExample">
@@ -463,7 +451,7 @@
         <!-- Bank Partner Start -->
         <div class="container-fluid testimonial py-5">
             <div class="text-center mx-auto pb-3 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <p class="text-primary">Partnered Banks</p>
+                <p class="h4 text-primary">Partnered Banks</p>
                 <h2 class="display-4 mb-4">Our Bank Network</h2>
                 <!-- <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.</p> -->
             </div>

@@ -2,10 +2,9 @@
 @section('title', "Project Loan in Pune | Small Business Loans for PCMC & Pune")
 @section('description', "Explore top Project loan in Pune and secure the Business Funding . Customized financing solutions to help your Small Business Loans for PCMC and Pune.")
 @section('keywords', "Project Loan in Pune, Small Business Loans for PCMC, Small Business Loans for Pune, Project loan services in Pune, Construction Loan in Pune, Commercial Loans in Pune")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/project-loan" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/project-loan")
+@section('robots', "index, follow")
+
 @section('schema')
 <script type="application/ld+json">
 {
@@ -26,6 +25,48 @@
     "position": 3, 
     "name": "Project Loan in Pune",
     "item": "https://jfinserv.com/project-loan"  
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is a Project Loan in Pune and who can apply for it?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A Project Loan in Pune is designed to fund infrastructure, real estate, or business expansion projects. Entrepreneurs, developers, and companies with a viable project plan can apply."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are Small Business Loans available for startups in PCMC and Pune?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Small Business Loans in PCMC and Pune are available for startups and MSMEs to support working capital, equipment purchase, or business expansion."
+    }
+  },{
+    "@type": "Question",
+    "name": "What documents are required for applying for a Construction Loan in Pune?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Typically, you need a project report, approved building plan, property papers, KYC documents, income proof, and bank statements for a Construction Loan in Pune."
+    }
+  },{
+    "@type": "Question",
+    "name": "How are Commercial Loans in Pune different from Business Loans?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Commercial Loans in Pune are generally larger and used for acquiring commercial assets or properties, while Business Loans are typically for day-to-day operational needs."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I get Project Loan services in Pune with flexible repayment options?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, many lenders in Pune offer flexible repayment terms based on the project timeline, revenue generation, and loan amount."
+    }
   }]
 }
 </script>
@@ -268,5 +309,4 @@
     </div>
 </div>
 <!-- FAQs End -->
-
 @endsection

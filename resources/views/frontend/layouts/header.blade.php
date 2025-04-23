@@ -7,7 +7,8 @@
         <meta name="description" content="@yield('description')" />
         <meta name="Keywords" content="@yield('keywords')">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <meta name="robots" content="@yield('robots')">
+        <link rel="canonical" href="@yield('canonical')" />     
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

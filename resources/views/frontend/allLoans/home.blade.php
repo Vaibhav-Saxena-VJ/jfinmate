@@ -2,10 +2,9 @@
 @section('title', "Best Home Loan in Pune | Housing Finance in Pune")
 @section('description', "Unlock your dream home with JFInserv's personalized best home loan in pune. Your pathway to Housing Finance in Pune and PCMC!")
 @section('keywords', "Best Home Loan in Pune, Housing Finance in Pune, Homeownership in PCMC, Property Loans in Pune, Real Estate Financing in Pune, Housing Loans in Pune")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/home-loan" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/home-loan")
+@section('robots', "index, follow")
+
 @section('schema')
 <script type="application/ld+json">
 {
@@ -30,6 +29,7 @@
 }
 </script>
 @section('endsection')
+
 @section('content')
 <!-- Header Start -->
     <!-- <div class="details-hero d-flex justify-content-center align-items-center" style="background-image: url({{ asset('theme') }}/frontend/img/loan-background.webp);">
@@ -47,12 +47,12 @@
         </div>
     </div> -->
 
-<div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/hl-bnr.jpg);" alt="Best Home Loan in Pune ">
-    <div class="container py-5">
-        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Best Home Loan <br>in Pune</br></h1>
+    <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/hl-bnr.jpg);" alt="Best Home Loan in Pune ">
+        <div class="container py-5">
+            <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Best Home Loan in Pune</h1>
+        </div>
     </div>
-</div>
-    <!-- Header End -->
+<!-- Header End -->
 
 <!-- Service Start -->
 <div class="container-fluid mt-5">

@@ -2,10 +2,9 @@
 @section('title', "Loan Against Property in Pune | Contract Loan in Pune")
 @section('description', "Explore competitive Contract Loan in Pune and loan against property in Pune. Secure your dream home with our expert Contractual loan services.")
 @section('keywords', "Loan Against Property in Pune, Contract Loan in Pune, Loan Against Property Services in Pune, Contractual loan in Pune, Contractual loan services in PCMC")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/loan-against-property" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/loan-against-property")
+@section('robots', "index, follow")
+
 @section('schema')
 <script type="application/ld+json">
 {
@@ -50,7 +49,7 @@
 
 <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/la-bnr.jpg);">
     <div class="container py-5">
-        <h1 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Loan Against Property<br>in Pune</br></h1>
+        <h1 class="text-white display-5 mb-4 wow fadeInDown" data-wow-delay="0.1s">Loan Against Property in Pune</h1>
     </div>
 </div>
 <!-- Header End -->

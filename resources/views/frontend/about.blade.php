@@ -2,10 +2,9 @@
 @section('title', "Financial Consultants in Pune | Financial services in PCMC")
 @section('description', "Discover top financial consultants in Pune. Explore a comprehensive list of Pune Housing Finance leading financial services in PCMC.")
 @section('keywords', "Financial Consultants in Pune, Financial services in PCMC, Home loan services in Pune, business loan provider in pune, Business loan services in Pune, Business loan in Pune")
-@section('canonical')
-<link rel="canonical" href="https://jfinserv.com/about" />
-<meta name="robots" content="index, follow">
-@endsection
+@section('canonical', "https://jfinserv.com/about")
+@section('robots', "index, follow")
+
 @section('schema')
 <script type="application/ld+json">
 {
@@ -25,6 +24,7 @@
 }
 </script>
 @section('endsection')
+
 @section('content')
 <!-- Header Start -->
 <div class="container-fluid bg-breadcrumb" style="background-image: url(../theme/frontend/img/about-us.jpg);">
@@ -43,7 +43,7 @@
             <div class="row g-5">
                 <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                     <div class="about-item-content bg-white rounded p-5 h-100">
-                        <p class="text-primary">About Our Company</p>
+                        <p class="h4 text-primary">About Our Company</p>
                         <h1 title= "Your Trusted Financial Consultants in Pune" class="display-4 mb-4">We Promise To Deliver The Best</h1>
                         <p>Jfinserv Consultant India Private Limited with many finance partners strives to get you the best loan deals and offers online in just a few clicks. You can compare various loan products online with latest interest rates from Nationalized/Government banks and NBFCs in India including Indian Bank, BOM, PNB, RBL, UBI, BOB, Kotak, Axis, ICICI Bank, Aditya Birla Capital and other partners. Our team of financial consultants in Pune works hard to find and get you the best deal. <a href="https://jfinserv.com/assets/certificate-of-incorporation.pdf" target="_blank" style="text-transform: uppercase; text-decoration: underline; color: #D83733; font-style: italic;">Incorporation Certificate <i class="fa-solid fa-arrow-right"></i></a></p>
                         <p>Jfinserv Can Help With All Your Home Lending Needs.</p>
@@ -113,7 +113,7 @@
         <div class="container-fluid feature pb-5 bg-light">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <p class="text-primary">Our Features</p>
+                    <p class="h4 text-primary">Our Features</p>
                     <h2 class="display-4 mb-4">Financial Consultants in Pune</h2>
                     <p class="mb-0">We understand that navigating the complexities of the financial landscape can be daunting. That's why our team of financial consultants in Pune is here to guide you every step of the way. With our comprehensive loan services, you can trust us to help you secure the financing you need to achieve your dreams.</p>
                 </div>
@@ -169,7 +169,7 @@
                     <div class="col-xl-7 wow fadeInRight" data-wow-delay="0.4s">
                         <div>
                             <div>
-                                <p class="text-primary">Future Ready</p>
+                                <p class="h4 text-primary">Future Ready</p>
                                 <h2 title= "Top Financial Consultants in Pune" class="display-4">Mission, Vision & Values</h2>
                                 <h3 class="text-primary"><strong>Our Mission</strong></h3>
                                 <p>Our mission is to be the leading finance company, offering secured loans at competitive rates. We focus on maximizing shareholder value while delivering exceptional, customer-centered service.</p>
@@ -189,56 +189,56 @@
         <div class="container-fluid feature pb-5 bg-light">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <p class="text-primary">Our Awards</p>
+                    <p class="h4 text-primary">Our Awards</p>
                     <h2 class="display-4 mb-4">Top Corporate Recognitions</h2>
                 </div>
-                <div class="row g-4 justify-content-center">
+                <div class="row g-4 awards justify-content-center">
                     <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-3 pb-4 text-center">
                             <img src="{{ asset('theme') }}/frontend/img/bnk_logos/pnb.jpg" alt="" class="w-50 rounded mb-4">
-                            <h3 style="font-size: 18px;">Home Loan Sourcing - Rank 1<sup>st</sup></h3>
+                            <h4 style="font-size: 18px;">Home Loan Sourcing - Rank 1<sup>st</sup></h4>
                             <p>Year 2023-24</p>
                         </div>
                     </div>
                     <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-3 pb-4 text-center">
                             <img src="{{ asset('theme') }}/frontend/img/bnk_logos/arks.jpg" alt="" class="w-50 rounded mb-4">
-                            <h3 style="font-size: 18px;">Preferred Business Partner</h3>
+                            <h4 style="font-size: 18px;">Preferred Business Partner</h4>
                             <p>Year 2023-24</p>
                         </div>
                     </div>
                     <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-3 pb-2 text-center">
                             <img src="{{ asset('theme') }}/frontend/img/bnk_logos/pnb.jpg" alt="" class="w-50 rounded mb-4">
-                            <h3 style="font-size: 18px;">Best Performaning in Home Loan Sourcing</h3>
+                            <h4 style="font-size: 18px;">Best Performaning in Home Loan Sourcing</h4>
                             <p>Year 2023-24</p>
                         </div>
                     </div>
                     <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-3 pb-2 text-center">
                             <img src="{{ asset('theme') }}/frontend/img/bnk_logos/bom.jpg" alt="" class="w-50 rounded mb-4">
-                            <h3 style="font-size: 18px;">For Mobilizing Mortgage Loan - Rank 1<sup>st</sup></h3>
+                            <h4 style="font-size: 18px;">For Mobilizing Mortgage Loan - Rank 1<sup>st</sup></h4>
                             <p>Year 2022-23</p>
                         </div>
                     </div>
                     <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-3 pb-4 text-center text-center">
                             <img src="{{ asset('theme') }}/frontend/img/bnk_logos/ar.jpg" alt="" class="w-50 rounded mb-4">
-                            <h3 style="font-size: 18px;">Best Category in Business</h3>
+                            <h4 style="font-size: 18px;">Best Category in Business</h4>
                             <p>Year 2022-23</p>
                         </div>
                     </div>
                     <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-3 pb-2 text-center">
                             <img src="{{ asset('theme') }}/frontend/img/bnk_logos/bom.jpg" alt="" class="w-50 rounded mb-4">
-                            <h3 style="font-size: 18px;">For Mobilizing Mortgage Loan - Rank 1<sup>st</sup></h3>
+                            <h4 style="font-size: 18px;">For Mobilizing Mortgage Loan - Rank 1<sup>st</sup></h4>
                             <p>Year 2021-22</p>
                         </div>
                     </div>
                     <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-3 pb-4 text-center">
                             <img src="{{ asset('theme') }}/frontend/img/bnk_logos/indian.png" alt="" class="w-50 rounded mb-4">
-                            <h3 style="font-size: 18px;">Top Performing DSA</h3>
+                            <h4 style="font-size: 18px;">Top Performing DSA</h4>
                             <p>Year 2021-22</p>
                         </div>
                     </div>
@@ -251,7 +251,7 @@
         <div class="container-fluid team pb-5 mt-5 pt-5">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <p class="text-primary">Our Team</p>
+                    <p class="h4 text-primary">Our Team</p>
                     <h2 class="display-4 mb-4">Meet Our Leadership Team</h2>
                 </div>
                 <div class="row g-4 justify-content-center">
