@@ -209,71 +209,71 @@ Route::post('register', [UsersController::class, 'register'])->name('register');
 
 
 Route::middleware('isAdmin')->group(function () {
-Route::post('admin/insertUser',[UsersController::class,'insertUser'])->name('insertUser');
-    Route::get('/editUser/{user_id}', [UsersController::class, 'editUser'])->name('editUser');
-    Route::post('/updateUser', [UsersController::class, 'updateUser'])->name('updateUser');
-    Route::post('/deleteUser', [UsersController::class, 'deleteUser'])->name('deleteUser');
-    Route::get('/updateProfile', [UsersController::class, 'updateProfile'])->name('updateProfile');
-    Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('admin/admindashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
-    Route::get('admin/addUser', [UsersController::class, 'addUser'])->name('addUser');
-    Route::get('admin/allUsers', [UsersController::class, 'allUsers'])->name('allUsers');  
-    Route::post('/update-user-status', [UsersController::class, 'updateUserStatus'])->name('updateUserStatus');
-    Route::post('admin/assignAgent', [LoanApplicationController::class, 'assignAgent'])->name('assignAgent');
+    Route::post('admin/insertUser',[UsersController::class,'insertUser'])->name('insertUser');
+        Route::get('/editUser/{user_id}', [UsersController::class, 'editUser'])->name('editUser');
+        Route::post('/updateUser', [UsersController::class, 'updateUser'])->name('updateUser');
+        Route::post('/deleteUser', [UsersController::class, 'deleteUser'])->name('deleteUser');
+        Route::get('/updateProfile', [UsersController::class, 'updateProfile'])->name('updateProfile');
+        Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('admin/admindashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');
+        Route::get('admin/addUser', [UsersController::class, 'addUser'])->name('addUser');
+        Route::get('admin/allUsers', [UsersController::class, 'allUsers'])->name('allUsers');  
+        Route::post('/update-user-status', [UsersController::class, 'updateUserStatus'])->name('updateUserStatus');
+        Route::post('admin/assignAgent', [LoanApplicationController::class, 'assignAgent'])->name('assignAgent');
 
-    //activity list
-    Route::get('admin/activities', [AdminController::class, 'activities'])->name('activities');  
-  
+        //activity list
+        Route::get('admin/activities', [AdminController::class, 'activities'])->name('activities');  
     
-    //referral
-    Route::get('admin/referral_earnings', [ReferralController::class, 'referral_earnings'])->name('referral_earnings');
-    Route::get('/admin/refer-tool', [ReferralController::class, 'listUsers'])->name('admin.refer.tool');
+        
+        //referral
+        Route::get('admin/referral_earnings', [ReferralController::class, 'referral_earnings'])->name('referral_earnings');
+        Route::get('/admin/refer-tool', [ReferralController::class, 'listUsers'])->name('admin.refer.tool');
 
 
-    //bank 
-    Route::get('admin/allbanks', [BankController::class, 'allbanks'])->name('allbanks');
-    Route::post('bank/insertBank',[BankController::class,'insertBank'])->name('insertBank');
-    Route::get('/editBank/{bank_id}', [BankController::class, 'editBank'])->name('editBank');
-    Route::post('/updateBank', [BankController::class, 'updateBank'])->name('updateBank');
-    Route::post('/deleteBank', [BankController::class, 'deleteBank'])->name('deleteBank');  
-    //Bank loan
-    Route::get('admin/loanbanks', [BankController::class, 'loanbanks'])->name('loanbanks');
-    Route::post('bank/insertLoanBank',[BankController::class,'insertLoanBank'])->name('insertLoanBank');
-    Route::get('/editLoanBank/{bank_id}', [BankController::class, 'editLoanBank'])->name('editLoanBank');
-    Route::post('/updateLoanBank', [BankController::class, 'updateLoanBank'])->name('updateLoanBank');
-    Route::post('/deleteLoanBank', [BankController::class, 'deleteLoanBank'])->name('deleteLoanBank');  
+        //bank 
+        Route::get('admin/allbanks', [BankController::class, 'allbanks'])->name('allbanks');
+        Route::post('bank/insertBank',[BankController::class,'insertBank'])->name('insertBank');
+        Route::get('/editBank/{bank_id}', [BankController::class, 'editBank'])->name('editBank');
+        Route::post('/updateBank', [BankController::class, 'updateBank'])->name('updateBank');
+        Route::post('/deleteBank', [BankController::class, 'deleteBank'])->name('deleteBank');  
+        //Bank loan
+        Route::get('admin/loanbanks', [BankController::class, 'loanbanks'])->name('loanbanks');
+        Route::post('bank/insertLoanBank',[BankController::class,'insertLoanBank'])->name('insertLoanBank');
+        Route::get('/editLoanBank/{bank_id}', [BankController::class, 'editLoanBank'])->name('editLoanBank');
+        Route::post('/updateLoanBank', [BankController::class, 'updateLoanBank'])->name('updateLoanBank');
+        Route::post('/deleteLoanBank', [BankController::class, 'deleteLoanBank'])->name('deleteLoanBank');  
 
-    //calculator
-    Route::get('admin/sanctioncalculator', [AdminController::class, 'getSanctionCalculator'])->name('sanctioncalculator');
-    Route::post('admin/add_sanction_calculator', [AdminController::class, 'postAddSanctionCalculator']);
-    Route::get('admin/sanctioncalculatorhistory', [AdminController::class, 'getSanctionCalculatorHistory']);
-    Route::get('admin/sanctioncalculatorhistoryAll', [AdminController::class, 'getAllSanctionCalculatorHistory']);
-    Route::post('admin/add_sanction_calculator', [AdminController::class, 'postAddSanctionCalculator']);
-    Route::get('admin/sanctioncalculator/{id}', [AdminController::class, 'getEditSanctionCalculator']);
-    Route::post('admin/sanctioncalculator/{id}', [AdminController::class, 'postEditSanctionCalculator']);
-    
-    //MLM
-    Route::get('admin/mlm', [MlmController::class, 'mlmView'])->name('mlmView');  
-    Route::post('addMember', [MlmController::class, 'addMember'])->name('addMember');
+        //calculator
+        Route::get('admin/sanctioncalculator', [AdminController::class, 'getSanctionCalculator'])->name('sanctioncalculator');
+        Route::post('admin/add_sanction_calculator', [AdminController::class, 'postAddSanctionCalculator']);
+        Route::get('admin/sanctioncalculatorhistory', [AdminController::class, 'getSanctionCalculatorHistory']);
+        Route::get('admin/sanctioncalculatorhistoryAll', [AdminController::class, 'getAllSanctionCalculatorHistory']);
+        Route::post('admin/add_sanction_calculator', [AdminController::class, 'postAddSanctionCalculator']);
+        Route::get('admin/sanctioncalculator/{id}', [AdminController::class, 'getEditSanctionCalculator']);
+        Route::post('admin/sanctioncalculator/{id}', [AdminController::class, 'postEditSanctionCalculator']);
+        
+        //MLM
+        Route::get('admin/mlm', [MlmController::class, 'mlmView'])->name('mlmView');  
+        Route::post('addMember', [MlmController::class, 'addMember'])->name('addMember');
 
-    //commission
-    Route::get('admin/allCommission', [CommissionController::class, 'allCommission'])->name('allCommission');
-    Route::post('commission/insertCommission',[CommissionController::class,'insertCommission'])->name('insertCommission');
-    Route::get('/editCommission/{com_id}', [CommissionController::class, 'editCommission'])->name('editCommission');
-    Route::post('/updateCommission',[CommissionController::class,'updateCommission'])->name('updateCommission');
-    Route::post('/deleteCommission',[CommissionController::class,'deleteCommission'])->name('deleteCommission');
+        //commission
+        Route::get('admin/allCommission', [CommissionController::class, 'allCommission'])->name('allCommission');
+        Route::post('commission/insertCommission',[CommissionController::class,'insertCommission'])->name('insertCommission');
+        Route::get('/editCommission/{com_id}', [CommissionController::class, 'editCommission'])->name('editCommission');
+        Route::post('/updateCommission',[CommissionController::class,'updateCommission'])->name('updateCommission');
+        Route::post('/deleteCommission',[CommissionController::class,'deleteCommission'])->name('deleteCommission');
 
-    //eligibilityCriteria
-    Route::get('/eligibilityCriteria',[EligibilityCriteriaController::class,'eligibilityCriteria'])->name('eligibilityCriteria');
-    Route::get('/eligiblityDetails/{loan_id}', [EligibilityCriteriaController::class, 'eligiblityDetails'])->name('eligiblityDetails');
-    Route::post('/calculate-eligibilityself', [EligibilityCriteriaController::class, 'calculateEligibility'])->name('calculate.eligibility');
-    Route::post('/calculate-eligibilitysalaried', [EligibilityCriteriaController::class, 'calculateEligibilitysalaried'])->name('calculate.eligibility.salaried');
+        //eligibilityCriteria
+        Route::get('/eligibilityCriteria',[EligibilityCriteriaController::class,'eligibilityCriteria'])->name('eligibilityCriteria');
+        Route::get('/eligiblityDetails/{loan_id}', [EligibilityCriteriaController::class, 'eligiblityDetails'])->name('eligiblityDetails');
+        Route::post('/calculate-eligibilityself', [EligibilityCriteriaController::class, 'calculateEligibility'])->name('calculate.eligibility');
+        Route::post('/calculate-eligibilitysalaried', [EligibilityCriteriaController::class, 'calculateEligibilitysalaried'])->name('calculate.eligibility.salaried');
 
-    //standalone
-    Route::post('/calculate-eligibility-standalone', [EligibilityCriteriaController::class, 'calculateStandaloneEligibility'])->name('calculateEligibilitystandalone');
-    Route::get('/standalone-self', [EligibilityCriteriaController::class, 'showStandaloneForm'])
-    ->name('standalone.self');
-});
+        //standalone
+        Route::post('/calculate-eligibility-standalone', [EligibilityCriteriaController::class, 'calculateStandaloneEligibility'])->name('calculateEligibilitystandalone');
+        Route::get('/standalone-self', [EligibilityCriteriaController::class, 'showStandaloneForm'])
+        ->name('standalone.self');
+    });
 
 //admin user profile
 

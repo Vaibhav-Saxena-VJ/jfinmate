@@ -22,8 +22,6 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Log;
 use App\Models\Notification;
 
-
-
 class AgentController extends Controller
 {
     public function addAgent()
