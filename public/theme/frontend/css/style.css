@@ -258,6 +258,10 @@
         color: #000046 !important;
     }
 
+    .navbar .navbar-nav .nav-btn .btn-primary {
+        color: #fff !important;
+    }
+
     .dropdown-item {
         color: #000046 !important;
     }
@@ -417,7 +421,9 @@
 
 @media (max-width: 767px) {
     .header-carousel .header-carousel-item {
-        height: 950px;
+        background-size: auto;
+        height: 500px;
+        background-position: center;
     }
 
     .header-carousel .owl-nav .owl-prev {

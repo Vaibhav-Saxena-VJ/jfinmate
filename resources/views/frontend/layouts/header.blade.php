@@ -117,7 +117,7 @@
                             <a href="{{ url('/') }}" class="nav-item {{ Request::is('/') ? 'active' : '' }}">HOME</a>
                             <a href="{{ url('about') }}" class="nav-item {{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
                             <div class="nav-item dropdown">
-                                <a href="{{ url('services') }}" class="nav-link nav-item">
+                                <a href="#" class="nav-link nav-item" data-bs-toggle="dropdown">
                                     <span class="dropdown-toggle">SERVICES</span>
                                 </a>
                                 <div class="dropdown-menu">
@@ -127,13 +127,14 @@
                                     <a href="{{ url('overdraft-facility')}}" class="dropdown-item {{ Request::is('overdraft-facility') ? 'active' : '' }}">OVERDRAFT FACILITY</a>
                                     <a href="{{ url('lease-rental-discounting')}}" class="dropdown-item {{ Request::is('lease-rental-discounting') ? 'active' : '' }}">LEASE RENTAL DISCOUNTING</a>
                                     <a href="{{ url('msme-loan')}}" class="dropdown-item {{ Request::is('msme-loan') ? 'active' : '' }}">MSME LOAN</a>
+                                    <a href="{{ url('services')}}" class="dropdown-item {{ Request::is('services') ? 'active' : '' }}">ALL SERVICES</a>
                                 </div>
                             </div>
                             <a href="{{ url('properties')}}" class="nav-item {{ Request::is('properties') ? 'active' : '' }}">PROPERTIES</a>
                             <a href="{{ url('referral-program')}}" class="nav-item {{ Request::is('referral-program') ? 'active' : '' }}">REFERRALS</a>
                             <a href="https://jfinserv.com/blog/" class="nav-item {{ Request::is('blog') ? 'active' : '' }}">BLOGS</a>
                             <div class="nav-btn px-3">
-                                <a href="{{ url('contact')}}" class="btn btn-primary rounded-1 py-2 px-4 ms-3 flex-shrink-0 nav-item {{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+                                <a href="{{ url('contact')}}" class="btn btn-primary rounded-1 py-2 px-4 flex-shrink-0 nav-item {{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
                             </div>
                         </div>
                     </div>
